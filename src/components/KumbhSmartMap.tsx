@@ -235,7 +235,7 @@ export const KumbhSmartMap: React.FC = () => {
   const locateMe = useCallback(async () => {
     return new Promise<void>((resolve, reject) => {
       if (!navigator.geolocation) {
-        setLocError('Geolocation not supported');
+        console.error('Geolocation not supported');
         reject();
         return;
       }
@@ -255,7 +255,7 @@ export const KumbhSmartMap: React.FC = () => {
           resolve();
         },
         (err) => { 
-          setLocError('Location access denied'); 
+          console.error('Location access denied'); 
           setLocLoading(false); 
           reject(err);
         },
