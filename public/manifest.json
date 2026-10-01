@@ -1,0 +1,24 @@
+{
+  "name": "Nashik Kumbh Mela 2027 — Devotee Travel Companion",
+  "short_name": "Nashik Kumbh",
+  "description": "Complete digital travel & pilgrimage companion for Nashik Kumbh Mela 2027",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FCF9F4",
+  "theme_color": "#984300",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
