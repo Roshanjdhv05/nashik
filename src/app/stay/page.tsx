@@ -408,7 +408,7 @@ export default function StayPage() {
     <div className="min-h-screen bg-[#fcf9f4] text-[#1c1c19] font-sans selection:bg-[#984300] selection:text-white">
       {/* ── Top navbar layout ── */}
       <header className="fixed top-0 left-0 right-0 z-50 shadow-[0_4px_20px_-2px_rgba(28,26,23,0.06)]">
-        <Topbar lang={lang} setLang={setLang} />
+        <Topbar />
         <Navbar activeNav={activeNav} setActiveNav={setActiveNav} />
       </header>
 

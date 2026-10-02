@@ -378,7 +378,7 @@ export default function CampsPage() {
   return (
     <div className="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col">
       <header className="fixed top-0 left-0 right-0 z-50 shadow-[0_4px_20px_-2px_rgba(28,26,23,0.06)] bg-white">
-        <Topbar lang={lang} setLang={setLang} />
+        <Topbar />
         <Navbar activeNav={activeNav} setActiveNav={setActiveNav} />
       </header>
       <main className="w-full pt-12 md:pt-[116px] bg-surface min-h-[calc(100vh-48px)] md:min-h-[calc(100vh-116px)]">
