@@ -1,6 +1,8 @@
 'use client';
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { Topbar, Navbar } from '@/components/Navbar';
+import { MobileBottomNav } from '@/components/MobileBottomNav';
 
 /* ─── Tiny Icon Helper ─────────────────────────────────────────── */
 const MS = ({ name, cls = '' }: { name: string; cls?: string }) => (
@@ -140,118 +142,7 @@ const AARTI_SCHEDULE = [
 ];
 
 /* ─── PAGE COMPONENT ────────────────────────────────────────────── */
-function Topbar({ lang, setLang }: { lang: string; setLang: (l: string) => void }) {
-  return (
-    <div className="bg-[#f6f3ee] border-b border-[#e5e2dd]">
-      <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12 flex items-center justify-between h-9">
-        <div className="flex items-center gap-2">
-          <span className="bg-[#984300]/10 text-[#984300] text-[11px] px-2 py-0.5 rounded uppercase tracking-wider font-semibold leading-none">Nashik–Trimbakeshwar 2027</span>
-          <span className="text-[#897267] text-[11px] hidden md:inline">•</span>
-          <span className="text-[#564339] text-[11px] hidden md:inline">Official Devotee Portal</span>
-        </div>
-        <div className="hidden lg:flex items-center gap-1 flex-1 max-w-xl mx-6">
-          <MS name="campaign" cls="text-[#984300] text-[15px] shrink-0" />
-          <p className="text-[11px] text-[#564339] truncate">
-            <span className="text-[#984300] font-semibold">Alert:</span> Shahi Snan Schedule Released • Heavy traffic expected on Trimbak Road • Helpdesks active 24x7
-          </p>
-        </div>
-        <div className="flex items-center gap-3 text-[11px] text-[#564339]">
-          <div className="flex items-center gap-1">
-            <button onClick={() => setLang('mr')} className={`${lang === 'mr' ? 'text-[#984300] font-semibold' : 'hover:text-[#984300]'} transition-colors`}>मराठी</button>
-            <span>|</span>
-            <button onClick={() => setLang('hi')} className={`${lang === 'hi' ? 'text-[#984300] font-semibold' : 'hover:text-[#984300]'} transition-colors`}>हिंदी</button>
-            <span>|</span>
-            <button onClick={() => setLang('en')} className={`${lang === 'en' ? 'text-[#984300] font-semibold' : 'hover:text-[#984300]'} transition-colors`}>English</button>
-          </div>
-          <span className="text-[#ddc1b3]">|</span>
-          <a href="tel:112" className="flex items-center gap-1 text-[#ba1a1a] hover:text-[#1c1c19] transition-colors font-semibold">
-            <MS name="call" cls="text-[14px]" /><span>112 / 108</span>
-          </a>
-          <span className="text-[#ddc1b3] hidden sm:inline">|</span>
-          <a href="#" className="hover:text-[#984300] transition-colors hidden sm:inline">Help Centre</a>
-          <span className="text-[#ddc1b3] hidden sm:inline">|</span>
-          <a href="#" className="hover:text-[#984300] transition-colors hidden sm:inline font-medium">My Trip</a>
-        </div>
-      </div>
-    </div>
-  );
-}
 
-function Navbar({ activeNav, setActiveNav }: { activeNav: string; setActiveNav: (n: string) => void }) {
-  const links = [
-    { id: 'home', label: 'Home', href: '/' },
-    { id: 'darshan', label: 'Darshan', href: '/darshan' },
-    { id: 'map', label: 'Map', href: '/map' },
-    { id: 'stay', label: 'Stay', href: '/stay' },
-    { id: 'food', label: 'Food', href: '/food' },
-    { id: 'annadan', label: 'Annadan', href: '/annadan' },
-    { id: 'camps', label: 'Camps & Akhadas', href: '/camps' },
-    { id: 'emergency', label: 'Emergency', href: '/emergency' },
-    { id: 'lost-and-found', label: 'Lost & Found', href: '/lost-found' },
-  ];
-
-  return (
-    <div className="bg-[#fcf9f4]/95 backdrop-blur-md border-b border-[#e5e2dd]">
-      <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between gap-4">
-        {/* Brand */}
-        <div className="flex items-center gap-3 shrink-0 py-1">
-          <Link href="/">
-            <img
-              src="/logo.png"
-              alt="Nashik Kumbh Mela 2027 Logo"
-              className="h-14 lg:h-16 w-auto object-contain transition-transform hover:scale-105"
-            />
-          </Link>
-          <Link href="/">
-            <span className="text-[20px] lg:text-[22px] font-bold text-[#984300] tracking-tight leading-none" style={{ fontFamily: 'Playfair Display, serif' }}>
-              Nashik Kumbh Mela 2027
-            </span>
-          </Link>
-        </div>
-
-        {/* Desktop Nav Links */}
-        <nav className="hidden xl:flex items-center gap-4 h-full">
-          {links.map(l => (
-            <Link
-              key={l.id}
-              href={l.href}
-              onClick={() => setActiveNav(l.id)}
-              className={`h-full flex items-center px-1 text-[13px] transition-colors ${activeNav === l.id
-                  ? 'text-[#984300] font-semibold border-b-2 border-[#984300]'
-                  : 'text-[#564339] hover:text-[#1c1c19]'
-                }`}
-            >
-              {l.label}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Right Actions */}
-        <div className="flex items-center gap-2 shrink-0">
-          <button className="w-9 h-9 rounded-full bg-[#f0ede9] flex items-center justify-center text-[#564339] hover:bg-[#ebe8e3] hover:text-[#1c1c19] transition-colors">
-            <MS name="search" cls="text-[20px]" />
-          </button>
-          <a
-            href="tel:112"
-            className="flex items-center gap-1.5 bg-[#ba1a1a] hover:bg-[#93000a] text-white px-3 py-2 rounded-lg text-[12px] font-semibold uppercase tracking-wider transition-colors shadow-sm"
-          >
-            <span className="w-2 h-2 rounded-full bg-white animate-soft-pulse" />
-            <span>SOS</span>
-          </a>
-          <a
-            href="/#trip"
-            className="bg-[#984300] hover:bg-[#ba5814] text-white px-4 py-2 rounded-lg text-[12px] font-semibold tracking-wide transition-colors shadow-sm hidden sm:inline-flex items-center"
-          >
-            Plan My Trip
-          </a>
-          <div className="w-8 h-8 rounded-full bg-[#984300] flex items-center justify-center">
-            <MS name="person" cls="text-white text-[18px]" />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 
 export default function DarshanPage() {
@@ -273,8 +164,59 @@ export default function DarshanPage() {
         <Navbar activeNav={activeNav} setActiveNav={setActiveNav} />
       </header>
 
-        {/* ── Hero Banner ────────────────────────────────────── */}
-        <section className="relative w-full min-h-[380px] lg:min-h-[440px] flex items-end overflow-hidden pt-16">
+        {/* ── MOBILE BANNER ── */}
+        <section className="md:hidden relative w-full overflow-hidden bg-[#1c1c19] pt-[60px]" style={{ minHeight: '340px', height: '100vw', maxHeight: '440px' }}>
+          {/* Background image */}
+          <div className="absolute inset-0 h-full w-full">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6bW97jLPddr37r8mSOP0xd_pDkK_w9N6LYebKnviI9BsaiN8ofHDg8Lplvi8Ot0wMlxqrEQVwtFhjwCsOboiq-ucrXytmrY-HiFAZuvTjtx538Yoi8o11VeVYTEdbQ_ikLgwptXzxjE-qvxalg5IG9BatrM3M4rCA6n9I4bzd0kL0g7J3Wmf-ltVATuM9nBaUfzUouxZMTBdLQM_YcVWyv2og4uJCqd8ryRNqagbtnEPqk_DqgWhmcg" alt="Darshan" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/75" />
+          </div>
+
+          {/* Content overlay */}
+          <div className="absolute inset-0 z-10 flex flex-col justify-end px-5 pb-10 pt-4">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-md border border-white/30 px-3.5 py-1 rounded-full mb-3 self-start">
+              <span className="material-symbols-outlined text-[13px] text-[#e9c176]">temple_hindu</span>
+              <span className="text-[10px] uppercase tracking-wider text-white font-bold">SACRED SHRINES & DARSHAN</span>
+            </div>
+
+            {/* Headline */}
+            <h1
+              className="text-[28px] sm:text-[34px] leading-[1.1] font-semibold text-white drop-shadow-md"
+              style={{ fontFamily: 'Playfair Display, serif', textShadow: '0 2px 18px rgba(0,0,0,0.6)' }}
+            >
+              Darshan &<br />
+              <em className="not-italic italic font-normal text-[#ffb68e]">Sacred Temples.</em>
+            </h1>
+
+            {/* Subtitle */}
+            <p className="text-[12px] text-white/90 font-medium mt-2 max-w-[320px] leading-relaxed drop-shadow">
+              14 verified sacred sites across Nashik & Trimbakeshwar — with live crowd status, darshan timings, and devotee protocols.
+            </p>
+
+            {/* Action buttons */}
+            <div className="flex items-center gap-2.5 mt-3.5">
+              <Link
+                href="/map"
+                className="bg-[#ba5814] hover:bg-[#984300] text-white px-4 py-2.5 rounded-full text-[12px] font-bold flex items-center gap-1.5 shadow-lg active:scale-95 transition-transform"
+              >
+                <MS name="map" cls="text-[16px]" />
+                <span>Open Live Map</span>
+                <MS name="arrow_forward" cls="text-[14px]" />
+              </Link>
+            </div>
+          </div>
+
+          {/* ── SMOOTH MERGE EFFECT (Wave SVG curve at bottom fading into background) ── */}
+          <div className="absolute -bottom-1 left-0 right-0 w-full overflow-hidden leading-none z-20 pointer-events-none">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-9 sm:h-14 fill-[#fcf9f4]">
+              <path d="M0,0 C300,90 900,90 1200,0 L1200,120 L0,120 Z"></path>
+            </svg>
+          </div>
+        </section>
+
+        {/* ── DESKTOP Hero Banner ────────────────────────────────────── */}
+        <section className="hidden md:flex relative w-full min-h-[380px] lg:min-h-[440px] items-end overflow-hidden pt-12 md:pt-[116px]">
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuA6bW97jLPddr37r8mSOP0xd_pDkK_w9N6LYebKnviI9BsaiN8ofHDg8Lplvi8Ot0wMlxqrEQVwtFhjwCsOboiq-ucrXytmrY-HiFAZuvTjtx538Yoi8o11VeVYTEdbQ_ikLgwptXzxjE-qvxalg5IG9BatrM3M4rCA6n9I4bzd0kL0g7J3Wmf-ltVATuM9nBaUfzUouxZMTBdLQM_YcVWyv2og4uJCqd8ryRNqagbtnEPqk_DqgWhmcg')` }}
@@ -315,7 +257,7 @@ export default function DarshanPage() {
         </section>
 
         {/* ── Info Strip ─────────────────────────────────────── */}
-        <div className="w-full bg-[#984300]">
+        <div className="hidden md:block w-full bg-[#984300]">
           <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12 py-3 flex flex-wrap items-center gap-6">
             {[
               { icon: 'calendar_today', text: 'Today: Shravan Shukla Purnima — Most auspicious darshan day' },
@@ -334,12 +276,12 @@ export default function DarshanPage() {
         <main className="w-full max-w-[1440px] mx-auto px-6 lg:px-12 py-10">
 
           {/* ── Filter Bar ──────────────────────────────────── */}
-          <div className="flex flex-wrap gap-2 mb-8">
+          <div className="flex gap-2 mb-6 overflow-x-auto pb-2 snap-x snap-mandatory" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' } as React.CSSProperties}>
             {CATEGORIES.map(cat => (
               <button
                 key={cat.id}
                 onClick={() => setActiveFilter(cat.id)}
-                className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-[13px] font-semibold transition-all border ${activeFilter === cat.id
+                className={`flex-shrink-0 snap-start flex items-center gap-1.5 px-4 py-2 rounded-full text-[13px] font-semibold transition-all border ${activeFilter === cat.id
                   ? 'bg-[#984300] text-white border-[#984300] shadow-md shadow-[#984300]/25'
                   : 'bg-white text-[#564339] border-[#e5e2dd] hover:border-[#984300] hover:text-[#984300]'
                   }`}
@@ -354,17 +296,11 @@ export default function DarshanPage() {
 
             {/* ── Temple Cards Grid ─────────────────────────── */}
             <div className="lg:col-span-8">
-              <div className="flex items-center justify-between mb-5">
-                <div>
-                  <span className="text-[11px] uppercase tracking-widest text-[#984300] font-bold">Simhastha 2027 Verified</span>
-                  <h2 className="text-[22px] font-semibold text-[#1c1c19]" style={{ fontFamily: 'Playfair Display, serif' }}>
-                    Sacred Pilgrimage Sites
-                  </h2>
-                </div>
-                <div className="flex items-center gap-2 text-[12px] text-[#564339] bg-[#f6f3ee] px-3 py-1.5 rounded-full">
-                  <span className="w-2 h-2 rounded-full bg-[#984300] animate-pulse" />
-                  <span>Live crowd data</span>
-                </div>
+              <div className="flex items-center gap-3 mb-5">
+                <span className="text-[11px] uppercase tracking-widest text-[#984300] font-bold hidden sm:inline-block">Simhastha 2027 Verified &bull;</span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#1c1c19] whitespace-nowrap" style={{ fontFamily: 'Playfair Display, serif' }}>
+                  Sacred Pilgrimage Sites
+                </h2>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -464,7 +400,7 @@ export default function DarshanPage() {
               </div>
 
               {/* Coming Soon */}
-              <div className="mt-6 bg-[#ffdea5]/30 border border-[#ffdea5] rounded-xl p-4 flex items-center gap-4">
+              <div className="hidden md:flex mt-6 bg-[#ffdea5]/30 border border-[#ffdea5] rounded-xl p-4 items-center gap-4">
                 <MS name="info" cls="text-[28px] text-[#755717] shrink-0" />
                 <div>
                   <span className="text-[13px] font-bold text-[#755717] block">8 More Shrines Being Added</span>
@@ -602,7 +538,7 @@ export default function DarshanPage() {
               </div>
 
               {/* Helpline Card */}
-              <div className="bg-gradient-to-br from-[#984300] to-[#773300] rounded-2xl p-5 text-white">
+              <div className="hidden md:block bg-gradient-to-br from-[#984300] to-[#773300] rounded-2xl p-5 text-white">
                 <div className="flex items-center gap-2 mb-3">
                   <MS name="support_agent" cls="text-[24px] text-[#ffdea5]" />
                   <h3 className="text-[15px] font-bold" style={{ fontFamily: 'Playfair Display, serif' }}>
@@ -622,7 +558,7 @@ export default function DarshanPage() {
               </div>
 
               {/* Quick Links */}
-              <div className="bg-white rounded-2xl border border-[#e5e2dd] shadow-sm p-4">
+              <div className="hidden md:block bg-white rounded-2xl border border-[#e5e2dd] shadow-sm p-4">
                 <h3 className="text-[14px] font-bold text-[#1c1c19] mb-3" style={{ fontFamily: 'Playfair Display, serif' }}>Quick Access</h3>
                 <div className="space-y-2">
                   {[
@@ -770,6 +706,7 @@ export default function DarshanPage() {
             <span className="text-[11px] text-[#e5e2dd]">© 2027 Kumbh Authority. Official Portal.</span>
           </div>
         </footer>
+        <MobileBottomNav active="darshan" />
       </div>
     </>
   );

@@ -1,49 +1,46 @@
 'use client';
+
 import React from 'react';
 import Link from 'next/link';
 
-interface NavItem {
-  icon: string;
-  label: string;
-  href: string;
-  active?: boolean;
+interface MobileBottomNavProps {
+  active: string;
 }
 
-const navItems: NavItem[] = [
-  { icon: 'home', label: 'Home', href: '/' },
-  { icon: 'explore', label: 'Explore', href: '/darshan' },
-  { icon: 'map', label: 'Map', href: '/map' },
-  { icon: 'luggage', label: 'My Trip', href: '/#trip' },
-  { icon: 'menu', label: 'More', href: '#more' },
-];
+export function MobileBottomNav({ active }: MobileBottomNavProps) {
+  const tabs = [
+    { id: 'home',     href: '/',        icon: 'home',          label: 'Home' },
+    { id: 'explore',  href: '/darshan', icon: 'explore',       label: 'Explore' },
+    { id: 'map',      href: '/map',     icon: 'location_on',   label: 'Map' },
+    { id: 'trip',     href: '/stay',    icon: 'person',        label: 'My Trip' },
+    { id: 'more',     href: '/food',    icon: 'more_horiz',    label: 'More' },
+  ];
 
-export default function MobileBottomNav({ activeNav = 'home' }: { activeNav?: string }) {
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-[#e5e2dd] pb-safe z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
-      <div className="flex justify-around items-center h-[64px] px-2">
-        {navItems.map((item) => {
-          const isActive = activeNav === item.label.toLowerCase() || (activeNav === 'darshan' && item.label === 'Explore') || (activeNav === 'home' && item.href === '/');
-          
-          return (
-            <Link 
-              key={item.label} 
-              href={item.href}
-              className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${
-                isActive ? 'text-[#984300]' : 'text-[#564339]'
-              }`}
-            >
-              <div className={`flex items-center justify-center w-14 h-8 rounded-full ${isActive ? 'bg-[#ffb68e]/30' : 'bg-transparent'}`}>
-                <span className={`material-symbols-outlined ${isActive ? 'font-bold' : ''}`}>
-                  {item.icon}
-                </span>
-              </div>
-              <span className={`text-[10px] font-semibold tracking-wide ${isActive ? 'text-[#984300]' : 'text-[#564339]'}`}>
-                {item.label}
-              </span>
-            </Link>
-          );
-        })}
-      </div>
-    </div>
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-[150] bg-white/95 backdrop-blur-md border-t border-[#e8e4df] shadow-[0_-4px_20px_rgba(0,0,0,0.06)] flex items-stretch h-[60px] pb-1">
+      {tabs.map(tab => {
+        const isActive = active === tab.id;
+        return (
+          <Link
+            key={tab.id}
+            href={tab.href}
+            className={`relative flex-1 flex flex-col items-center justify-center gap-1 transition-colors ${
+              isActive ? 'text-[#984300]' : 'text-[#786d66]'
+            }`}
+          >
+            {isActive && (
+              <span className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-[3px] bg-[#984300] rounded-b-full" />
+            )}
+            <span className={`material-symbols-outlined text-[22px] leading-none ${isActive ? 'text-[#984300]' : 'text-[#786d66]'}`}>
+              {tab.icon}
+            </span>
+            <span className={`text-[10px] ${isActive ? 'font-bold text-[#984300]' : 'font-medium text-[#786d66]'} leading-none`}>
+              {tab.label}
+            </span>
+          </Link>
+        );
+      })}
+    </nav>
   );
 }
+

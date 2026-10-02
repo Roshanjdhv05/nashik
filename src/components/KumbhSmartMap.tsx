@@ -150,6 +150,7 @@ export const KumbhSmartMap: React.FC = () => {
   const [selectedCat, setSelectedCat] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedLoc, setSelectedLoc] = useState<LocItem | null>(null);
+  const [showImageModal, setShowImageModal] = useState(false);
   const [mapReady, setMapReady] = useState(false);
 
   // Location
@@ -326,9 +327,9 @@ export const KumbhSmartMap: React.FC = () => {
     <div className="flex w-full h-full overflow-hidden">
 
       {/* ══════════════════════════════════════════════════════════ */}
-      {/* LEFT SIDEBAR                                              */}
+      {/* LEFT SIDEBAR (Desktop Only)                               */}
       {/* ══════════════════════════════════════════════════════════ */}
-      <aside className="w-[300px] xl:w-[320px] shrink-0 h-full flex flex-col bg-white border-r border-[#e5e2dd] shadow-md z-10">
+      <aside className="hidden md:flex w-[300px] xl:w-[320px] shrink-0 h-full flex-col bg-white border-r border-[#e5e2dd] shadow-md z-10">
 
         {/* ── Header ── */}
         <div className="px-4 pt-4 pb-3 border-b border-[#f0ede9]">
@@ -484,8 +485,8 @@ export const KumbhSmartMap: React.FC = () => {
       {/* ══════════════════════════════════════════════════════════ */}
       <div className="flex-1 relative flex flex-col">
 
-        {/* ── Top Filter Bar ── */}
-        <div className="absolute top-0 left-0 right-0 z-20 px-4 pt-3 pb-2 flex items-center gap-2 flex-wrap">
+        {/* ── Top Filter Bar (Desktop) ── */}
+        <div className="hidden md:flex absolute top-0 left-0 right-0 z-20 px-4 pt-3 pb-2 items-center gap-2 flex-wrap">
           {/* Filter pills */}
           {[
             { icon: 'thermostat', label: 'Crowd Density Heatmap', active: true },
@@ -526,6 +527,71 @@ export const KumbhSmartMap: React.FC = () => {
           </button>
         </div>
 
+        {/* ── Top Overlays (Mobile) ── */}
+        <div className="md:hidden absolute top-0 left-0 right-0 z-20 flex flex-col pt-2 pointer-events-none">
+          {/* Search Bar */}
+          <div className="px-3 pb-1.5 pointer-events-auto">
+            <div className="relative bg-white rounded-full shadow-md border border-[#e5e2dd] flex items-center h-9 px-2.5">
+              <MS name="search" cls="text-[#564339] text-[18px]" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
+                placeholder="Search ghat, temple, parking, medical..."
+                className="flex-1 bg-transparent border-none focus:outline-none text-[12px] px-1.5 text-[#1c1c19] placeholder:text-[#897267]"
+              />
+              <MS name="mic" cls="text-[#564339] text-[18px]" />
+            </div>
+          </div>
+
+          {/* Category Chips */}
+          <div className="px-3 pb-2 flex gap-1.5 overflow-x-auto pointer-events-auto no-scrollbar">
+            <button onClick={() => setSelectedCat('all')} className={`shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold shadow-sm transition-all ${selectedCat === 'all' ? 'bg-[#3e6374] text-white' : 'bg-white/90 backdrop-blur-sm text-[#564339] border border-[#e5e2dd]'}`}>
+              <MS name="layers" cls="text-[12px]" /> All
+            </button>
+            <button onClick={() => setSelectedCat('ghat')} className={`shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold shadow-sm transition-all ${selectedCat === 'ghat' ? 'bg-[#3e6374] text-white' : 'bg-white/90 backdrop-blur-sm text-[#564339] border border-[#e5e2dd]'}`}>
+              <MS name="water" cls="text-[12px]" /> Ghats
+            </button>
+            <button onClick={() => setSelectedCat('temple')} className={`shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold shadow-sm transition-all ${selectedCat === 'temple' ? 'bg-[#3e6374] text-white' : 'bg-white/90 backdrop-blur-sm text-[#564339] border border-[#e5e2dd]'}`}>
+              <MS name="temple_hindu" cls="text-[12px]" /> Temples
+            </button>
+            <button onClick={() => setSelectedCat('camp')} className={`shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold shadow-sm transition-all ${selectedCat === 'camp' ? 'bg-[#3e6374] text-white' : 'bg-white/90 backdrop-blur-sm text-[#564339] border border-[#e5e2dd]'}`}>
+              <MS name="camping" cls="text-[12px]" /> Camps
+            </button>
+            <button onClick={() => setSelectedCat('food')} className={`shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold shadow-sm transition-all ${selectedCat === 'food' ? 'bg-[#3e6374] text-white' : 'bg-white/90 backdrop-blur-sm text-[#564339] border border-[#e5e2dd]'}`}>
+              <MS name="restaurant" cls="text-[12px]" /> Food
+            </button>
+            <button onClick={() => setSelectedCat('medical')} className={`shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold shadow-sm transition-all ${selectedCat === 'medical' ? 'bg-[#3e6374] text-white' : 'bg-white/90 backdrop-blur-sm text-[#564339] border border-[#e5e2dd]'}`}>
+              <MS name="medical_services" cls="text-[12px]" /> Medical
+            </button>
+            <button onClick={() => setSelectedCat('parking')} className={`shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold shadow-sm transition-all ${selectedCat === 'parking' ? 'bg-[#3e6374] text-white' : 'bg-white/90 backdrop-blur-sm text-[#564339] border border-[#e5e2dd]'}`}>
+              <MS name="local_parking" cls="text-[12px]" /> Parking
+            </button>
+          </div>
+        </div>
+
+        {/* ── Mobile Right FABs ── */}
+        <div className="md:hidden absolute top-1/2 right-3 -translate-y-1/2 z-20 flex flex-col gap-3 pointer-events-auto">
+          <a href="tel:112" className="w-11 h-11 rounded-xl bg-[#ba1a1a] shadow-lg flex items-center justify-center text-white border-2 border-white/20">
+            <MS name="medical_services" cls="text-[22px]" />
+          </a>
+          <button className="w-11 h-11 rounded-full bg-white shadow-lg flex items-center justify-center text-[#3e6374] border border-[#e5e2dd]">
+            <MS name="layers" cls="text-[22px]" />
+          </button>
+          <button onClick={locateMe} className="w-11 h-11 rounded-full bg-white shadow-lg flex items-center justify-center text-[#984300] border border-[#e5e2dd]">
+            {locLoading ? <span className="w-5 h-5 rounded-full border-2 border-[#984300] border-t-transparent animate-spin" /> : <MS name="my_location" cls="text-[22px]" />}
+          </button>
+        </div>
+
+        {/* ── Mobile Bottom-Left Weather Widget ── */}
+        <div className="md:hidden absolute bottom-[100px] left-3 z-20 bg-white/95 backdrop-blur-md px-3 py-2 rounded-xl shadow-md border border-[#e5e2dd] pointer-events-auto flex items-center gap-2">
+          <MS name="wb_sunny" cls="text-[#755717] text-[20px]" />
+          <div className="flex flex-col">
+            <span className="text-[11px] font-bold text-[#1c1c19]">31°C • Misting ON</span>
+            <span className="text-[9px] text-[#564339]">Misters active along Corridor #2</span>
+          </div>
+        </div>
+
         {/* ── The Map ── */}
         <div ref={mapContainerRef} className="absolute inset-0 z-0" />
 
@@ -547,124 +613,228 @@ export const KumbhSmartMap: React.FC = () => {
           ))}
         </div>
 
-        {/* ══ ACTIVE SELECTION DETAIL CARD (Right Overlay) ══ */}
+        {/* ══ ACTIVE SELECTION (Desktop Card & Mobile Sheet) ══ */}
         {selectedLoc && (
-          <div
-            className="absolute top-14 right-4 z-30 w-[300px] bg-white rounded-2xl shadow-2xl border border-[#e5e2dd] overflow-hidden"
-            style={{ animation: 'kumbhFadeSlide 0.22s ease-out' }}
-          >
-            {/* Image header */}
-            <div className="relative h-44 bg-gray-100">
-              <img src={selectedLoc.img} alt={selectedLoc.name} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-              <button
-                onClick={() => { setSelectedLoc(null); routeLayerRef.current?.remove(); setRouteInfo(null); }}
-                className="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/80 transition-colors"
-              >
-                <MS name="close" cls="text-[16px]" />
-              </button>
-              <div className="absolute bottom-2.5 left-3">
-                <div className="flex items-center gap-1.5 mb-0.5">
-                  <span className="text-[9px] uppercase font-bold text-[#ffb68e] tracking-widest bg-black/30 px-1.5 py-0.5 rounded">ACTIVE SELECTION</span>
-                  <span className="text-[9px] text-white/70">Panchavati Sector 1</span>
+          <>
+            {/* Desktop Top-Right Card */}
+            <div
+              className="hidden md:block absolute top-14 right-4 z-30 w-[300px] bg-white rounded-2xl shadow-2xl border border-[#e5e2dd] overflow-hidden"
+              style={{ animation: 'kumbhFadeSlide 0.22s ease-out' }}
+            >
+              {/* Image header */}
+              <div className="relative h-44 bg-gray-100">
+                <img src={selectedLoc.img} alt={selectedLoc.name} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                <button
+                  onClick={() => { setSelectedLoc(null); routeLayerRef.current?.remove(); setRouteInfo(null); }}
+                  className="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/80 transition-colors"
+                >
+                  <MS name="close" cls="text-[16px]" />
+                </button>
+                <div className="absolute bottom-2.5 left-3">
+                  <div className="flex items-center gap-1.5 mb-0.5">
+                    <span className="text-[9px] uppercase font-bold text-[#ffb68e] tracking-widest bg-black/30 px-1.5 py-0.5 rounded">ACTIVE SELECTION</span>
+                    <span className="text-[9px] text-white/70">Panchavati Sector 1</span>
+                  </div>
+                  <h3 className="text-[16px] font-bold text-white leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    {selectedLoc.name}
+                  </h3>
                 </div>
-                <h3 className="text-[16px] font-bold text-white leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  {selectedLoc.name}
-                </h3>
+              </div>
+
+              {/* Body */}
+              <div className="p-3 space-y-2.5">
+                {/* Access + Queue */}
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="bg-[#f6f3ee] rounded-xl p-2.5">
+                    <div className="text-[10px] text-[#564339] mb-0.5 flex items-center gap-1">
+                      <MS name="directions_walk" cls="text-[13px]" /> Pedestrian Access
+                    </div>
+                    <div className="text-[13px] font-bold text-[#1c1c19]">{selectedLoc.dist}</div>
+                    <div className="text-[10px] text-[#564339]">{selectedLoc.walkTime}</div>
+                  </div>
+                  <div className="bg-[#f6f3ee] rounded-xl p-2.5">
+                    <div className="text-[10px] text-[#564339] mb-0.5 flex items-center gap-1">
+                      <MS name="trending_up" cls="text-[13px]" /> Current Queue Speed
+                    </div>
+                    <div className="text-[12px] font-bold" style={{ color: CROWD_COLOR[selectedLoc.crowd] || '#984300' }}>
+                      {selectedLoc.crowd} ({selectedLoc.wait})
+                    </div>
+                  </div>
+                </div>
+
+                {/* Amenities */}
+                <div>
+                  <div className="text-[10px] font-bold text-[#564339] uppercase tracking-wider mb-1.5">Amenities & Safety:</div>
+                  <div className="flex flex-wrap gap-1">
+                    {selectedLoc.amenities.map(a => (
+                      <span key={a} className="flex items-center gap-0.5 px-2 py-0.5 bg-[#f0ede9] rounded-lg text-[10px] font-semibold text-[#1c1c19]">
+                        <MS name="check_small" cls="text-[12px] text-[#2e7d32]" /> {a}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Event */}
+                <div className="flex items-start justify-between gap-2 bg-[#fff8f3] rounded-xl px-2.5 py-2 border border-[#ffdbca]">
+                  <div className="flex items-center gap-1.5">
+                    <MS name="event" cls="text-[16px] text-[#984300]" />
+                    <span className="text-[11px] font-semibold text-[#1c1c19]">{selectedLoc.event}</span>
+                  </div>
+                  <span className="text-[10px] font-bold text-[#984300] shrink-0 mt-0.5">Timetable</span>
+                </div>
+
+                {/* Route info if available */}
+                {routeInfo && (
+                  <div className="flex items-center gap-3 bg-[#e8f5e9] rounded-xl px-3 py-2 border border-[#2e7d32]/20">
+                    <MS name="straighten" cls="text-[16px] text-[#2e7d32]" />
+                    <span className="text-[12px] font-bold text-[#2e7d32]">{routeInfo.km} km</span>
+                    <MS name="schedule" cls="text-[16px] text-[#2e7d32]" />
+                    <span className="text-[12px] font-bold text-[#2e7d32]">~{routeInfo.mins} min {travelMode}</span>
+                  </div>
+                )}
+
+                {/* Action buttons */}
+                <div className="flex items-center gap-2 pt-0.5">
+                  <div className="flex rounded-xl overflow-hidden border border-[#e5e2dd] shrink-0">
+                    <button
+                      onClick={() => setTravelMode('walking')}
+                      className={`px-2.5 py-1.5 text-[11px] font-bold flex items-center gap-1 transition-colors ${travelMode === 'walking' ? 'bg-[#984300] text-white' : 'bg-white text-[#564339]'}`}
+                    >
+                      <MS name="directions_walk" cls="text-[13px]" /> Walk
+                    </button>
+                    <button
+                      onClick={() => setTravelMode('driving')}
+                      className={`px-2.5 py-1.5 text-[11px] font-bold flex items-center gap-1 border-l border-[#e5e2dd] transition-colors ${travelMode === 'driving' ? 'bg-[#984300] text-white' : 'bg-white text-[#564339]'}`}
+                    >
+                      <MS name="directions_car" cls="text-[13px]" /> Drive
+                    </button>
+                  </div>
+                  <button
+                    onClick={() => getDirections(selectedLoc, travelMode)}
+                    className="flex-1 flex items-center justify-center gap-1.5 bg-[#984300] hover:bg-[#ba5814] text-white py-2 rounded-xl text-[12px] font-bold transition-colors shadow-sm"
+                  >
+                    <MS name="navigation" cls="text-[15px]" /> Route
+                  </button>
+                </div>
               </div>
             </div>
 
-            {/* Body */}
-            <div className="p-3 space-y-2.5">
-              {/* Access + Queue */}
-              <div className="grid grid-cols-2 gap-2">
-                <div className="bg-[#f6f3ee] rounded-xl p-2.5">
-                  <div className="text-[10px] text-[#564339] mb-0.5 flex items-center gap-1">
-                    <MS name="directions_walk" cls="text-[13px]" /> Pedestrian Access
-                  </div>
-                  <div className="text-[13px] font-bold text-[#1c1c19]">{selectedLoc.dist}</div>
-                  <div className="text-[10px] text-[#564339]">{selectedLoc.walkTime}</div>
+            {/* Mobile Bottom Sheet */}
+            <div className="md:hidden absolute bottom-0 left-0 right-0 z-30 bg-white rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.15)] flex flex-col pb-6 pt-2 px-5 max-h-[45vh] overflow-y-auto" style={{ animation: 'sheetSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1)' }}>
+              {/* Drag Handle */}
+              <div className="w-10 h-1 bg-[#e5e2dd] rounded-full mx-auto mb-4" />
+              
+              {/* Badges & Bookmark */}
+              <div className="flex items-start justify-between mb-2">
+                <div className="flex gap-2">
+                  <span className="bg-[#ffdbca] text-[#984300] px-2.5 py-1 rounded-full text-[10px] font-bold">{selectedLoc.catLabel}</span>
+                  <span className="bg-[#ffdad6] text-[#ba1a1a] px-2.5 py-1 rounded-full text-[10px] font-bold">{selectedLoc.crowdLabel}</span>
                 </div>
-                <div className="bg-[#f6f3ee] rounded-xl p-2.5">
-                  <div className="text-[10px] text-[#564339] mb-0.5 flex items-center gap-1">
-                    <MS name="trending_up" cls="text-[13px]" /> Current Queue Speed
+                <button onClick={() => { setSelectedLoc(null); routeLayerRef.current?.remove(); setRouteInfo(null); }} className="w-8 h-8 bg-[#f6f3ee] rounded-full flex items-center justify-center text-[#564339]">
+                  <MS name="close" cls="text-[18px]" />
+                </button>
+              </div>
+
+              {/* Title, Sub & Thumbnail */}
+              <div className="flex gap-3 items-start mb-4">
+                <div className="flex-1">
+                  <h2 className="text-[22px] font-bold text-[#984300] leading-tight mb-1" style={{ fontFamily: 'Playfair Display, serif' }}>{selectedLoc.name}</h2>
+                  <p className="text-[12px] text-[#564339]">{selectedLoc.sub}</p>
+                </div>
+                <button onClick={() => setShowImageModal(true)} className="w-16 h-16 shrink-0 rounded-xl overflow-hidden border border-[#e5e2dd] shadow-sm relative group">
+                  <img src={selectedLoc.img} alt={selectedLoc.name} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                    <MS name="zoom_in" cls="text-white text-[22px] drop-shadow-md" />
                   </div>
-                  <div className="text-[12px] font-bold" style={{ color: CROWD_COLOR[selectedLoc.crowd] || '#984300' }}>
-                    {selectedLoc.crowd} ({selectedLoc.wait})
+                </button>
+              </div>
+
+              {/* Stats Grid */}
+              <div className="grid grid-cols-2 gap-4 bg-[#fcf9f4] rounded-2xl p-4 mb-4">
+                <div>
+                  <div className="text-[10px] font-bold text-[#564339] uppercase tracking-wider mb-1">Walking Route</div>
+                  <div className="flex items-end gap-1.5 mb-1">
+                    <span className="text-[18px] font-bold text-[#1c1c19] leading-none">{selectedLoc.dist}</span>
+                    <span className="text-[13px] font-semibold text-[#3e6374] leading-none">{selectedLoc.walkTime}</span>
                   </div>
+                  <div className="text-[11px] text-[#564339]">Via Shaded Corridor #2</div>
+                </div>
+                <div>
+                  <div className="text-[10px] font-bold text-[#564339] uppercase tracking-wider mb-1">Snan Queue Wait</div>
+                  <div className="flex items-end gap-1.5 mb-1">
+                    <span className="text-[18px] font-bold text-[#ba1a1a] leading-none">{selectedLoc.wait}</span>
+                    <span className="text-[13px] text-[#564339] leading-none">Holy Dip</span>
+                  </div>
+                  <div className="text-[11px] text-[#564339]">Flow moving steadily</div>
                 </div>
               </div>
 
               {/* Amenities */}
-              <div>
-                <div className="text-[10px] font-bold text-[#564339] uppercase tracking-wider mb-1.5">Amenities & Safety:</div>
-                <div className="flex flex-wrap gap-1">
-                  {selectedLoc.amenities.map(a => (
-                    <span key={a} className="flex items-center gap-0.5 px-2 py-0.5 bg-[#f0ede9] rounded-lg text-[10px] font-semibold text-[#1c1c19]">
-                      <MS name="check_small" cls="text-[12px] text-[#2e7d32]" /> {a}
+              <div className="mb-4">
+                <div className="text-[10px] font-bold text-[#564339] uppercase tracking-wider mb-2">Ghat Amenities & Assistance</div>
+                <div className="flex flex-wrap gap-2">
+                  {selectedLoc.amenities.slice(0, 3).map(a => (
+                    <span key={a} className="flex items-center gap-1.5 px-3 py-1.5 bg-[#f0ede9] rounded-lg text-[11px] font-semibold text-[#1c1c19]">
+                      <MS name="accessible" cls="text-[14px] text-[#3e6374]" /> {a}
                     </span>
                   ))}
                 </div>
               </div>
 
-              {/* Event */}
-              <div className="flex items-start justify-between gap-2 bg-[#fff8f3] rounded-xl px-2.5 py-2 border border-[#ffdbca]">
-                <div className="flex items-center gap-1.5">
-                  <MS name="event" cls="text-[16px] text-[#984300]" />
-                  <span className="text-[11px] font-semibold text-[#1c1c19]">{selectedLoc.event}</span>
+              {/* Event Block */}
+              <div className="bg-[#ffdea5]/40 rounded-xl p-3 flex flex-col mb-5 border border-[#ffdea5]">
+                <div className="flex justify-between items-start mb-1">
+                  <div className="flex items-center gap-2">
+                    <div className="w-7 h-7 rounded-full bg-[#755717] text-white flex items-center justify-center">
+                      <MS name="local_fire_department" cls="text-[14px]" />
+                    </div>
+                    <div>
+                      <div className="text-[9px] font-bold text-[#755717] uppercase tracking-wider">Upcoming Sacred Muhurta</div>
+                      <div className="text-[14px] font-bold text-[#1c1c19]">{selectedLoc.event.split('—')[0]}</div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-end">
+                    <span className="bg-[#755717] text-white px-2 py-0.5 rounded-full text-[11px] font-bold mb-0.5">7:00 PM</span>
+                    <span className="text-[10px] font-semibold text-[#755717]">in 2h 45m</span>
+                  </div>
                 </div>
-                <span className="text-[10px] font-bold text-[#984300] shrink-0 mt-0.5">Timetable</span>
               </div>
 
-              {/* Route info if available */}
-              {routeInfo && (
-                <div className="flex items-center gap-3 bg-[#e8f5e9] rounded-xl px-3 py-2 border border-[#2e7d32]/20">
-                  <MS name="straighten" cls="text-[16px] text-[#2e7d32]" />
-                  <span className="text-[12px] font-bold text-[#2e7d32]">{routeInfo.km} km</span>
-                  <MS name="schedule" cls="text-[16px] text-[#2e7d32]" />
-                  <span className="text-[12px] font-bold text-[#2e7d32]">~{routeInfo.mins} min {travelMode}</span>
-                </div>
-              )}
-
-              {/* Action buttons */}
-              <div className="flex items-center gap-2 pt-0.5">
-                {/* Mode toggle */}
-                <div className="flex rounded-xl overflow-hidden border border-[#e5e2dd] shrink-0">
-                  <button
-                    onClick={() => setTravelMode('walking')}
-                    className={`px-2.5 py-1.5 text-[11px] font-bold flex items-center gap-1 transition-colors ${travelMode === 'walking' ? 'bg-[#984300] text-white' : 'bg-white text-[#564339]'}`}
-                  >
-                    <MS name="directions_walk" cls="text-[13px]" /> Walk
-                  </button>
-                  <button
-                    onClick={() => setTravelMode('driving')}
-                    className={`px-2.5 py-1.5 text-[11px] font-bold flex items-center gap-1 border-l border-[#e5e2dd] transition-colors ${travelMode === 'driving' ? 'bg-[#984300] text-white' : 'bg-white text-[#564339]'}`}
-                  >
-                    <MS name="directions_car" cls="text-[13px]" /> Drive
-                  </button>
-                </div>
-
+              {/* Action Buttons */}
+              <div className="flex gap-3">
                 <button
-                  onClick={() => getDirections(selectedLoc, travelMode)}
-                  className="flex-1 flex items-center justify-center gap-1.5 bg-[#984300] hover:bg-[#ba5814] text-white py-2 rounded-xl text-[12px] font-bold transition-colors shadow-sm"
+                  onClick={() => getDirections(selectedLoc, 'walking')}
+                  className="flex-1 bg-[#984300] text-white font-bold text-[13px] py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-md active:scale-[0.98] transition-transform"
                 >
-                  <MS name="navigation" cls="text-[15px]" />
-                  {travelMode === 'walking' ? 'Walking Route' : 'Driving Route'}
+                  <MS name="navigation" cls="text-[18px]" />
+                  START WALKING DIRECTIONS
                 </button>
                 <button
-                  onClick={() => {
-                    const url = `https://www.google.com/maps/search/?api=1&query=${selectedLoc.lat},${selectedLoc.lng}`;
-                    window.open(url, '_blank');
-                  }}
-                  className="w-9 h-9 shrink-0 rounded-xl border border-[#e5e2dd] bg-white flex items-center justify-center text-[#564339] hover:bg-[#f0ede9] transition-colors"
+                  onClick={locateMe}
+                  className="w-[52px] h-[52px] shrink-0 bg-[#f0ede9] text-[#3e6374] rounded-xl flex items-center justify-center shadow-sm"
                 >
-                  <MS name="share" cls="text-[16px]" />
-                </button>
-                <button className="w-9 h-9 shrink-0 rounded-xl border border-[#e5e2dd] bg-white flex items-center justify-center text-[#564339] hover:bg-[#f0ede9] transition-colors">
-                  <MS name="bookmark" cls="text-[16px]" />
+                  <MS name="my_location" cls="text-[22px]" />
                 </button>
               </div>
             </div>
+          </>
+        )}
+
+        {/* ══ IMAGE MODAL (Mobile Fullscreen Popup) ══ */}
+        {showImageModal && selectedLoc && (
+          <div className="fixed inset-0 z-[100] bg-black/95 flex flex-col items-center justify-center p-4" style={{ animation: 'kumbhFadeSlide 0.2s ease-out' }}>
+            <button 
+              onClick={() => setShowImageModal(false)}
+              className="absolute top-6 right-6 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+            >
+              <MS name="close" cls="text-[24px]" />
+            </button>
+            <img src={selectedLoc.img} alt={selectedLoc.name} className="w-full max-w-lg object-contain max-h-[75vh] rounded-xl shadow-2xl" />
+            <h3 className="text-white font-bold text-[20px] mt-4 text-center px-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+              {selectedLoc.name}
+            </h3>
+            <p className="text-white/70 text-[13px] mt-1 text-center">{selectedLoc.catLabel}</p>
           </div>
         )}
       </div>
@@ -673,6 +843,10 @@ export const KumbhSmartMap: React.FC = () => {
         @keyframes kumbhFadeSlide {
           from { opacity: 0; transform: translateY(-12px) scale(0.96); }
           to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @keyframes sheetSlideUp {
+          from { opacity: 0; transform: translateY(100%); }
+          to { opacity: 1; transform: translateY(0); }
         }
       `}</style>
     </div>

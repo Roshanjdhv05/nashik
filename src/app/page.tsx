@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import MobileCarousel from '../components/MobileCarousel';
-import MobileBottomNav from '../components/MobileBottomNav';
+import { Topbar, Navbar } from '@/components/Navbar';
+import { MobileBottomNav } from '@/components/MobileBottomNav';
 
 /* ─── Tiny helpers ─────────────────────────────────────────────── */
 const MS = ({ name, cls = '' }: { name: string; cls?: string }) => (
@@ -111,15 +112,64 @@ const SACRED_SITES = [
 ];
 
 const NEAR_ME_ITEMS = [
-  { id: 'nm1', icon: 'restaurant', cat: 'food',     label: 'Annadan / Bhandara',         name: 'Shree Mahavir Free Annadan (Ram Kund Gate)',   dist: '0.1 km', time: '07:00 AM – 10:00 PM', crowd: 'Moderate', isFree: true  },
-  { id: 'nm2', icon: 'wc',         cat: 'toilet',   label: 'Clean Toilets',              name: 'Ram Kund Public Toilet Block (Gate 1)',         dist: '0.2 km', time: '24 Hours',             crowd: 'Low',      isFree: true  },
-  { id: 'nm3', icon: 'water_drop', cat: 'water',    label: 'Drinking Water',             name: 'RO Drinking Water Stall (Panchavati Road)',     dist: '0.3 km', time: '24 Hours',             crowd: 'Low',      isFree: true  },
-  { id: 'nm4', icon: 'local_hospital', cat: 'medical', label: 'Medical Camp',           name: 'Kumbh Field Medical Tent 2 (Ghat Gate 2)',     dist: '0.4 km', time: '24 Hours',             crowd: 'Moderate', isFree: true  },
-  { id: 'nm5', icon: 'local_police',   cat: 'police',  label: 'Police Booth',           name: 'Godavari Ghat Police Assistance Centre',       dist: '0.3 km', time: '24 Hours',             crowd: 'Low',      isFree: true  },
-  { id: 'nm6', icon: 'local_parking',  cat: 'parking', label: 'Parking / Shuttle Drop', name: 'Outer Ring Depot P4 – Free EV Shuttle',        dist: '1.1 km', time: '06:00 AM – 10:00 PM', crowd: 'Low',      isFree: false },
-  { id: 'nm7', icon: 'support_agent',  cat: 'help',    label: 'Kumbh Help Centre',      name: 'Panchavati Central Pilgrim Help Tower',        dist: '0.5 km', time: '24 Hours',             crowd: 'Low',      isFree: true  },
-  { id: 'nm8', icon: 'accessible',     cat: 'senior',  label: 'Senior / Wheelchair Aid', name: 'Wheelchair Golf-Cart Stand (Adgaon Entry Point)', dist: '0.8 km', time: '06:00 AM – 09:00 PM', crowd: 'Low', isFree: true },
+  {
+    id: 'nm1', cat: 'food', badge: 'Free Annadan', badgeBg: 'bg-[#ba5d1a]', badgeIcon: 'restaurant',
+    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDtPoyfL92rWIDz-c3jFvW59u2XwX0OQo5q8XmYcT3G9u_L_x3P8-K80R0mI2JvQ3H95S8l4R2Kx_bU6_Z830gG1zQy6s_tQ0tQ4x1p_U0lXq9-Dqf5w5I_Xk0H1rJ8G6Q4R5W1R-Fz4lJ3uK8zQ1_y9Z4O6H2N1L8kQ9P2X4Y8W3M4R7C0L6B5N8T1Y9_Q4U',
+    distLabel: '0.1 km • Free', crowdLabel: 'Moderate Crowd', crowdDot: 'bg-amber-400', crowdBg: 'bg-[#ba5d1a]',
+    category: 'ANNADAN / BHANDARA', catColor: 'text-[#ba5d1a]', title: 'Shree Mahavir Annadan',
+    time: '07:00 AM – 10:00 PM', desc: 'Hot satvik khichdi & mahaprasad served daily for all devotees at Ram Kund Gate.'
+  },
+  {
+    id: 'nm2', cat: 'toilet', badge: 'Clean Toilets', badgeBg: 'bg-[#3e6374]', badgeIcon: 'wc',
+    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDjZtF_Q9yY5bM3I8vL8rJ6aT5uK0xH6sV2P9cN3G0bQ1X4fD8mB7vH5cT4kP9wZ2nJ8sL1mR7uY4lF1eI6xQ3G9_tX5P8Z4uY9vB7wV2cM1T0nL6qR3F9kJ2eH5mC8xT1_F7B4R0Q9N6W3H2K1M8T5_4z',
+    distLabel: '0.2 km • Free', crowdLabel: 'Low Crowd', crowdDot: 'bg-green-400', crowdBg: 'bg-[#3e6374]',
+    category: 'SANITATION BLOCK', catColor: 'text-[#3e6374]', title: 'Ram Kund Public Toilet',
+    time: '24 Hours (Continuous)', desc: 'Modern Western and Indian style facilities with continuous cleaning and maintenance.'
+  },
+  {
+    id: 'nm3', cat: 'water', badge: 'RO Water', badgeBg: 'bg-[#0369a1]', badgeIcon: 'water_drop',
+    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA6bW97jLPddr37r8mSOP0xd_pDkK_w9N6LYebKnviI9BsaiN8ofHDg8Lplvi8Ot0wMlxqrEQVwtFhjwCsOboiq-ucrXytmrY-HiFAZuvTjtx538Yoi8o11VeVYTEdbQ_ikLgwptXzxjE-qvxalg5IG9BatrM3M4rCA6n9I4bzd0kL0g7J3Wmf-ltVATuM9nBaUfzUouxZMTBdLQM_YcVWyv2og4uJCqd8ryRNqagbtnEPqk_DqgWhmcg',
+    distLabel: '0.3 km • Free', crowdLabel: 'Low Crowd', crowdDot: 'bg-green-400', crowdBg: 'bg-[#0369a1]',
+    category: 'DRINKING WATER', catColor: 'text-[#0369a1]', title: 'RO Water Stall',
+    time: '24 Hours', desc: 'Chilled RO filtered drinking water available free for all pilgrims.'
+  },
+  {
+    id: 'nm4', cat: 'medical', badge: 'Medical Camp', badgeBg: 'bg-[#be123c]', badgeIcon: 'local_hospital',
+    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBUe2iU1zFe4tdmgsvTfcRSQBTr1n1LMElnSCQgtUqYKoEN2-FZZ_D4q0rZ1KsKcP4t9Bh99orMw8kbVs8FvpCGg1v6BgEVGioyOLQ21pLM0Qfmia2_6g6UhEviVTbUA2Ft5lEZYcbTJFwBMXK3R3w9Vh0UyeciSWTHOjath1Mb3KmTLDMs3NQyw2hnwRzdSxo-EUNH0Ak6PPDlUODzC8cBWamuj1WiiiOEQ2HnpL6rqlISbytNDlrz5g',
+    distLabel: '0.4 km • Free', crowdLabel: 'Moderate Crowd', crowdDot: 'bg-amber-400', crowdBg: 'bg-[#be123c]',
+    category: 'EMERGENCY & FIRST AID', catColor: 'text-[#be123c]', title: 'Field Medical Tent 2',
+    time: '24 Hours', desc: 'First aid, generic medicines, and ambulance standby for emergencies.'
+  },
+  {
+    id: 'nm5', cat: 'police', badge: 'Police Booth', badgeBg: 'bg-[#1d4ed8]', badgeIcon: 'local_police',
+    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC0sXpDjmuwPtmIfzcD6BQW9ixUKQgcDJINrAP6EJKQLKw4wliezr3kTEQMX7w7pRga8IF7n6WRRIHGCt7mO4tVrwVLWxCWLdJPu0j-cKJAcAiilbSD4lOHjizgJsJfMwK_edX3vICEEWJbR_v5Vpva9thFgk1jWlIWEEVXU43EsGbwzN0LAV0OIYMx9utwf0JQAwxW-TMDtg9-j1-15kc5kRu58VJ58uf4GPQZxd1HSKJQ2nWIbxyreQ',
+    distLabel: '0.3 km • Free', crowdLabel: 'Low Crowd', crowdDot: 'bg-green-400', crowdBg: 'bg-[#1d4ed8]',
+    category: 'SECURITY & HELP', catColor: 'text-[#1d4ed8]', title: 'Godavari Ghat Police',
+    time: '24 Hours', desc: 'Police assistance centre for lost and found, crowd management, and safety.'
+  },
+  {
+    id: 'nm6', cat: 'parking', badge: 'EV Shuttle', badgeBg: 'bg-[#047857]', badgeIcon: 'local_parking',
+    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCEMf7cw1FidMnJUlDTy5cMnPRtnQYSO7YTDs013uMW1LKEyRr8TRDkG5HtthE5pXyuAGeq19CXSld7XHQxIEOvyU0bFeEUbZK0mSmAD5cI_GDv-jNlQmvp2Rrjace7lkhfAePENFKb5fBzwgc4suzOkiNEd37aTmVaCAT22OHVL9zPbWlpT16xuafmmvCNK6jMO_0QPnl4GMVJKFVWN4J9_E60ehjZV0cHi4v2eYeWtNmXZdsWwJSelQ',
+    distLabel: '1.1 km • Free', crowdLabel: 'Low Crowd', crowdDot: 'bg-green-400', crowdBg: 'bg-[#047857]',
+    category: 'PARKING / SHUTTLE DROP', catColor: 'text-[#047857]', title: 'Outer Ring Depot P4',
+    time: '06:00 AM – 10:00 PM', desc: 'Free EV shuttle drop point for devotees coming from the outer ring parking.'
+  },
+  {
+    id: 'nm7', cat: 'help', badge: 'Help Centre', badgeBg: 'bg-[#b45309]', badgeIcon: 'support_agent',
+    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDtPoyfL92rWIDz-c3jFvW59u2XwX0OQo5q8XmYcT3G9u_L_x3P8-K80R0mI2JvQ3H95S8l4R2Kx_bU6_Z830gG1zQy6s_tQ0tQ4x1p_U0lXq9-Dqf5w5I_Xk0H1rJ8G6Q4R5W1R-Fz4lJ3uK8zQ1_y9Z4O6H2N1L8kQ9P2X4Y8W3M4R7C0L6B5N8T1Y9_Q4U',
+    distLabel: '0.5 km • Free', crowdLabel: 'Low Crowd', crowdDot: 'bg-green-400', crowdBg: 'bg-[#b45309]',
+    category: 'PILGRIM ASSISTANCE', catColor: 'text-[#b45309]', title: 'Central Help Tower',
+    time: '24 Hours', desc: 'Multilingual help desk for directions, inquiries, and emergency coordination.'
+  },
+  {
+    id: 'nm8', cat: 'senior', badge: 'Wheelchair', badgeBg: 'bg-[#6d28d9]', badgeIcon: 'accessible',
+    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDjZtF_Q9yY5bM3I8vL8rJ6aT5uK0xH6sV2P9cN3G0bQ1X4fD8mB7vH5cT4kP9wZ2nJ8sL1mR7uY4lF1eI6xQ3G9_tX5P8Z4uY9vB7wV2cM1T0nL6qR3F9kJ2eH5mC8xT1_F7B4R0Q9N6W3H2K1M8T5_4z',
+    distLabel: '0.8 km • Free', crowdLabel: 'Low Crowd', crowdDot: 'bg-green-400', crowdBg: 'bg-[#6d28d9]',
+    category: 'SENIOR CITIZEN AID', catColor: 'text-[#6d28d9]', title: 'Wheelchair Cart Stand',
+    time: '06:00 AM – 09:00 PM', desc: 'Wheelchairs and golf-carts available for senior citizens and differently-abled devotees.'
+  },
 ];
+
 const NM_CATS = [
   { id: 'all',     label: 'All Essentials', icon: 'my_location' },
   { id: 'food',    label: 'Free Food',      icon: 'restaurant'  },
@@ -132,152 +182,18 @@ const NM_CATS = [
   { id: 'senior',  label: 'Wheelchair',     icon: 'accessible'  },
 ];
 
-/* ─── COMPONENT: Topbar ─────────────────────────────────────────── */
-function Topbar({ lang, setLang }: { lang: string; setLang: (l: string) => void }) {
-  return (
-    <div className="bg-[#f6f3ee] border-b border-[#e5e2dd]">
-      <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12 flex items-center justify-between h-9">
-        <div className="flex items-center gap-2">
-          <span className="bg-[#984300]/10 text-[#984300] text-[11px] px-2 py-0.5 rounded uppercase tracking-wider font-semibold leading-none">Nashik–Trimbakeshwar 2027</span>
-          <span className="text-[#897267] text-[11px] hidden md:inline">•</span>
-          <span className="text-[#564339] text-[11px] hidden md:inline">Official Devotee Portal</span>
-        </div>
-        <div className="hidden lg:flex items-center gap-1 flex-1 max-w-xl mx-6">
-          <MS name="campaign" cls="text-[#984300] text-[15px] shrink-0" />
-          <p className="text-[11px] text-[#564339] truncate">
-            <span className="text-[#984300] font-semibold">Alert:</span> Shahi Snan Schedule Released • Heavy traffic expected on Trimbak Road • Helpdesks active 24x7
-          </p>
-        </div>
-        <div className="flex items-center gap-3 text-[11px] text-[#564339]">
-          <div className="flex items-center gap-1">
-            <button onClick={() => setLang('mr')} className={`${lang === 'mr' ? 'text-[#984300] font-semibold' : 'hover:text-[#984300]'} transition-colors`}>मराठी</button>
-            <span>|</span>
-            <button onClick={() => setLang('hi')} className={`${lang === 'hi' ? 'text-[#984300] font-semibold' : 'hover:text-[#984300]'} transition-colors`}>हिंदी</button>
-            <span>|</span>
-            <button onClick={() => setLang('en')} className={`${lang === 'en' ? 'text-[#984300] font-semibold' : 'hover:text-[#984300]'} transition-colors`}>English</button>
-          </div>
-          <span className="text-[#ddc1b3]">|</span>
-          <a href="tel:112" className="flex items-center gap-1 text-[#ba1a1a] hover:text-[#1c1c19] transition-colors font-semibold">
-            <MS name="call" cls="text-[14px]" /><span>112 / 108</span>
-          </a>
-          <span className="text-[#ddc1b3] hidden sm:inline">|</span>
-          <a href="#" className="hover:text-[#984300] transition-colors hidden sm:inline">Help Centre</a>
-          <span className="text-[#ddc1b3] hidden sm:inline">|</span>
-          <a href="#" className="hover:text-[#984300] transition-colors hidden sm:inline font-medium">My Trip</a>
-        </div>
-      </div>
-    </div>
-  );
-}
 
-/* ─── COMPONENT: Navbar ─────────────────────────────────────────── */
-function Navbar({ activeNav, setActiveNav }: { activeNav: string; setActiveNav: (n: string) => void }) {
-  const links = [
-    { id: 'home', label: 'Home' },
-    { id: 'darshan', label: 'Darshan' },
-    { id: 'map', label: 'Map' },
-    { id: 'stay', label: 'Stay' },
-    { id: 'food', label: 'Food' },
-    { id: 'annadan', label: 'Annadan' },
-    { id: 'camps', label: 'Camps & Akhadas' },
-    { id: 'emergency', label: 'Emergency' },
-    { id: 'lost', label: 'Lost & Found' },
-  ];
-
-  return (
-    <div className="bg-[#fcf9f4]/95 backdrop-blur-md">
-      <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between gap-4">
-        {/* Brand */}
-        <div className="flex items-center gap-2 shrink-0 py-1">
-          <img
-            src="/logo.png"
-            alt="Nashik Kumbh Mela 2027 Logo"
-            className="h-8 sm:h-10 lg:h-14 w-auto object-contain transition-transform hover:scale-105"
-          />
-          <span className="text-[14px] sm:text-[16px] lg:text-[22px] font-bold text-[#984300] tracking-tight leading-none" style={{ fontFamily: 'Playfair Display, serif' }}>
-            Nashik Kumbh <span className="hidden sm:inline">Mela 2027</span>
-          </span>
-        </div>
-
-        {/* Desktop Nav Links */}
-        <nav className="hidden xl:flex items-center gap-4 h-full">
-          {links.map(l => {
-            const pageLinks: Record<string, string> = { map: '/map', stay: '/stay', annadan: '/annadan', darshan: '/darshan', food: '/food', camps: '/camps', emergency: '/emergency', lost: '/lost-found' };
-            if (pageLinks[l.id]) {
-              return (
-                <Link
-                  key={l.id}
-                  href={pageLinks[l.id]}
-                  className={`h-full flex items-center px-1 text-[13px] transition-colors ${
-                    activeNav === l.id
-                      ? 'text-[#984300] font-semibold border-b-2 border-[#984300]'
-                      : 'text-[#564339] hover:text-[#1c1c19]'
-                  }`}
-                >
-                  {l.label}
-                </Link>
-              );
-            }
-            return (
-              <button
-                key={l.id}
-                onClick={() => setActiveNav(l.id)}
-                className={`h-full flex items-center px-1 text-[13px] transition-colors ${
-                  activeNav === l.id
-                    ? 'text-[#984300] font-semibold border-b-2 border-[#984300]'
-                    : 'text-[#564339] hover:text-[#1c1c19]'
-                }`}
-              >
-                {l.label}
-              </button>
-            );
-          })}
-        </nav>
-
-        {/* Right Actions */}
-        <div className="flex items-center gap-2 shrink-0">
-          <button className="w-9 h-9 rounded-full bg-[#f0ede9] flex items-center justify-center text-[#564339] hover:bg-[#ebe8e3] hover:text-[#1c1c19] transition-colors">
-            <MS name="search" cls="text-[20px]" />
-          </button>
-          <a
-            href="tel:112"
-            className="flex items-center gap-1.5 bg-[#ba1a1a] hover:bg-[#93000a] text-white px-3 py-2 rounded-lg text-[12px] font-semibold uppercase tracking-wider transition-colors shadow-sm"
-          >
-            <span className="w-2 h-2 rounded-full bg-white animate-soft-pulse" />
-            <span>SOS</span>
-          </a>
-          <a
-            href="#trip"
-            className="bg-[#984300] hover:bg-[#ba5814] text-white px-4 py-2 rounded-lg text-[12px] font-semibold tracking-wide transition-colors shadow-sm hidden sm:inline-flex items-center"
-          >
-            Plan My Trip
-          </a>
-          <div className="w-8 h-8 rounded-full bg-[#984300] flex items-center justify-center">
-            <MS name="person" cls="text-white text-[18px]" />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 /* ─── COMPONENT: Hero ───────────────────────────────────────────── */
 function Hero({ onPlanTrip }: { onPlanTrip: () => void }) {
   const [slide, setSlide] = React.useState(0);
   const slides = ['/banner.jpg', '/banner.jpg', '/banner.jpg', '/banner.jpg'];
   const total = slides.length;
-  // No autoplay on mobile — static banner
-
-  const stats = [
-    { icon: 'school', label: 'Qualified Priests' },
-    { icon: 'groups', label: '6,400+ Devotees' },
-    { icon: 'temple_hindu', label: '18 Sacred Sites' },
-  ];
 
   return (
     <>
-      {/* ── MOBILE BANNER ── */}
-      <section className="md:hidden relative w-full overflow-hidden" style={{ minHeight: '240px', height: '56vw', maxHeight: '360px' }}>
+      {/* ── MOBILE BANNER (Matching reference screenshot design) ── */}
+      <section className="md:hidden relative w-full overflow-hidden bg-[#1c1c19]" style={{ minHeight: '340px', height: '100vw', maxHeight: '440px' }}>
         {/* Slides */}
         <div
           className="flex h-full"
@@ -290,88 +206,74 @@ function Hero({ onPlanTrip }: { onPlanTrip: () => void }) {
           {slides.map((src, i) => (
             <div key={i} className="relative h-full" style={{ width: `${100 / total}%` }}>
               <img src={src} alt="Nashik Kumbh 2027" className="w-full h-full object-cover" />
-              {/* Gradient overlay for text readability */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/60" />
+              {/* Gradient overlay for readability */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/75" />
             </div>
           ))}
         </div>
 
-        {/* Overlay text — same as desktop */}
-        <div className="absolute inset-0 z-10 flex flex-col justify-center px-4 pb-10 pt-4">
+        {/* Content overlay */}
+        <div className="absolute inset-0 z-10 flex flex-col justify-end px-5 pb-10 pt-4">
           {/* Badge */}
-          <div className="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur-md border border-white/30 px-3 py-1 rounded-full mb-3 self-start">
-            <span className="w-2 h-2 rounded-full bg-[#ffb68e] animate-soft-pulse" />
-            <span className="text-[10px] uppercase tracking-wider text-white font-bold">Simhastha Kumbh Mela 2027</span>
+          <div className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-md border border-white/30 px-3.5 py-1 rounded-full mb-3 self-start">
+            <span className="material-symbols-outlined text-[13px] text-white">location_on</span>
+            <span className="text-[10px] uppercase tracking-wider text-white font-bold">SIMHASTHA KUMBH MELA 2027</span>
           </div>
+
           {/* Headline */}
           <h1
-            className="text-[28px] leading-[1.1] font-semibold text-white drop-shadow-lg"
-            style={{ fontFamily: 'Playfair Display, serif', textShadow: '0 2px 16px rgba(0,0,0,0.6)' }}
+            className="text-[28px] sm:text-[34px] leading-[1.1] font-semibold text-white drop-shadow-md"
+            style={{ fontFamily: 'Playfair Display, serif', textShadow: '0 2px 18px rgba(0,0,0,0.6)' }}
           >
             Your Complete<br />
-            <em className="not-italic italic font-normal" style={{ color: '#ffb68e' }}>Kumbh Companion.</em>
+            <em className="not-italic italic font-normal text-[#ffb68e]">Kumbh Companion.</em>
           </h1>
-          {/* CTA buttons */}
-          <div className="flex items-center gap-2 mt-3">
+
+          {/* Subtitle */}
+          <p className="text-[12px] text-white/90 font-medium mt-2 max-w-[320px] leading-relaxed drop-shadow">
+            Plan your darshan, stay, food, travel and Kumbh experience in one place.
+          </p>
+
+          {/* Action buttons */}
+          <div className="flex items-center gap-2.5 mt-3.5">
             <button
               onClick={onPlanTrip}
-              className="bg-[#984300] text-white px-4 py-2 rounded-lg text-[12px] font-bold flex items-center gap-1.5 shadow-lg"
+              className="bg-[#ba5814] hover:bg-[#984300] text-white px-4 py-2.5 rounded-full text-[12px] font-bold flex items-center gap-1.5 shadow-lg active:scale-95 transition-transform"
             >
               <MS name="explore" cls="text-[16px]" />
-              Plan My Trip
+              <span>Plan My Trip</span>
+              <MS name="arrow_forward" cls="text-[14px]" />
             </button>
-            <a
-              href="tel:112"
-              className="bg-[#ba1a1a]/90 text-white px-4 py-2 rounded-lg text-[12px] font-bold flex items-center gap-1.5 shadow-lg"
+            <Link
+              href="/map"
+              className="bg-white/15 backdrop-blur-md border border-white/40 text-white px-4 py-2.5 rounded-full text-[12px] font-semibold flex items-center gap-1.5 shadow-lg active:scale-95 transition-transform"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-white animate-soft-pulse" />
-              SOS 112
-            </a>
+              <MS name="map" cls="text-[16px]" />
+              <span>Explore Map</span>
+              <MS name="arrow_forward" cls="text-[14px]" />
+            </Link>
+          </div>
+
+          {/* Pagination dots */}
+          <div className="flex items-center justify-center gap-1.5 mt-4 z-20">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setSlide(i)}
+                className={`h-2 rounded-full transition-all duration-300 ${i === slide ? 'w-6 bg-white' : 'w-2 bg-white/50'}`}
+                aria-label={`Slide ${i + 1}`}
+              />
+            ))}
           </div>
         </div>
 
-        {/* Left arrow */}
-        <button
-          onClick={() => setSlide(p => (p === 0 ? total - 1 : p - 1))}
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/50 text-white flex items-center justify-center"
-          aria-label="Previous"
-        >
-          <MS name="chevron_left" cls="text-[22px]" />
-        </button>
-
-        {/* Right arrow */}
-        <button
-          onClick={() => setSlide(p => (p + 1) % total)}
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/50 text-white flex items-center justify-center"
-          aria-label="Next"
-        >
-          <MS name="chevron_right" cls="text-[22px]" />
-        </button>
-
-        {/* Pagination dots */}
-        <div className="absolute bottom-3 left-0 right-0 flex items-center justify-center gap-1.5 z-20">
-          {slides.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setSlide(i)}
-              className={`h-2 rounded-full transition-all duration-300 ${i === slide ? 'w-6 bg-white' : 'w-2 bg-white/50'}`}
-              aria-label={`Slide ${i + 1}`}
-            />
-          ))}
+        {/* ── SMOOTH MERGE EFFECT (Wave SVG curve at bottom fading into Quick Access background) ── */}
+        <div className="absolute -bottom-1 left-0 right-0 w-full overflow-hidden leading-none z-20 pointer-events-none">
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-9 sm:h-14 fill-[#fcf9f4]">
+            <path d="M0,0 C300,90 900,90 1200,0 L1200,120 L0,120 Z"></path>
+          </svg>
         </div>
       </section>
-
-      {/* Stats bar — mobile only */}
-      <div className="md:hidden w-full bg-[#984300] text-white overflow-x-auto">
-        <div className="flex divide-x divide-white/20 min-w-max w-full">
-          {stats.map((s, i) => (
-            <div key={i} className="flex items-center gap-2 px-4 py-2.5 flex-1 justify-center whitespace-nowrap">
-              <MS name={s.icon} cls="text-[16px] text-[#ffb68e]" />
-              <span className="text-[12px] font-semibold">{s.label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
 
       {/* ── DESKTOP HERO ── */}
       <section className="hidden md:flex relative w-full min-h-[580px] lg:h-[650px] items-start overflow-hidden">
@@ -419,13 +321,6 @@ function Hero({ onPlanTrip }: { onPlanTrip: () => void }) {
 
             {/* Action Row */}
             <div className="flex flex-wrap items-center gap-3 pt-3">
-              <button
-                onClick={onPlanTrip}
-                className="bg-[#984300] hover:bg-[#ba5814] text-white px-8 py-3.5 rounded-xl text-[15px] font-bold tracking-wide transition-all shadow-xl flex items-center gap-2"
-              >
-                <MS name="explore" cls="text-[20px]" />
-                <span>Plan My Kumbh Trip</span>
-              </button>
               <Link
                 href="/map"
                 className="bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/30 text-white px-6 py-3.5 rounded-xl text-[15px] font-semibold transition-all flex items-center gap-2"
@@ -465,23 +360,58 @@ function Hero({ onPlanTrip }: { onPlanTrip: () => void }) {
 
 /* ─── COMPONENT: Quick Access ───────────────────────────────────── */
 function QuickAccess() {
-  const tiles = [
+  const desktopTiles = [
     { icon: 'temple_hindu',    label: 'Darshan & Temples',    sub: '14 Sacred Shrines',         bg: 'bg-[#ffdbca]',   ic: 'text-[#984300]', href: '/darshan' },
     { icon: 'hotel',           label: 'Stays & Ashrams',      sub: 'Verified Bhakt Niwas',      bg: 'bg-[#c1e8fc]',   ic: 'text-[#3e6374]', href: '/stay' },
     { icon: 'restaurant',      label: 'Pure Veg & Bhojan',    sub: 'Maharashtrian Satvik',      bg: 'bg-[#ffdea5]',   ic: 'text-[#755717]', href: '/food' },
     { icon: 'soup_kitchen',    label: 'Annadan & Bhandara',   sub: 'Free Daily Meals',          bg: 'bg-[#ffb68e]/40', ic: 'text-[#ba5814]', href: '/annadan' },
     { icon: 'cabin',           label: 'Camps & Akhadas',      sub: 'Sadhu Grams & Pravachan',   bg: 'bg-[#e5e2dd]',   ic: 'text-[#564339]', href: '/camps' },
     { icon: 'map',             label: 'Smart Ghat Map',        sub: 'Live Density & Routes',     bg: 'bg-[#a5cce0]/40', ic: 'text-[#3e6374]', href: '/map' },
-    { icon: 'directions_bus',  label: 'Transport & EV',       sub: 'Shuttles & Ring Lots',      bg: 'bg-[#e9c176]/40', ic: 'text-[#755717]' },
+    { icon: 'directions_bus',  label: 'Transport & EV',       sub: 'Shuttles & Ring Lots',      bg: 'bg-[#e9c176]/40', ic: 'text-[#755717]', href: '/map' },
     { icon: 'emergency',       label: 'Emergency & SOS',      sub: 'Command & Medical',         bg: 'bg-[#ffdad6]',   ic: 'text-[#ba1a1a]', labelCls: 'text-[#ba1a1a]', href: '/emergency' },
   ];
 
+  const mobileTiles = [
+    { icon: 'temple_hindu',        label: 'Darshan &\nTemples',     bg: 'bg-[#ffeee0]', ic: 'text-[#984300]', href: '/darshan' },
+    { icon: 'bed',                 label: 'Stays',                  bg: 'bg-[#e3f2fd]', ic: 'text-[#1565c0]', href: '/stay' },
+    { icon: 'restaurant',          label: 'Food &\nRestaurants',    bg: 'bg-[#fff8e1]', ic: 'text-[#b78103]', href: '/food' },
+    { icon: 'rice_bowl',           label: 'Annadan',                bg: 'bg-[#ffebee]', ic: 'text-[#c62828]', href: '/annadan' },
+    { icon: 'forest',              label: 'Camps &\nAkhadas',       bg: 'bg-[#e8f5e9]', ic: 'text-[#2e7d32]', href: '/camps' },
+    { icon: 'distance',            label: 'Smart Map',              bg: 'bg-[#f3e5f5]', ic: 'text-[#7b1fa2]', href: '/map' },
+    { icon: 'directions_bus',      label: 'Transport',              bg: 'bg-[#e0f7fa]', ic: 'text-[#00838f]', href: '/map' },
+    { icon: 'health_and_safety',   label: 'Emergency',              bg: 'bg-[#ffebee]', ic: 'text-[#c62828]', href: '/emergency' },
+  ];
+
   return (
-    /* ── mobile: plain section (no card box) ── */
     <section className="relative z-30 w-full max-w-[1440px] mx-auto md:px-6 lg:px-12 md:-mt-20 lg:-mt-28 mb-6 md:mb-10">
-      {/* Desktop card wrapper */}
-      <div className="md:bg-white/95 md:backdrop-blur-xl md:rounded-2xl md:p-6 lg:p-8 md:shadow-[0_20px_50px_rgba(28,26,23,0.12)] md:border md:border-white/80">
-        {/* Header */}
+      {/* ── MOBILE QUICK ACCESS (Matching reference design) ── */}
+      <div className="md:hidden px-3 pt-2 pb-4">
+        {/* Centered header with gold lines */}
+        <div className="flex items-center justify-center gap-3 mb-4">
+          <div className="h-[1px] w-9 bg-[#c59a68]/50" />
+          <span className="text-[12px] uppercase tracking-[0.2em] font-bold text-[#755717]">QUICK ACCESS</span>
+          <div className="h-[1px] w-9 bg-[#c59a68]/50" />
+        </div>
+
+        {/* 4 columns x 2 rows grid */}
+        <div className="grid grid-cols-4 gap-2.5">
+          {mobileTiles.map(t => (
+            <Link
+              key={t.label}
+              href={t.href}
+              className="bg-white rounded-2xl p-2.5 flex flex-col items-center justify-center text-center shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-[#f0ece5] active:scale-95 transition-transform min-h-[96px]"
+            >
+              <div className={`w-11 h-11 rounded-2xl ${t.bg} flex items-center justify-center mb-1.5 shadow-sm`}>
+                <MS name={t.icon} cls={`text-[22px] ${t.ic}`} />
+              </div>
+              <span className="text-[10.5px] font-bold text-[#2d2521] leading-tight text-center whitespace-pre-line">{t.label}</span>
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      {/* ── DESKTOP QUICK ACCESS ── */}
+      <div className="hidden md:block md:bg-white/95 md:backdrop-blur-xl md:rounded-2xl md:p-6 lg:p-8 md:shadow-[0_20px_50px_rgba(28,26,23,0.12)] md:border md:border-white/80">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-4 md:mb-6 gap-2 px-4 md:px-0 pt-5 md:pt-0">
           <div>
             <span className="text-[11px] md:text-[12px] uppercase tracking-widest text-[#984300] font-semibold">Devotee Services Directory</span>
@@ -493,29 +423,17 @@ function QuickAccess() {
         </div>
 
         <div className="grid grid-cols-4 lg:grid-cols-8 gap-2 sm:gap-3 px-3 md:px-0">
-          {tiles.map(t => (
-            t.href ? (
-              <Link
-                key={t.icon}
-                href={t.href}
-                className="group bg-white transition-all duration-200 p-2 sm:p-3 rounded-xl flex flex-col items-center justify-center text-center border border-[#e5e2dd]/60 shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-md hover:border-[#984300]/30 min-h-[85px] sm:min-h-[100px]"
-              >
-                <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl ${t.bg} flex items-center justify-center ${t.ic} group-hover:scale-105 transition-transform mb-1.5 sm:mb-2`}>
-                  <MS name={t.icon} cls="text-[20px] sm:text-[22px]" />
-                </div>
-                <h3 className={`text-[10px] sm:text-[13px] font-semibold ${t.labelCls || 'text-[#0e274a]'}`}>{t.label.split(' & ')[0]}</h3>
-              </Link>
-            ) : (
-              <button
-                key={t.icon}
-                className="group bg-white transition-all duration-200 p-2 sm:p-3 rounded-xl flex flex-col items-center justify-center text-center border border-[#e5e2dd]/60 shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-md hover:border-[#984300]/30 min-h-[85px] sm:min-h-[100px]"
-              >
-                <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl ${t.bg} flex items-center justify-center ${t.ic} group-hover:scale-105 transition-transform mb-1.5 sm:mb-2`}>
-                  <MS name={t.icon} cls="text-[20px] sm:text-[22px]" />
-                </div>
-                <h3 className={`text-[10px] sm:text-[13px] font-semibold ${t.labelCls || 'text-[#0e274a]'}`}>{t.label.split(' & ')[0]}</h3>
-              </button>
-            )
+          {desktopTiles.map(t => (
+            <Link
+              key={t.icon}
+              href={t.href}
+              className="group bg-white transition-all duration-200 p-2 sm:p-3 rounded-xl flex flex-col items-center justify-center text-center border border-[#e5e2dd]/60 shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-md hover:border-[#984300]/30 min-h-[85px] sm:min-h-[100px]"
+            >
+              <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl ${t.bg} flex items-center justify-center ${t.ic} group-hover:scale-105 transition-transform mb-1.5 sm:mb-2`}>
+                <MS name={t.icon} cls="text-[20px] sm:text-[22px]" />
+              </div>
+              <h3 className={`text-[10px] sm:text-[13px] font-semibold ${t.labelCls || 'text-[#0e274a]'}`}>{t.label.split(' & ')[0]}</h3>
+            </Link>
           ))}
         </div>
       </div>
@@ -760,60 +678,188 @@ function TodayAtKumbh() {
 }
 
 /* ─── COMPONENT: Sacred Sites ───────────────────────────────────── */
+const MOBILE_SHRINES = [
+  {
+    id: 'ms1',
+    badge: '1 of 12 Jyotirlingas',
+    badgeBg: 'bg-[#7a3a0f]',
+    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA6bW97jLPddr37r8mSOP0xd_pDkK_w9N6LYebKnviI9BsaiN8ofHDg8Lplvi8Ot0wMlxqrEQVwtFhjwCsOboiq-ucrXytmrY-HiFAZuvTjtx538Yoi8o11VeVYTEdbQ_ikLgwptXzxjE-qvxalg5IG9BatrM3M4rCA6n9I4bzd0kL0g7J3Wmf-ltVATuM9nBaUfzUouxZMTBdLQM_YcVWyv2og4uJCqd8ryRNqagbtnEPqk_DqgWhmcg',
+    waitLabel: 'Wait: ~45 mins',
+    passLabel: 'E-Pass Slot 2 open',
+    title: 'Trimbakeshwar Shiva',
+    desc: 'The sacred origin of River Godavari. Experience Rudrabhishek and profound…',
+    dist: '28 km from Ram Kund',
+  },
+  {
+    id: 'ms2',
+    badge: 'Shahi Snan Ghat',
+    badgeBg: 'bg-[#3e6374]',
+    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBUe2iU1zFe4tdmgsvTfcRSQBTr1n1LMElnSCQgtUqYKoEN2-FZZ_D4q0rZ1KsKcP4t9Bh99orMw8kbVs8FvpCGg1v6BgEVGioyOLQ21pLM0Qfmia2_6g6UhEviVTbUA2Ft5lEZYcbTJFwBMXK3R3w9Vh0UyeciSWTHOjath1Mb3KmTLDMs3NQyw2hnwRzdSxo-EUNH0Ak6PPDlUODzC8cBWamuj1WiiiOEQ2HnpL6rqlISbytNDlrz5g',
+    waitLabel: 'Water Depth: 4.5 ft',
+    passLabel: 'Pavitra Grade A',
+    title: 'Ram Kund Ghat',
+    desc: 'The revered bathing kund where Lord Rama performed shraddha. Centerstage of Kumbh…',
+    dist: 'Central Kumbh Zone',
+  },
+  {
+    id: 'ms3',
+    badge: 'Ramayana Epic Site',
+    badgeBg: 'bg-[#755717]',
+    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC0sXpDjmuwPtmIfzcD6BQW9ixUKQgcDJINrAP6EJKQLKw4wliezr3kTEQMX7w7pRga8IF7n6WRRIHGCt7mO4tVrwVLWxCWLdJPu0j-cKJAcAiilbSD4lOHjizgJsJfMwK_edX3vICEEWJbR_v5Vpva9thFgk1jWlIWEEVXU43EsGbwzN0LAV0OIYMx9utwf0JQAwxW-TMDtg9-j1-15kc5kRu58VJ58uf4GPQZxd1HSKJQ2nWIbxyreQ',
+    waitLabel: '~25 Mins Wait',
+    passLabel: '5 Sacred Banyan Trees',
+    title: 'Panchavati & Sita Gufa',
+    desc: 'Where Lord Rama, Sita & Lakshmana stayed during their 14-year exile…',
+    dist: '0.8 km from Ram Kund',
+  },
+  {
+    id: 'ms4',
+    badge: '1792 CE Black Stone',
+    badgeBg: 'bg-[#2c2218]',
+    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCEMf7cw1FidMnJUlDTy5cMnPRtnQYSO7YTDs013uMW1LKEyRr8TRDkG5HtthE5pXyuAGeq19CXSld7XHQxIEOvyU0bFeEUbZK0mSmAD5cI_GDv-jNlQmvp2Rrjace7lkhfAePENFKb5fBzwgc4suzOkiNEd37aTmVaCAT22OHVL9zPbWlpT16xuafmmvCNK6jMO_0QPnl4GMVJKFVWN4J9_E60ehjZV0cHi4v2eYeWtNmXZdsWwJSelQ',
+    waitLabel: '~40 Mins Wait',
+    passLabel: 'Kakad Aarti 05:00 AM',
+    title: 'Shree Kalaram Mandir',
+    desc: 'Celebrated black stone temple by Sardar Rangrao Odhekar. Center of devotional bhakti…',
+    dist: '0.5 km from Panchavati',
+  },
+];
+
 function SacredSites() {
   return (
-    <section className="w-full py-10 bg-[#fcf9f4]">
-      <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-3">
+    <section className="w-full bg-[#fcf9f4]">
+
+      {/* ── MOBILE: Horizontal scroll cards ── */}
+      <div className="md:hidden py-5">
+        {/* Header */}
+        <div className="flex items-start justify-between px-4 mb-4">
           <div>
-            <span className="text-[12px] uppercase tracking-widest text-[#984300] font-semibold">Spiritual Geography</span>
-            <h2 className="text-[28px] leading-[36px] font-semibold text-[#1c1c19] mt-1" style={{ fontFamily: 'Playfair Display, serif' }}>Sacred Sites of Nashik & Trimbakeshwar</h2>
+            <h2 className="text-[18px] font-bold text-[#1c1c19] leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
+              Sacred Shrines &amp; Ghats
+            </h2>
+            <p className="text-[12px] text-[#786d66] mt-0.5">Live telemetry and pilgrimage wait times</p>
           </div>
-          <button className="text-[15px] text-[#984300] font-semibold flex items-center gap-1 hover:underline">
-            <span>View All 14 Sacred Shrines</span>
-            <MS name="arrow_forward" cls="text-[18px]" />
-          </button>
+          <Link href="/darshan" className="text-[12px] font-bold text-[#984300] tracking-wide uppercase flex items-center gap-0.5 pt-1 shrink-0">
+            EXPLORE <MS name="chevron_right" cls="text-[16px]" />
+          </Link>
         </div>
 
-        <MobileCarousel desktopGridClasses="grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SACRED_SITES.map(s => (
-            <div key={s.id} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group">
-              <div className="relative h-64 overflow-hidden">
+        {/* Snap-scroll horizontal cards */}
+        <div
+          className="flex gap-3.5 overflow-x-auto px-4 pb-2 snap-x snap-mandatory"
+          style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' } as React.CSSProperties}
+        >
+          {MOBILE_SHRINES.map(card => (
+            <Link
+              key={card.id}
+              href="/darshan"
+              className="flex-shrink-0 snap-start bg-white rounded-2xl overflow-hidden shadow-[0_3px_18px_rgba(0,0,0,0.09)] border border-[#ede9e2] active:scale-[0.97] transition-transform"
+              style={{ width: '73vw', maxWidth: '275px' }}
+            >
+              {/* Image block */}
+              <div className="relative overflow-hidden" style={{ height: '175px' }}>
                 <img
-                  src={s.img}
-                  alt={s.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  src={card.img}
+                  alt={card.title}
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-md px-2 py-1 rounded text-[11px] font-bold">
-                  <span className={s.badgeCls}>{s.badge}</span>
+                {/* Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+
+                {/* Top-left badge pill */}
+                <div className={`absolute top-3 left-3 ${card.badgeBg} px-3 py-1 rounded-full`}>
+                  <span className="text-[10.5px] font-bold text-white tracking-wide">{card.badge}</span>
                 </div>
-                <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md text-white px-2 py-0.5 rounded text-[11px] flex items-center gap-1">
-                  <MS name={s.waitIcon} cls="text-[13px] text-[#ffdbca]" />
-                  <span>{s.wait}</span>
+
+                {/* Bottom chips row */}
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-1.5">
+                  <div className="flex items-center gap-1 bg-black/55 backdrop-blur-sm px-2 py-[3px] rounded-full">
+                    <MS name="schedule" cls="text-[11px] text-white" />
+                    <span className="text-[10px] text-white font-semibold">{card.waitLabel}</span>
+                  </div>
+                  <div className="bg-white/90 backdrop-blur-sm px-2 py-[3px] rounded-full">
+                    <span className="text-[10px] font-bold text-[#3c2e28]">{card.passLabel}</span>
+                  </div>
                 </div>
               </div>
-              <div className="p-4 flex-1 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between text-[#564339] text-[11px] mb-1">
-                    <span>{s.info1}</span>
-                    <span className={`font-semibold ${s.info2Cls}`}>{s.info2}</span>
-                  </div>
-                  <h3 className="text-[20px] font-semibold text-[#1c1c19]" style={{ fontFamily: 'Playfair Display, serif' }}>{s.title}</h3>
-                  <p className="text-[13px] text-[#564339] mt-2 line-clamp-2">{s.desc}</p>
-                </div>
-                <div className="mt-4 flex items-center justify-between">
-                  <div className="text-[#564339] text-[12px]">
-                    <span className="font-semibold text-[#1c1c19]">{s.extra.split(':')[0]}:</span>{s.extra.split(':').slice(1).join(':')}
-                  </div>
-                  <button className="text-[12px] text-[#984300] font-bold hover:underline flex items-center gap-0.5">
-                    <span>{s.link}</span>
-                    <MS name="chevron_right" cls="text-[15px]" />
-                  </button>
+
+              {/* Content */}
+              <div className="p-3.5">
+                <h3
+                  className="text-[16px] font-semibold text-[#1c1c19] leading-snug mb-1.5"
+                  style={{ fontFamily: 'Playfair Display, serif' }}
+                >
+                  {card.title}
+                </h3>
+                <p className="text-[11.5px] text-[#786d66] leading-relaxed line-clamp-2 mb-3.5">
+                  {card.desc}
+                </p>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-[11px] text-[#786d66] font-medium shrink-0">{card.dist}</span>
+                  <span className="bg-[#7a3a0f] text-white text-[11px] font-bold px-3 py-1.5 rounded-lg whitespace-nowrap shadow-sm">
+                    Book E-Pass
+                  </span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
-        </MobileCarousel>
+        </div>
+      </div>
+
+      {/* ── DESKTOP: Unchanged grid ── */}
+      <div className="hidden md:block py-10">
+        <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-3">
+            <div>
+              <span className="text-[12px] uppercase tracking-widest text-[#984300] font-semibold">Spiritual Geography</span>
+              <h2 className="text-[28px] leading-[36px] font-semibold text-[#1c1c19] mt-1" style={{ fontFamily: 'Playfair Display, serif' }}>Sacred Sites of Nashik &amp; Trimbakeshwar</h2>
+            </div>
+            <button className="text-[15px] text-[#984300] font-semibold flex items-center gap-1 hover:underline">
+              <span>View All 14 Sacred Shrines</span>
+              <MS name="arrow_forward" cls="text-[18px]" />
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {SACRED_SITES.map(s => (
+              <div key={s.id} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group">
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={s.img}
+                    alt={s.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-md px-2 py-1 rounded text-[11px] font-bold">
+                    <span className={s.badgeCls}>{s.badge}</span>
+                  </div>
+                  <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md text-white px-2 py-0.5 rounded text-[11px] flex items-center gap-1">
+                    <MS name={s.waitIcon} cls="text-[13px] text-[#ffdbca]" />
+                    <span>{s.wait}</span>
+                  </div>
+                </div>
+                <div className="p-4 flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between text-[#564339] text-[11px] mb-1">
+                      <span>{s.info1}</span>
+                      <span className={`font-semibold ${s.info2Cls}`}>{s.info2}</span>
+                    </div>
+                    <h3 className="text-[20px] font-semibold text-[#1c1c19]" style={{ fontFamily: 'Playfair Display, serif' }}>{s.title}</h3>
+                    <p className="text-[13px] text-[#564339] mt-2 line-clamp-2">{s.desc}</p>
+                  </div>
+                  <div className="mt-4 flex items-center justify-between">
+                    <div className="text-[#564339] text-[12px]">
+                      <span className="font-semibold text-[#1c1c19]">{s.extra.split(':')[0]}:</span>{s.extra.split(':').slice(1).join(':')}
+                    </div>
+                    <button className="text-[12px] text-[#984300] font-bold hover:underline flex items-center gap-0.5">
+                      <span>{s.link}</span>
+                      <MS name="chevron_right" cls="text-[15px]" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -823,103 +869,174 @@ function SacredSites() {
 function NearMeEssentials() {
   const [cat, setCat] = useState('all');
   const [radius, setRadius] = useState('1.5');
-
   const filtered = cat === 'all' ? NEAR_ME_ITEMS : NEAR_ME_ITEMS.filter(i => i.cat === cat);
 
-  return (
-    <section className="w-full py-10 bg-[#fcf9f4]">
-      <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
-          <div>
-            <span className="text-[12px] uppercase tracking-widest text-[#984300] font-semibold">Location-Based Pilgrim Services</span>
-            <h2 className="text-[28px] leading-[36px] font-semibold text-[#1c1c19] mt-1" style={{ fontFamily: 'Playfair Display, serif' }}>
-              Near Me — Essential Facilities
-            </h2>
-            <p className="text-[13px] text-[#564339] mt-1">
-              Verified facilities within <strong className="text-[#984300]">{radius} km</strong> of Ram Kund, Panchavati
-            </p>
-          </div>
-          {/* Radius Selector */}
-          <div className="flex items-center gap-2">
-            <span className="text-[12px] text-[#564339] font-semibold uppercase tracking-wider">Radius:</span>
-            {['0.5', '1.0', '1.5', '3.0'].map(r => (
-              <button
-                key={r}
-                onClick={() => setRadius(r)}
-                className={`px-3 py-1.5 rounded-lg text-[12px] font-semibold transition ${
-                  radius === r
-                    ? 'bg-[#984300] text-white shadow'
-                    : 'bg-[#f6f3ee] text-[#564339] hover:bg-[#ebe8e3]'
-                }`}
-              >
-                {r} km
-              </button>
-            ))}
-          </div>
+  const renderCard = (card: any, isMobile = false) => (
+    <div
+      key={card.id}
+      className={`bg-white rounded-2xl overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-[#ede9e2] active:scale-[0.98] transition-transform ${isMobile ? 'flex-shrink-0 snap-start' : 'flex flex-col h-full'}`}
+      style={isMobile ? { width: '80vw', maxWidth: '300px' } : undefined}
+    >
+      {/* Image */}
+      <div className="relative h-[160px] overflow-hidden">
+        <img
+          src={card.img}
+          alt={card.title}
+          className="w-full h-full object-cover"
+          onError={(e) => {
+            (e.target as HTMLElement).style.display = 'none';
+            (e.target as HTMLElement).parentElement!.classList.add('bg-slate-200');
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+        
+        {/* Top-left pill */}
+        <div className={`absolute top-3 left-3 ${card.badgeBg} flex items-center gap-1 px-2.5 py-1 rounded-full`}>
+          <MS name={card.badgeIcon} cls="text-[12px] text-white" />
+          <span className="text-[11px] font-bold text-white tracking-wide">{card.badge}</span>
         </div>
 
-        {/* Category Chips */}
-        <div className="flex flex-wrap gap-2 mb-6">
+        {/* Bottom chips */}
+        <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-2">
+          <div className="bg-black/80 backdrop-blur-sm px-2.5 py-1 rounded-full">
+            <span className="text-[11px] text-white font-bold">{card.distLabel}</span>
+          </div>
+          <div className={`${card.crowdBg} flex items-center gap-1.5 px-2.5 py-1 rounded-full`}>
+            <div className={`w-1.5 h-1.5 rounded-full ${card.crowdDot}`} />
+            <span className="text-[11px] font-bold text-white">{card.crowdLabel}</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="p-4 flex flex-col flex-1">
+        <span className={`text-[10px] font-bold uppercase tracking-widest ${card.catColor}`}>
+          {card.category}
+        </span>
+        <h3 className="text-[20px] font-semibold text-[#1c1c19] mt-1 mb-1.5 leading-snug" style={{ fontFamily: 'Playfair Display, serif' }}>
+          {card.title}
+        </h3>
+        
+        <div className="flex items-center gap-1.5 text-[#564339] mb-2.5">
+          <MS name="schedule" cls="text-[14px]" />
+          <span className="text-[12px]">{card.time}</span>
+        </div>
+        
+        <p className="text-[12.5px] text-[#786d66] leading-relaxed line-clamp-2 mb-4 flex-1">
+          {card.desc}
+        </p>
+        
+        <button className="w-full bg-[#1c1c19] text-white text-[13px] font-bold py-3 rounded-xl flex items-center justify-center gap-2 active:bg-[#333]">
+          <MS name="near_me" cls="text-[16px]" />
+          Get Directions
+        </button>
+      </div>
+    </div>
+  );
+
+  return (
+    <section className="w-full bg-[#fcf9f4]">
+
+      {/* ── MOBILE VERSION ── */}
+      <div className="md:hidden py-5 pb-8">
+        {/* Header */}
+        <div className="px-4 mb-4">
+          <h2 className="text-[20px] font-bold text-[#1c1c19] leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
+            Near Me — Essential Facilities
+          </h2>
+        </div>
+
+        {/* Category Chips - scrollable */}
+        <div className="flex gap-2 overflow-x-auto px-4 mb-4" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' } as React.CSSProperties}>
           {NM_CATS.map(c => (
             <button
               key={c.id}
               onClick={() => setCat(c.id)}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-semibold transition border ${
+              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-[12px] font-semibold whitespace-nowrap transition-colors border ${
                 cat === c.id
-                  ? 'bg-[#1c1c19] text-white border-[#1c1c19] shadow'
-                  : 'bg-white text-[#564339] border-[#e5e2dd] hover:border-[#984300] hover:text-[#984300]'
+                  ? 'bg-[#1c1c19] text-white border-[#1c1c19]'
+                  : 'bg-[#f4efe8] text-[#564339] border-transparent hover:bg-[#eae3db]'
               }`}
             >
-              <MS name={c.icon} cls="text-[16px]" />
+              <MS name={c.icon} cls="text-[15px]" />
               <span>{c.label}</span>
             </button>
           ))}
         </div>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {filtered.map(item => (
-            <div key={item.id} className="bg-white rounded-xl p-4 border border-[#e5e2dd] shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-              <div>
-                <div className="flex items-start justify-between mb-3">
-                  <div className="w-11 h-11 rounded-full bg-[#ffdbca] flex items-center justify-center">
-                    <MS name={item.icon} cls="text-[22px] text-[#984300]" />
-                  </div>
-                  <div className="text-right flex flex-col gap-1">
-                    <span className="bg-[#d4f7e8] text-[#065f46] text-[11px] font-bold px-2 py-0.5 rounded">
-                      {item.dist}
-                    </span>
-                    {item.isFree && (
-                      <span className="bg-[#ffdbca] text-[#984300] text-[10px] font-bold px-2 py-0.5 rounded">FREE</span>
-                    )}
-                  </div>
-                </div>
-                <span className="text-[11px] uppercase tracking-wider text-[#984300] font-bold">{item.label}</span>
-                <h3 className="text-[14px] font-bold text-[#1c1c19] mt-0.5 leading-snug">{item.name}</h3>
-                <p className="text-[12px] text-[#564339] mt-1">{item.time}</p>
-              </div>
-              <div className="mt-4 pt-3 border-t border-[#f6f3ee] flex items-center justify-between">
-                <div className="flex items-center gap-1 text-[11px]">
-                  <span className={`w-2 h-2 rounded-full ${item.crowd === 'Low' ? 'bg-green-500' : item.crowd === 'Moderate' ? 'bg-amber-500' : 'bg-red-500'}`} />
-                  <span className="text-[#564339] font-medium">{item.crowd} Crowd</span>
-                </div>
-                <button className="flex items-center gap-1 bg-[#1c1c19] hover:bg-[#984300] text-white text-[12px] font-semibold px-3 py-1.5 rounded-lg transition-colors">
-                  <MS name="near_me" cls="text-[14px]" />
-                  <span>Directions</span>
-                </button>
-              </div>
-            </div>
-          ))}
+        {/* Snap-scroll horizontal cards */}
+        <div
+          className="flex gap-4 overflow-x-auto px-4 snap-x snap-mandatory pb-2"
+          style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' } as React.CSSProperties}
+        >
+          {filtered.map(card => renderCard(card, true))}
         </div>
+      </div>
 
-        {/* Trust note */}
-        <div className="mt-6 flex items-center justify-between bg-[#f6f3ee] rounded-xl px-5 py-3">
-          <div className="flex items-center gap-2 text-[13px] text-[#564339]">
-            <MS name="verified_user" cls="text-[18px] text-[#755717]" />
-            <span>All facility listings verified by <strong className="text-[#1c1c19]">Nashik Kumbh Operations Command</strong> — updated every 30 minutes</span>
+      {/* ── DESKTOP VERSION ── */}
+      <div className="hidden md:block py-10">
+        <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
+          {/* Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
+            <div>
+              <span className="text-[12px] uppercase tracking-widest text-[#984300] font-semibold">Location-Based Pilgrim Services</span>
+              <h2 className="text-[28px] leading-[36px] font-semibold text-[#1c1c19] mt-1" style={{ fontFamily: 'Playfair Display, serif' }}>
+                Near Me — Essential Facilities
+              </h2>
+              <p className="text-[13px] text-[#564339] mt-1">
+                Verified facilities within <strong className="text-[#984300]">{radius} km</strong> of Ram Kund, Panchavati
+              </p>
+            </div>
+            {/* Radius Selector */}
+            <div className="flex items-center gap-2">
+              <span className="text-[12px] text-[#564339] font-semibold uppercase tracking-wider">Radius:</span>
+              {['0.5', '1.0', '1.5', '3.0'].map(r => (
+                <button
+                  key={r}
+                  onClick={() => setRadius(r)}
+                  className={`px-3 py-1.5 rounded-lg text-[12px] font-semibold transition ${
+                    radius === r
+                      ? 'bg-[#984300] text-white shadow'
+                      : 'bg-[#f6f3ee] text-[#564339] hover:bg-[#ebe8e3]'
+                  }`}
+                >
+                  {r} km
+                </button>
+              ))}
+            </div>
           </div>
-          <span className="text-[11px] text-[#564339] font-medium hidden sm:block">Last sync: 8 min ago</span>
+
+          {/* Category Chips */}
+          <div className="flex flex-wrap gap-2 mb-6">
+            {NM_CATS.map(c => (
+              <button
+                key={c.id}
+                onClick={() => setCat(c.id)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-semibold transition border ${
+                  cat === c.id
+                    ? 'bg-[#1c1c19] text-white border-[#1c1c19] shadow'
+                    : 'bg-white text-[#564339] border-[#e5e2dd] hover:border-[#984300] hover:text-[#984300]'
+                }`}
+              >
+                <MS name={c.icon} cls="text-[16px]" />
+                <span>{c.label}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filtered.map(card => renderCard(card, false))}
+          </div>
+
+          {/* Trust note */}
+          <div className="mt-6 flex items-center justify-between bg-[#f6f3ee] rounded-xl px-5 py-3">
+            <div className="flex items-center gap-2 text-[13px] text-[#564339]">
+              <MS name="verified_user" cls="text-[18px] text-[#755717]" />
+              <span>All facility listings verified by <strong className="text-[#1c1c19]">Nashik Kumbh Operations Command</strong> — updated every 30 minutes</span>
+            </div>
+            <span className="text-[11px] text-[#564339] font-medium hidden sm:block">Last sync: 8 min ago</span>
+          </div>
         </div>
       </div>
     </section>
@@ -1154,11 +1271,11 @@ export default function Home() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 shadow-[0_4px_20px_-2px_rgba(28,26,23,0.06)]">
-        <Topbar lang={lang} setLang={setLang} />
+        <Topbar />
         <Navbar activeNav={activeNav} setActiveNav={setActiveNav} />
       </header>
 
-      <main className="w-full pt-[116px] bg-[#fcf9f4]">
+      <main className="w-full pt-14 md:pt-[116px] bg-[#fcf9f4] pb-16 md:pb-0">
         <div className="flex flex-col w-full">
           <Hero onPlanTrip={scrollToTrip} />
           <QuickAccess />
@@ -1171,6 +1288,7 @@ export default function Home() {
       </main>
 
       <Footer />
+      <MobileBottomNav active="home" />
     </>
   );
 }

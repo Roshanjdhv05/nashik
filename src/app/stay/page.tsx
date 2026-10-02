@@ -3,126 +3,12 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 
-/* ─── Tiny helpers ─────────────────────────────────────────────── */
+import { Topbar, Navbar } from '@/components/Navbar';
+import { MobileBottomNav } from '@/components/MobileBottomNav';
+
 const MS = ({ name, cls = '' }: { name: string; cls?: string }) => (
   <span className={`material-symbols-outlined ${cls}`}>{name}</span>
 );
-
-/* ─── COMPONENT: Topbar ─────────────────────────────────────────── */
-function Topbar({ lang, setLang }: { lang: string; setLang: (l: string) => void }) {
-  return (
-    <div className="bg-[#f6f3ee] border-b border-[#e5e2dd]">
-      <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12 flex items-center justify-between h-9">
-        <div className="flex items-center gap-2">
-          <span className="bg-[#984300]/10 text-[#984300] text-[11px] px-2 py-0.5 rounded uppercase tracking-wider font-semibold leading-none">Nashik–Trimbakeshwar 2027</span>
-          <span className="text-[#897267] text-[11px] hidden md:inline">•</span>
-          <span className="text-[#564339] text-[11px] hidden md:inline">Official Devotee Portal</span>
-        </div>
-        <div className="hidden lg:flex items-center gap-1 flex-1 max-w-xl mx-6">
-          <MS name="campaign" cls="text-[#984300] text-[15px] shrink-0" />
-          <p className="text-[11px] text-[#564339] truncate">
-            <span className="text-[#984300] font-semibold">Alert:</span> Shahi Snan Schedule Released • Heavy traffic expected on Trimbak Road • Helpdesks active 24x7
-          </p>
-        </div>
-        <div className="flex items-center gap-3 text-[11px] text-[#564339]">
-          <div className="flex items-center gap-1">
-            <button onClick={() => setLang('mr')} className={`${lang === 'mr' ? 'text-[#984300] font-semibold' : 'hover:text-[#984300]'} transition-colors`}>मराठी</button>
-            <span>|</span>
-            <button onClick={() => setLang('hi')} className={`${lang === 'hi' ? 'text-[#984300] font-semibold' : 'hover:text-[#984300]'} transition-colors`}>हिंदी</button>
-            <span>|</span>
-            <button onClick={() => setLang('en')} className={`${lang === 'en' ? 'text-[#984300] font-semibold' : 'hover:text-[#984300]'} transition-colors`}>English</button>
-          </div>
-          <span className="text-[#ddc1b3]">|</span>
-          <a href="tel:112" className="flex items-center gap-1 text-[#ba1a1a] hover:text-[#1c1c19] transition-colors font-semibold">
-            <MS name="call" cls="text-[14px]" /><span>112 / 108</span>
-          </a>
-          <span className="text-[#ddc1b3] hidden sm:inline">|</span>
-          <a href="#" className="hover:text-[#984300] transition-colors hidden sm:inline">Help Centre</a>
-          <span className="text-[#ddc1b3] hidden sm:inline">|</span>
-          <a href="#" className="hover:text-[#984300] transition-colors hidden sm:inline font-medium">My Trip</a>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ─── COMPONENT: Navbar ─────────────────────────────────────────── */
-function Navbar({ activeNav, setActiveNav }: { activeNav: string; setActiveNav: (n: string) => void }) {
-  const links = [
-    { id: 'home', label: 'Home', href: '/' },
-    { id: 'darshan', label: 'Darshan', href: '/darshan' },
-    { id: 'map', label: 'Map', href: '/map' },
-    { id: 'stay', label: 'Stay', href: '/stay' },
-    { id: 'food', label: 'Food', href: '/food' },
-    { id: 'annadan', label: 'Annadan', href: '/annadan' },
-    { id: 'camps', label: 'Camps & Akhadas', href: '/camps' },
-    { id: 'emergency', label: 'Emergency', href: '/emergency' },
-    { id: 'lost', label: 'Lost & Found', href: '/lost' },
-  ];
-
-  return (
-    <div className="bg-[#fcf9f4]/95 backdrop-blur-md border-b border-[#e5e2dd]">
-      <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between gap-4">
-        {/* Brand */}
-        <div className="flex items-center gap-3 shrink-0 py-1">
-          <Link href="/">
-            <img
-              src="/logo.png"
-              alt="Nashik Kumbh Mela 2027 Logo"
-              className="h-14 lg:h-16 w-auto object-contain transition-transform hover:scale-105"
-            />
-          </Link>
-          <Link href="/">
-            <span className="text-[20px] lg:text-[22px] font-bold text-[#984300] tracking-tight leading-none" style={{ fontFamily: 'Playfair Display, serif' }}>
-              Nashik Kumbh Mela 2027
-            </span>
-          </Link>
-        </div>
-
-        {/* Desktop Nav Links */}
-        <nav className="hidden xl:flex items-center gap-4 h-full">
-          {links.map(l => (
-            <Link
-              key={l.id}
-              href={l.href}
-              onClick={() => setActiveNav(l.id)}
-              className={`h-full flex items-center px-1 text-[13px] transition-colors ${
-                activeNav === l.id
-                  ? 'text-[#984300] font-semibold border-b-2 border-[#984300]'
-                  : 'text-[#564339] hover:text-[#1c1c19]'
-              }`}
-            >
-              {l.label}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Right Actions */}
-        <div className="flex items-center gap-2 shrink-0">
-          <button className="w-9 h-9 rounded-full bg-[#f0ede9] flex items-center justify-center text-[#564339] hover:bg-[#ebe8e3] hover:text-[#1c1c19] transition-colors">
-            <MS name="search" cls="text-[20px]" />
-          </button>
-          <a
-            href="tel:112"
-            className="flex items-center gap-1.5 bg-[#ba1a1a] hover:bg-[#93000a] text-white px-3 py-2 rounded-lg text-[12px] font-semibold uppercase tracking-wider transition-colors shadow-sm"
-          >
-            <span className="w-2 h-2 rounded-full bg-white animate-soft-pulse" />
-            <span>SOS</span>
-          </a>
-          <a
-            href="/#trip"
-            className="bg-[#984300] hover:bg-[#ba5814] text-white px-4 py-2 rounded-lg text-[12px] font-semibold tracking-wide transition-colors shadow-sm hidden sm:inline-flex items-center"
-          >
-            Plan My Trip
-          </a>
-          <div className="w-8 h-8 rounded-full bg-[#984300] flex items-center justify-center">
-            <MS name="person" cls="text-white text-[18px]" />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 /* ─── COMPONENT: Footer ─────────────────────────────────────────── */
 function Footer() {
@@ -526,7 +412,7 @@ export default function StayPage() {
         <Navbar activeNav={activeNav} setActiveNav={setActiveNav} />
       </header>
 
-      <main className="w-full pt-[116px]">
+      <main className="w-full pt-12 md:pt-[116px]">
         {/* ── Page Header ── */}
         <div className="bg-white border-b border-[#e5e2dd] pb-8 pt-6">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
@@ -777,6 +663,7 @@ export default function StayPage() {
       </main>
       
       <Footer />
+      <MobileBottomNav active="stay" />
     </div>
   );
 }

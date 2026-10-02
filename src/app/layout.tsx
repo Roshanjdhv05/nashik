@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { AppProvider } from "@/context/AppContext";
+import { PWAInstallBanner } from "@/components/PWAInstallBanner";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -31,9 +32,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased">
       <head>
+        <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/logo.svg" type="image/svg+xml" />
         <link rel="alternate icon" href="/logo.png" type="image/png" />
         <link rel="apple-touch-icon" href="/logo.png" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Nashik Kumbh" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
@@ -42,6 +47,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans bg-[#FCF9F4] text-[#1C1C19]">
         <AppProvider>
           {children}
+          <PWAInstallBanner />
         </AppProvider>
       </body>
     </html>

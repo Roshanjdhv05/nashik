@@ -1,24 +1,38 @@
 {
-  "name": "Nashik Kumbh Mela 2027 — Devotee Travel Companion",
+  "name": "Nashik Kumbh 2027 — Devotee Travel Companion",
   "short_name": "Nashik Kumbh",
-  "description": "Complete digital travel & pilgrimage companion for Nashik Kumbh Mela 2027",
+  "description": "Complete digital travel & pilgrimage companion for Nashik-Trimbakeshwar Simhastha Kumbh Mela 2027",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#FCF9F4",
   "theme_color": "#984300",
   "orientation": "portrait-primary",
+  "categories": ["travel", "lifestyle", "navigation"],
+  "screenshots": [],
   "icons": [
     {
-      "src": "/logo.svg",
-      "sizes": "512x512",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/logo.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
     }
   ]
 }

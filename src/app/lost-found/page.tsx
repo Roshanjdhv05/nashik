@@ -496,7 +496,7 @@ export default function LostFoundPage() {
         <Topbar lang={lang} setLang={setLang} />
         <Navbar activeNav={activeNav} setActiveNav={setActiveNav} />
       </header>
-      <main className="w-full pt-[116px] bg-surface min-h-[calc(100vh-116px)]">
+      <main className="w-full pt-12 md:pt-[116px] bg-surface min-h-[calc(100vh-48px)] md:min-h-[calc(100vh-116px)]">
         <div className="flex flex-col w-full">
 <div className="flex flex-col w-full">
 {/* Top Utility Ribbon / Trust Anchor */}
