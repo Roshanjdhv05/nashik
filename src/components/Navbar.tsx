@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { GoogleTranslateWidget } from '@/components/GoogleTranslate';
 
 interface NavbarProps {
   activeNav?: string;
@@ -9,8 +10,6 @@ interface NavbarProps {
 }
 
 export function Topbar() {
-  const [lang, setLang] = useState('en');
-
   return (
     <div className="hidden md:block bg-[#f6f3ee] border-b border-[#e5e2dd]">
       <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12 flex items-center justify-between h-9">
@@ -27,13 +26,7 @@ export function Topbar() {
           </p>
         </div>
         <div className="flex items-center gap-3 text-[11px] text-[#564339]">
-          <div className="flex items-center gap-1">
-            <button onClick={() => setLang('mr')} className={`${lang === 'mr' ? 'text-[#984300] font-semibold' : 'hover:text-[#984300]'}`}>मराठी</button>
-            <span>|</span>
-            <button onClick={() => setLang('hi')} className={`${lang === 'hi' ? 'text-[#984300] font-semibold' : 'hover:text-[#984300]'}`}>हिंदी</button>
-            <span>|</span>
-            <button onClick={() => setLang('en')} className={`${lang === 'en' ? 'text-[#984300] font-semibold' : 'hover:text-[#984300]'}`}>English</button>
-          </div>
+          <GoogleTranslateWidget variant="compact" />
           <a href="tel:112" className="flex items-center gap-1 text-[#ba1a1a] font-semibold">
             <span className="material-symbols-outlined text-[14px]">call</span><span>112 / 108</span>
           </a>
@@ -129,6 +122,9 @@ export function Navbar({ activeNav = 'home', setActiveNav }: NavbarProps) {
                 <span className="material-symbols-outlined text-[20px]">close</span>
               </button>
             </div>
+
+            {/* Language Selector */}
+            <GoogleTranslateWidget variant="full" />
 
             {/* Navigation Links */}
             <div className="flex-1 overflow-y-auto py-2">
