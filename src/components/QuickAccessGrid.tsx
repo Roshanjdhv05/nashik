@@ -70,6 +70,8 @@ export const QuickAccessGrid: React.FC = () => {
       setIsSosOpen(true);
     } else if (item.id === 'ai') {
       setIsAiChatOpen(true);
+    } else if (item.id === 'familyGroup') {
+      window.location.href = '/get-connected';
     } else {
       setActiveTab(item.tabId);
     }

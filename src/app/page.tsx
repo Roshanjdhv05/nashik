@@ -322,6 +322,13 @@ function Hero({ onPlanTrip }: { onPlanTrip: () => void }) {
             {/* Action Row */}
             <div className="flex flex-wrap items-center gap-3 pt-3">
               <Link
+                href="/get-connected"
+                className="bg-[#ffb68e] hover:bg-[#ffc5a5] text-[#3c1e05] px-6 py-3.5 rounded-xl text-[15px] font-bold transition-all flex items-center gap-2 shadow-lg hover:scale-105"
+              >
+                <MS name="groups" cls="text-[20px] text-[#984300]" />
+                <span>Get Connected (Live Tracker)</span>
+              </Link>
+              <Link
                 href="/map"
                 className="bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/30 text-white px-6 py-3.5 rounded-xl text-[15px] font-semibold transition-all flex items-center gap-2"
               >
@@ -361,24 +368,24 @@ function Hero({ onPlanTrip }: { onPlanTrip: () => void }) {
 /* ─── COMPONENT: Quick Access ───────────────────────────────────── */
 function QuickAccess() {
   const desktopTiles = [
+    { icon: 'groups',          label: 'Get Connected',        sub: 'Family Live GPS Tracker',   bg: 'bg-[#ffeedb]',   ic: 'text-[#984300]', labelCls: 'text-[#984300] font-bold', href: '/get-connected' },
     { icon: 'temple_hindu',    label: 'Darshan & Temples',    sub: '14 Sacred Shrines',         bg: 'bg-[#ffdbca]',   ic: 'text-[#984300]', href: '/darshan' },
     { icon: 'hotel',           label: 'Stays & Ashrams',      sub: 'Verified Bhakt Niwas',      bg: 'bg-[#c1e8fc]',   ic: 'text-[#3e6374]', href: '/stay' },
     { icon: 'restaurant',      label: 'Pure Veg & Bhojan',    sub: 'Maharashtrian Satvik',      bg: 'bg-[#ffdea5]',   ic: 'text-[#755717]', href: '/food' },
     { icon: 'soup_kitchen',    label: 'Annadan & Bhandara',   sub: 'Free Daily Meals',          bg: 'bg-[#ffb68e]/40', ic: 'text-[#ba5814]', href: '/annadan' },
     { icon: 'cabin',           label: 'Camps & Akhadas',      sub: 'Sadhu Grams & Pravachan',   bg: 'bg-[#e5e2dd]',   ic: 'text-[#564339]', href: '/camps' },
     { icon: 'map',             label: 'Smart Ghat Map',        sub: 'Live Density & Routes',     bg: 'bg-[#a5cce0]/40', ic: 'text-[#3e6374]', href: '/map' },
-    { icon: 'directions_bus',  label: 'Transport & EV',       sub: 'Shuttles & Ring Lots',      bg: 'bg-[#e9c176]/40', ic: 'text-[#755717]', href: '/map' },
     { icon: 'emergency',       label: 'Emergency & SOS',      sub: 'Command & Medical',         bg: 'bg-[#ffdad6]',   ic: 'text-[#ba1a1a]', labelCls: 'text-[#ba1a1a]', href: '/emergency' },
   ];
 
   const mobileTiles = [
+    { icon: 'groups',              label: 'Get\nConnected',         bg: 'bg-[#fff3e0]', ic: 'text-[#984300]', href: '/get-connected' },
     { icon: 'temple_hindu',        label: 'Darshan &\nTemples',     bg: 'bg-[#ffeee0]', ic: 'text-[#984300]', href: '/darshan' },
     { icon: 'bed',                 label: 'Stays',                  bg: 'bg-[#e3f2fd]', ic: 'text-[#1565c0]', href: '/stay' },
     { icon: 'restaurant',          label: 'Food &\nRestaurants',    bg: 'bg-[#fff8e1]', ic: 'text-[#b78103]', href: '/food' },
     { icon: 'rice_bowl',           label: 'Annadan',                bg: 'bg-[#ffebee]', ic: 'text-[#c62828]', href: '/annadan' },
     { icon: 'forest',              label: 'Camps &\nAkhadas',       bg: 'bg-[#e8f5e9]', ic: 'text-[#2e7d32]', href: '/camps' },
     { icon: 'distance',            label: 'Smart Map',              bg: 'bg-[#f3e5f5]', ic: 'text-[#7b1fa2]', href: '/map' },
-    { icon: 'directions_bus',      label: 'Transport',              bg: 'bg-[#e0f7fa]', ic: 'text-[#00838f]', href: '/map' },
     { icon: 'health_and_safety',   label: 'Emergency',              bg: 'bg-[#ffebee]', ic: 'text-[#c62828]', href: '/emergency' },
   ];
 

@@ -204,6 +204,13 @@ export function Navbar({ activeNav = 'home', setActiveNav }: NavbarProps) {
           </nav>
 
           <div className="flex items-center gap-2 shrink-0">
+            <Link
+              href="/get-connected"
+              className="flex items-center gap-1.5 bg-[#984300]/10 hover:bg-[#984300]/15 text-[#984300] px-3 py-2 rounded-lg text-[12px] font-bold transition-colors shadow-sm"
+            >
+              <span className="material-symbols-outlined text-[17px]">groups</span>
+              <span>Get Connected</span>
+            </Link>
             <button className="w-9 h-9 rounded-full bg-[#f0ede9] flex items-center justify-center text-[#564339] hover:bg-[#ebe8e3] transition-colors">
               <span className="material-symbols-outlined text-[20px]">search</span>
             </button>

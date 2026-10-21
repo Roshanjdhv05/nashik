@@ -9,11 +9,11 @@ interface MobileBottomNavProps {
 
 export function MobileBottomNav({ active }: MobileBottomNavProps) {
   const tabs = [
-    { id: 'home',     href: '/',        icon: 'home',          label: 'Home' },
-    { id: 'explore',  href: '/darshan', icon: 'explore',       label: 'Explore' },
-    { id: 'map',      href: '/map',     icon: 'location_on',   label: 'Map' },
-    { id: 'trip',     href: '/stay',    icon: 'person',        label: 'My Trip' },
-    { id: 'more',     href: '/food',    icon: 'more_horiz',    label: 'More' },
+    { id: 'home',      href: '/',             icon: 'home',          label: 'Home' },
+    { id: 'explore',   href: '/darshan',      icon: 'explore',       label: 'Explore' },
+    { id: 'connected', href: '/get-connected',icon: 'groups',        label: 'Connected' },
+    { id: 'map',       href: '/map',          icon: 'location_on',   label: 'Map' },
+    { id: 'more',      href: '/food',         icon: 'more_horiz',    label: 'More' },
   ];
 
   return (
