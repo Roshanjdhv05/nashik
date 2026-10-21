@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { AccessibilityTrigger } from '@/components/AccessibilityToolbar';
+import { GoogleTranslateWidget } from '@/components/GoogleTranslate';
 
 interface NavbarProps {
   activeNav?: string;
@@ -25,8 +26,9 @@ export function Topbar() {
             <span className="text-[#984300] font-semibold">Alert:</span> Shahi Snan Schedule Released • Heavy traffic on Trimbak Road • Helpdesks active 24x7
           </p>
         </div>
-        <div className="flex items-center gap-3 text-[11px] text-[#564339]">
+        <div className="flex items-center gap-2.5 text-[11px] text-[#564339]">
           <AccessibilityTrigger />
+          <GoogleTranslateWidget variant="compact" />
           <a href="tel:112" className="flex items-center gap-1 text-[#ba1a1a] font-semibold">
             <span className="material-symbols-outlined notranslate text-[14px]" translate="no" aria-hidden="true">call</span><span>112 / 108</span>
           </a>
@@ -123,10 +125,11 @@ export function Navbar({ activeNav = 'home', setActiveNav }: NavbarProps) {
               </button>
             </div>
 
-            {/* Accessibility Button */}
-            <div className="px-4 py-3 border-b border-[#f3efe8]">
+            {/* Accessibility & Translation Controls */}
+            <div className="px-4 py-3 border-b border-[#f3efe8] space-y-2.5">
               <AccessibilityTrigger className="w-full justify-center py-2" />
             </div>
+            <GoogleTranslateWidget variant="full" />
 
             {/* Navigation Links */}
             <div className="flex-1 overflow-y-auto py-2">

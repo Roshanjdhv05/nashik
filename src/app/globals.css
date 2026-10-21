@@ -147,3 +147,24 @@ html.a11y-keyboard-nav *:focus-visible {
   background-color: rgba(152, 67, 0, 0.12) !important;
   border-radius: 4px !important;
 }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   GOOGLE TRANSLATE TOOLBAR SUPPRESSION
+   ───────────────────────────────────────────────────────────────────────────── */
+.goog-te-banner-frame.skiptranslate,
+.goog-te-banner-frame,
+.goog-te-gadget,
+#goog-gt-tt,
+.goog-te-balloon-frame {
+  display: none !important;
+}
+
+.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0px !important;
+  position: static !important;
+}
+
