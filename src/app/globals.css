@@ -20,20 +20,130 @@
   }
 }
 
-/* Google Translate toolbar & banner suppression */
-.goog-te-banner-frame.skiptranslate,
-.goog-te-banner-frame,
-.goog-te-gadget,
-#goog-gt-tt,
-.goog-te-balloon-frame {
-  display: none !important;
+/* ─────────────────────────────────────────────────────────────────────────────
+   GLOBAL ACCESSIBILITY SYSTEM STYLES
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Font Size Scaling */
+html.a11y-scaled-font {
+  font-size: calc(16px * var(--a11y-font-scale, 1)) !important;
 }
 
-.skiptranslate {
-  display: none !important;
+/* 1. High Contrast */
+html.a11y-high-contrast {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+html.a11y-high-contrast body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+html.a11y-high-contrast a {
+  color: #ffff00 !important;
+}
+html.a11y-high-contrast button {
+  border: 2px solid #ffffff !important;
+}
+html.a11y-high-contrast div,
+html.a11y-high-contrast section,
+html.a11y-high-contrast nav,
+html.a11y-high-contrast header,
+html.a11y-high-contrast footer {
+  border-color: #666666 !important;
 }
 
-body {
-  top: 0px !important;
-  position: static !important;
+/* 2. Highlight Links */
+html.a11y-highlight-links a {
+  background-color: #fff3bf !important;
+  color: #000000 !important;
+  outline: 2px solid #d9480f !important;
+  outline-offset: 1px !important;
+  text-decoration: underline !important;
+  font-weight: 700 !important;
+}
+
+/* 3. Invert Colors */
+html.a11y-invert-colors {
+  filter: invert(100%) hue-rotate(180deg) !important;
+}
+html.a11y-invert-colors img,
+html.a11y-invert-colors video,
+html.a11y-invert-colors canvas,
+html.a11y-invert-colors [role="img"] {
+  filter: invert(100%) hue-rotate(180deg) !important;
+}
+
+/* 4. Grayscale */
+html.a11y-grayscale {
+  filter: grayscale(100%) !important;
+}
+html.a11y-invert-colors.a11y-grayscale {
+  filter: invert(100%) hue-rotate(180deg) grayscale(100%) !important;
+}
+
+/* 5. Text Spacing */
+html.a11y-text-spacing * {
+  letter-spacing: 0.12em !important;
+  word-spacing: 0.16em !important;
+}
+
+/* 6. Line Height */
+html.a11y-line-height * {
+  line-height: 1.85 !important;
+}
+
+/* 7. Hide Images */
+html.a11y-hide-images img,
+html.a11y-hide-images picture,
+html.a11y-hide-images [style*="background-image"] {
+  opacity: 0.05 !important;
+  visibility: hidden !important;
+}
+html.a11y-hide-images #a11y-toolbar-panel img,
+html.a11y-hide-images .a11y-exempt {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* 8. Big Cursor */
+html.a11y-big-cursor,
+html.a11y-big-cursor * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 24 24' fill='black' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m3 3 7 18 3-7 7-3L3 3z'/%3E%3C/svg%3E"), auto !important;
+}
+html.a11y-big-cursor a,
+html.a11y-big-cursor button,
+html.a11y-big-cursor [role="button"] {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 24 24' fill='black' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0'/><path d='M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2'/><path d='M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8'/><path d='M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15'/></svg>"), pointer !important;
+}
+
+/* 9. Underline Links */
+html.a11y-underline-links a {
+  text-decoration: underline 2px solid currentColor !important;
+  text-underline-offset: 4px !important;
+}
+
+/* 10. Reduce Motion */
+html.a11y-reduce-motion *,
+html.a11y-reduce-motion *::before,
+html.a11y-reduce-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* 11. Keyboard Nav */
+html.a11y-keyboard-nav *:focus,
+html.a11y-keyboard-nav *:focus-visible {
+  outline: 3px solid #ff9800 !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 6px rgba(255, 152, 0, 0.35) !important;
+}
+
+/* 12. Voice Over Speaking Target Visual Indicator */
+.a11y-speaking-target {
+  outline: 2.5px dashed #984300 !important;
+  outline-offset: 3px !important;
+  background-color: rgba(152, 67, 0, 0.12) !important;
+  border-radius: 4px !important;
 }

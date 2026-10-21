@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { GoogleTranslateWidget } from '@/components/GoogleTranslate';
+import { AccessibilityTrigger } from '@/components/AccessibilityToolbar';
 
 interface NavbarProps {
   activeNav?: string;
@@ -26,7 +26,7 @@ export function Topbar() {
           </p>
         </div>
         <div className="flex items-center gap-3 text-[11px] text-[#564339]">
-          <GoogleTranslateWidget variant="compact" />
+          <AccessibilityTrigger />
           <a href="tel:112" className="flex items-center gap-1 text-[#ba1a1a] font-semibold">
             <span className="material-symbols-outlined notranslate text-[14px]" translate="no" aria-hidden="true">call</span><span>112 / 108</span>
           </a>
@@ -123,8 +123,10 @@ export function Navbar({ activeNav = 'home', setActiveNav }: NavbarProps) {
               </button>
             </div>
 
-            {/* Language Selector */}
-            <GoogleTranslateWidget variant="full" />
+            {/* Accessibility Button */}
+            <div className="px-4 py-3 border-b border-[#f3efe8]">
+              <AccessibilityTrigger className="w-full justify-center py-2" />
+            </div>
 
             {/* Navigation Links */}
             <div className="flex-1 overflow-y-auto py-2">
