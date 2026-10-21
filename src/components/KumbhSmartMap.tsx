@@ -136,7 +136,9 @@ function haversineKm(lat1: number, lon1: number, lat2: number, lon2: number) {
 type LocItem = typeof KUMBH_LOCATIONS[0];
 
 const MS = ({ name, cls = '' }: { name: string; cls?: string }) => (
-  <span className={`material-symbols-outlined ${cls}`}>{name}</span>
+  <span className={`material-symbols-outlined notranslate ${cls}`} translate="no" aria-hidden="true">
+    {name}
+  </span>
 );
 
 /* ─── MAIN COMPONENT ─────────────────────────────────────────── */

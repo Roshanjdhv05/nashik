@@ -20,7 +20,7 @@ export function Topbar() {
           <span className="text-[#564339] text-[11px]">Official Devotee Portal</span>
         </div>
         <div className="hidden lg:flex items-center gap-1 flex-1 max-w-xl mx-6">
-          <span className="material-symbols-outlined text-[#984300] text-[15px] shrink-0">campaign</span>
+          <span className="material-symbols-outlined notranslate text-[#984300] text-[15px] shrink-0" translate="no" aria-hidden="true">campaign</span>
           <p className="text-[11px] text-[#564339] truncate">
             <span className="text-[#984300] font-semibold">Alert:</span> Shahi Snan Schedule Released • Heavy traffic on Trimbak Road • Helpdesks active 24x7
           </p>
@@ -28,7 +28,7 @@ export function Topbar() {
         <div className="flex items-center gap-3 text-[11px] text-[#564339]">
           <GoogleTranslateWidget variant="compact" />
           <a href="tel:112" className="flex items-center gap-1 text-[#ba1a1a] font-semibold">
-            <span className="material-symbols-outlined text-[14px]">call</span><span>112 / 108</span>
+            <span className="material-symbols-outlined notranslate text-[14px]" translate="no" aria-hidden="true">call</span><span>112 / 108</span>
           </a>
           <a href="#" className="hover:text-[#984300]">Help Centre</a>
           <a href="#" className="hover:text-[#984300] font-medium">My Trip</a>
@@ -64,7 +64,7 @@ export function Navbar({ activeNav = 'home', setActiveNav }: NavbarProps) {
             aria-label="Open navigation menu"
             className="w-9 h-9 flex items-center justify-center text-[#3c2e28] active:bg-black/5 rounded-lg"
           >
-            <span className="material-symbols-outlined text-[26px]">menu</span>
+            <span className="material-symbols-outlined notranslate text-[26px]" translate="no" aria-hidden="true">menu</span>
           </button>
 
           <Link href="/" className="flex items-center gap-2">
@@ -84,7 +84,7 @@ export function Navbar({ activeNav = 'home', setActiveNav }: NavbarProps) {
         {/* Right: Search icon + SOS button */}
         <div className="flex items-center gap-2">
           <button className="w-8 h-8 rounded-full bg-[#f4f0eb] flex items-center justify-center text-[#564339]">
-            <span className="material-symbols-outlined text-[19px]">search</span>
+            <span className="material-symbols-outlined notranslate text-[19px]" translate="no" aria-hidden="true">search</span>
           </button>
           <a href="tel:112" className="flex items-center gap-1.5 bg-[#ba1a1a] text-white px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider shadow-sm">
             <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
@@ -119,7 +119,7 @@ export function Navbar({ activeNav = 'home', setActiveNav }: NavbarProps) {
                 onClick={() => setDrawerOpen(false)}
                 className="w-8 h-8 rounded-full bg-[#f0ede9] flex items-center justify-center text-[#564339]"
               >
-                <span className="material-symbols-outlined text-[20px]">close</span>
+                <span className="material-symbols-outlined notranslate text-[20px]" translate="no" aria-hidden="true">close</span>
               </button>
             </div>
 
@@ -155,7 +155,7 @@ export function Navbar({ activeNav = 'home', setActiveNav }: NavbarProps) {
                 href="tel:112"
                 className="w-full flex items-center justify-center gap-2 bg-[#ba1a1a] text-white py-2.5 rounded-lg text-[12px] font-bold uppercase tracking-wider shadow"
               >
-                <span className="material-symbols-outlined text-[16px]">call</span>
+                <span className="material-symbols-outlined notranslate text-[16px]" translate="no" aria-hidden="true">call</span>
                 Emergency Hotline (112 / 108)
               </a>
               <a
@@ -204,11 +204,11 @@ export function Navbar({ activeNav = 'home', setActiveNav }: NavbarProps) {
               href="/get-connected"
               className="flex items-center gap-1.5 bg-[#984300]/10 hover:bg-[#984300]/15 text-[#984300] px-3 py-2 rounded-lg text-[12px] font-bold transition-colors shadow-sm"
             >
-              <span className="material-symbols-outlined text-[17px]">groups</span>
+              <span className="material-symbols-outlined notranslate text-[17px]" translate="no" aria-hidden="true">groups</span>
               <span>Get Connected</span>
             </Link>
             <button className="w-9 h-9 rounded-full bg-[#f0ede9] flex items-center justify-center text-[#564339] hover:bg-[#ebe8e3] transition-colors">
-              <span className="material-symbols-outlined text-[20px]">search</span>
+              <span className="material-symbols-outlined notranslate text-[20px]" translate="no" aria-hidden="true">search</span>
             </button>
             <a
               href="tel:112"

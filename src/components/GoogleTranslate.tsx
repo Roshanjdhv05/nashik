@@ -46,6 +46,41 @@ function clearGoogTransCookie() {
   });
 }
 
+/**
+ * Ensures icons, technical symbols, and map controls are protected from Google Translate.
+ * Google Translate respects class="notranslate" and translate="no".
+ */
+export function protectAllIconsFromTranslation() {
+  if (typeof document === 'undefined') return;
+
+  // 1. Material Symbols & Material Icons
+  const iconElements = document.querySelectorAll<HTMLElement>(
+    '.material-symbols-outlined, .material-symbols, .material-icons, [data-icon]'
+  );
+  iconElements.forEach((el) => {
+    if (!el.classList.contains('notranslate')) el.classList.add('notranslate');
+    if (el.getAttribute('translate') !== 'no') el.setAttribute('translate', 'no');
+    if (!el.getAttribute('aria-hidden')) el.setAttribute('aria-hidden', 'true');
+  });
+
+  // 2. SVG elements (Lucide icons, custom vector graphics)
+  const svgs = document.querySelectorAll<SVGElement>('svg');
+  svgs.forEach((svg) => {
+    if (!svg.classList.contains('notranslate')) svg.classList.add('notranslate');
+    if (svg.getAttribute('translate') !== 'no') svg.setAttribute('translate', 'no');
+    if (!svg.getAttribute('aria-hidden')) svg.setAttribute('aria-hidden', 'true');
+  });
+
+  // 3. Map controls & interactive map canvases
+  const mapElements = document.querySelectorAll<HTMLElement>(
+    '.leaflet-container, .leaflet-control-container, .leaflet-pane, .mapboxgl-map'
+  );
+  mapElements.forEach((el) => {
+    if (!el.classList.contains('notranslate')) el.classList.add('notranslate');
+    if (el.getAttribute('translate') !== 'no') el.setAttribute('translate', 'no');
+  });
+}
+
 const SCRIPT_ID = 'kumbh-gt-script';
 let scriptLoadCallbacks: Array<() => void> = [];
 let scriptLoaded = false;
@@ -58,8 +93,12 @@ function loadGoogleTranslateScript(onReady: () => void) {
   scriptLoadCallbacks.push(onReady);
   if (document.getElementById(SCRIPT_ID)) return;
 
+  // Protect icons before GT script parses DOM
+  protectAllIconsFromTranslation();
+
   window.googleTranslateElementInit = () => {
     scriptLoaded = true;
+    protectAllIconsFromTranslation();
     scriptLoadCallbacks.forEach((cb) => cb());
     scriptLoadCallbacks = [];
   };
@@ -82,6 +121,23 @@ export function GoogleTranslateWidget({ variant = 'compact' }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const [isReady, setIsReady] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Active icon protection observer: protects icons across client-side page transitions & DOM changes
+  useEffect(() => {
+    protectAllIconsFromTranslation();
+
+    const observer = new MutationObserver(() => {
+      protectAllIconsFromTranslation();
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: false,
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     setCurrentLang(getLangFromCookie());
@@ -128,6 +184,7 @@ export function GoogleTranslateWidget({ variant = 'compact' }: Props) {
       }
       if (!isReady) return;
       const trySwitch = (n = 0) => {
+        protectAllIconsFromTranslation();
         const sel = document.querySelector<HTMLSelectElement>(
           '#google_translate_element_hidden .goog-te-combo'
         );
@@ -162,18 +219,23 @@ export function GoogleTranslateWidget({ variant = 'compact' }: Props) {
           aria-label="Select language"
           className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/70 hover:bg-white border border-[#e5e2dd] text-[12px] text-[#564339] hover:text-[#984300] transition-all font-medium shadow-sm hover:shadow"
         >
-          <Globe className="w-3.5 h-3.5 text-[#984300]" />
+          <span className="notranslate inline-flex items-center" translate="no" aria-hidden="true">
+            <Globe className="w-3.5 h-3.5 text-[#984300]" />
+          </span>
           <span className="font-semibold">{label}</span>
-          <ChevronDown
-            className={`w-3 h-3 text-[#786d66] transition-transform duration-200 ${
-              isOpen ? 'rotate-180' : ''
-            }`}
-          />
+          <span className="notranslate inline-flex items-center" translate="no" aria-hidden="true">
+            <ChevronDown
+              className={`w-3 h-3 text-[#786d66] transition-transform duration-200 ${
+                isOpen ? 'rotate-180' : ''
+              }`}
+            />
+          </span>
         </button>
         {isOpen && (
           <div
             role="listbox"
-            className="absolute top-full right-0 mt-1.5 z-[300] bg-white border border-[#e5e2dd] rounded-xl shadow-xl overflow-hidden min-w-[150px] py-1 max-h-[300px] overflow-y-auto animate-in fade-in slide-in-from-top-1 duration-150"
+            className="absolute top-full right-0 mt-1.5 z-[300] bg-white border border-[#e5e2dd] rounded-xl shadow-xl overflow-hidden min-w-[150px] py-1 max-h-[300px] overflow-y-auto animate-in fade-in slide-in-from-top-1 duration-150 notranslate"
+            translate="no"
           >
             {GT_LANGS.map((lang) => (
               <button
@@ -203,9 +265,12 @@ export function GoogleTranslateWidget({ variant = 'compact' }: Props) {
   return (
     <div className="px-4 py-3 border-b border-[#f3efe8]">
       <p className="text-[11px] font-bold text-[#786d66] uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
-        <Globe className="w-3.5 h-3.5 text-[#984300]" /> Language / भाषा
+        <span className="notranslate inline-flex items-center" translate="no" aria-hidden="true">
+          <Globe className="w-3.5 h-3.5 text-[#984300]" />
+        </span>
+        <span>Language / भाषा</span>
       </p>
-      <div className="flex flex-wrap gap-1.5">
+      <div className="flex flex-wrap gap-1.5 notranslate" translate="no">
         {GT_LANGS.map((lang) => (
           <button
             key={lang.code}

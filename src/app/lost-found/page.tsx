@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 
 const MS = ({ name, cls = '' }: { name: string; cls?: string }) => (
-  <span className={`material-symbols-outlined ${cls}`}>{name}</span>
+  <span className={`material-symbols-outlined notranslate ${cls}`} translate="no" aria-hidden="true">{name}</span>
 );
 
 /* ─── COMPONENT: Topbar ─────────────────────────────────────────── */
@@ -524,7 +524,7 @@ export default function LostFoundPage() {
 <div className="relative max-w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center">
 <div className="lg:col-span-8 space-y-space-md">
 <div className="inline-flex items-center gap-space-xs px-space-sm py-1 rounded bg-primary/10 text-primary font-label-sm text-label-sm font-bold tracking-widest uppercase">
-<span className="material-symbols-outlined text-[16px]">verified_user</span>
+<span className="material-symbols-outlined notranslate text-[16px]" translate="no" aria-hidden="true">verified_user</span>
 <span>Authorized Pilgrim Reunification Bureau • Simhastha 2027</span>
 </div>
 <h1 className="font-headline-xl md:font-display-lg text-headline-xl md:text-display-lg text-on-surface tracking-tight">
@@ -535,7 +535,7 @@ export default function LostFoundPage() {
         </p>
 {/* Privacy Shield Declaration */}
 <div className="flex items-start gap-space-sm p-space-md rounded-xl bg-surface-container-low shadow-sm">
-<span className="material-symbols-outlined text-secondary text-[22px] shrink-0 mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }}>security</span>
+<span className="material-symbols-outlined notranslate text-secondary text-[22px] shrink-0 mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }} translate="no" aria-hidden="true">security</span>
 <div>
 <span className="font-title-md text-body-sm font-semibold text-on-surface block">Privacy Safeguard Guarantee</span>
 <p className="font-body-sm text-body-sm text-on-surface-variant">
@@ -569,7 +569,7 @@ export default function LostFoundPage() {
 </div>
 </div>
 <div className="flex items-center gap-space-xs text-label-sm font-label-sm text-on-surface-variant pt-space-xs">
-<span className="material-symbols-outlined text-primary text-[16px]">sensors</span>
+<span className="material-symbols-outlined notranslate text-primary text-[16px]" translate="no" aria-hidden="true">sensors</span>
 <span>Automated broadcast grid active across Godavari riverside</span>
 </div>
 </div>
@@ -593,7 +593,7 @@ export default function LostFoundPage() {
 <button className="group text-left p-space-lg rounded-xl bg-surface-container-lowest shadow-md transition-all duration-300 ring-2 ring-primary relative overflow-hidden flex flex-col justify-between" id="btnTabMissing" type="button">
 <div className="space-y-space-md">
 <div className="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
-<span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }}>person_search</span>
+<span className="material-symbols-outlined notranslate text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }} translate="no" aria-hidden="true">person_search</span>
 </div>
 <div>
 <div className="flex items-center justify-between">
@@ -607,14 +607,14 @@ export default function LostFoundPage() {
 </div>
 <div className="pt-space-lg flex items-center justify-between text-label-md font-label-md text-primary font-bold">
 <span>Fill Registration Form</span>
-<span className="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+<span className="material-symbols-outlined notranslate text-[20px] group-hover:translate-x-1 transition-transform" translate="no" aria-hidden="true">arrow_forward</span>
 </div>
 </button>
 {/* Card 2: Found Person / Child */}
 <button className="group text-left p-space-lg rounded-xl bg-surface-container shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden flex flex-col justify-between" id="btnTabFound" type="button">
 <div className="space-y-space-md">
 <div className="w-12 h-12 rounded-lg bg-secondary-fixed flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
-<span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }}>child_care</span>
+<span className="material-symbols-outlined notranslate text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }} translate="no" aria-hidden="true">child_care</span>
 </div>
 <div>
 <div className="flex items-center justify-between">
@@ -628,14 +628,14 @@ export default function LostFoundPage() {
 </div>
 <div className="pt-space-lg flex items-center justify-between text-label-md font-label-md text-secondary font-bold">
 <span>Alert Nearby Rescue Team</span>
-<span className="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+<span className="material-symbols-outlined notranslate text-[20px] group-hover:translate-x-1 transition-transform" translate="no" aria-hidden="true">arrow_forward</span>
 </div>
 </button>
 {/* Card 3: Belongings & Documents */}
 <button className="group text-left p-space-lg rounded-xl bg-surface-container shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden flex flex-col justify-between" id="btnTabBelonging" type="button">
 <div className="space-y-space-md">
 <div className="w-12 h-12 rounded-lg bg-tertiary-fixed flex items-center justify-center text-tertiary group-hover:scale-105 transition-transform">
-<span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }}>badge</span>
+<span className="material-symbols-outlined notranslate text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }} translate="no" aria-hidden="true">badge</span>
 </div>
 <div>
 <div className="flex items-center justify-between">
@@ -649,7 +649,7 @@ export default function LostFoundPage() {
 </div>
 <div className="pt-space-lg flex items-center justify-between text-label-md font-label-md text-tertiary font-bold">
 <span>Report Valuables</span>
-<span className="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+<span className="material-symbols-outlined notranslate text-[20px] group-hover:translate-x-1 transition-transform" translate="no" aria-hidden="true">arrow_forward</span>
 </div>
 </button>
 </div>
@@ -662,7 +662,7 @@ export default function LostFoundPage() {
 <div className="lg:col-span-7 bg-surface-container-lowest rounded-xl p-space-lg md:p-space-xl shadow-sm">
 <div className="border-b border-surface-variant pb-space-md mb-space-lg">
 <div className="flex items-center gap-space-xs text-primary font-label-md text-label-md font-bold uppercase tracking-wider">
-<span className="material-symbols-outlined text-[18px]">emergency_home</span>
+<span className="material-symbols-outlined notranslate text-[18px]" translate="no" aria-hidden="true">emergency_home</span>
 <span>Emergency Case Registration</span>
 </div>
 <h2 className="font-headline-lg text-headline-lg text-on-surface mt-1" id="formHeaderTitle">
@@ -719,7 +719,7 @@ export default function LostFoundPage() {
 <div className="p-space-md bg-surface-container-low rounded-xl flex flex-col sm:flex-row items-center justify-between gap-space-md">
 <div className="flex items-center gap-space-sm">
 <div className="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shrink-0">
-<span className="material-symbols-outlined text-[24px]">add_a_photo</span>
+<span className="material-symbols-outlined notranslate text-[24px]" translate="no" aria-hidden="true">add_a_photo</span>
 </div>
 <div>
 <span className="font-title-md text-body-sm font-semibold text-on-surface block">Upload Recent Photograph (Optional)</span>
@@ -819,16 +819,16 @@ export default function LostFoundPage() {
 {/* Submission Action Bar */}
 <div className="pt-space-md border-t border-surface-variant space-y-space-md">
 <div className="flex items-center gap-space-xs text-label-sm font-label-sm text-on-surface-variant">
-<span className="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
+<span className="material-symbols-outlined notranslate text-secondary text-[16px]" translate="no" aria-hidden="true">check_circle</span>
 <span>An instant SMS confirmation with unique tracking token (e.g. KP-2027-8492) will be sent to your phone.</span>
 </div>
 <div className="flex flex-col sm:flex-row items-center gap-space-md">
 <button className="w-full sm:w-auto px-space-xl h-12 bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-space-xs shadow-md" type="submit">
-<span className="material-symbols-outlined text-[20px]">send_time_extension</span>
+<span className="material-symbols-outlined notranslate text-[20px]" translate="no" aria-hidden="true">send_time_extension</span>
 <span>Submit & Broadcast Missing Alert</span>
 </button>
 <a className="w-full sm:w-auto px-space-lg h-12 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold rounded-lg transition-colors flex items-center justify-center gap-space-xs" href="tel:1912">
-<span className="material-symbols-outlined text-error text-[20px]">phone_in_talk</span>
+<span className="material-symbols-outlined notranslate text-error text-[20px]" translate="no" aria-hidden="true">phone_in_talk</span>
 <span>Direct Police Desk 1912</span>
 </a>
 </div>
@@ -838,7 +838,7 @@ export default function LostFoundPage() {
 <div className="mt-space-lg hidden p-space-lg bg-surface-container-low rounded-xl" id="submissionSuccessBanner">
 <div className="flex items-start gap-space-md">
 <div className="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0">
-<span className="material-symbols-outlined text-[24px]">verified</span>
+<span className="material-symbols-outlined notranslate text-[24px]" translate="no" aria-hidden="true">verified</span>
 </div>
 <div className="space-y-space-xs">
 <span className="font-headline-md text-headline-md text-on-surface">Report Registered Successfully</span>
@@ -860,7 +860,7 @@ export default function LostFoundPage() {
 <div className="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm space-y-space-md">
 <div className="flex items-center justify-between">
 <div className="flex items-center gap-space-xs">
-<span className="material-symbols-outlined text-primary text-[22px]">storefront</span>
+<span className="material-symbols-outlined notranslate text-primary text-[22px]" translate="no" aria-hidden="true">storefront</span>
 <h3 className="font-title-md text-title-md text-on-surface">Physical Khoya-Paya Booths</h3>
 </div>
 <span className="font-label-sm text-label-sm text-secondary font-bold">28 Available 24x7</span>
@@ -878,7 +878,7 @@ export default function LostFoundPage() {
 </div>
 <p className="font-body-sm text-body-sm text-on-surface-variant">Near Ahilyabai Holkar Bridge entrance</p>
 <div className="flex items-center gap-space-xs text-label-sm font-label-sm text-outline pt-1">
-<span className="material-symbols-outlined text-[14px]">volume_up</span>
+<span className="material-symbols-outlined notranslate text-[14px]" translate="no" aria-hidden="true">volume_up</span>
 <span>Marathi • Hindi • Gujarati Announcer on site</span>
 </div>
 </div>
@@ -893,7 +893,7 @@ export default function LostFoundPage() {
 </div>
 <p className="font-body-sm text-body-sm text-on-surface-variant">Main Akhada Camp Intersection Pandal</p>
 <div className="flex items-center gap-space-xs text-label-sm font-label-sm text-outline pt-1">
-<span className="material-symbols-outlined text-[14px]">medical_services</span>
+<span className="material-symbols-outlined notranslate text-[14px]" translate="no" aria-hidden="true">medical_services</span>
 <span>First Aid + Senior resting cots available</span>
 </div>
 </div>
@@ -908,7 +908,7 @@ export default function LostFoundPage() {
 </div>
 <p className="font-body-sm text-body-sm text-on-surface-variant">Near Jyotirlinga East Darshan Q-Complex</p>
 <div className="flex items-center gap-space-xs text-label-sm font-label-sm text-outline pt-1">
-<span className="material-symbols-outlined text-[14px]">child_friendly</span>
+<span className="material-symbols-outlined notranslate text-[14px]" translate="no" aria-hidden="true">child_friendly</span>
 <span>Special Child Care & feeding corner</span>
 </div>
 </div>
@@ -923,7 +923,7 @@ export default function LostFoundPage() {
 </div>
 <p className="font-body-sm text-body-sm text-on-surface-variant">Platform 3 Devotee Assembly Hall</p>
 <div className="flex items-center gap-space-xs text-label-sm font-label-sm text-outline pt-1">
-<span className="material-symbols-outlined text-[14px]">cell_tower</span>
+<span className="material-symbols-outlined notranslate text-[14px]" translate="no" aria-hidden="true">cell_tower</span>
 <span>Direct link to ST bus dispatches</span>
 </div>
 </div>
@@ -931,7 +931,7 @@ export default function LostFoundPage() {
 </div>
 </div>
 <a className="w-full py-2.5 bg-surface-container hover:bg-surface-container-high rounded-lg text-primary font-label-md text-label-md font-semibold flex items-center justify-center gap-space-xs transition-colors" data-path="map" href="#">
-<span className="material-symbols-outlined text-[18px]">map</span>
+<span className="material-symbols-outlined notranslate text-[18px]" translate="no" aria-hidden="true">map</span>
 <span>View All 28 Booths on Interactive Map</span>
 </a>
 </div>
@@ -940,7 +940,7 @@ export default function LostFoundPage() {
 <div className="absolute -right-8 -bottom-8 w-36 h-36 rounded-full bg-white/10 blur-xl"></div>
 <div className="relative space-y-space-md">
 <div className="flex items-center gap-space-xs">
-<span className="material-symbols-outlined text-secondary-fixed text-[24px]">qr_code_scanner</span>
+<span className="material-symbols-outlined notranslate text-secondary-fixed text-[24px]" translate="no" aria-hidden="true">qr_code_scanner</span>
 <span className="font-label-sm text-label-sm uppercase tracking-widest text-secondary-fixed font-bold">Preventive Care</span>
 </div>
 <div>
@@ -983,7 +983,7 @@ export default function LostFoundPage() {
             </p>
 </div>
 <div className="flex items-center gap-space-xs text-label-sm font-label-sm text-secondary">
-<span className="material-symbols-outlined text-[16px]">sync_saved_locally</span>
+<span className="material-symbols-outlined notranslate text-[16px]" translate="no" aria-hidden="true">sync_saved_locally</span>
 <span>Real-time sector distribution</span>
 </div>
 </div>
@@ -997,7 +997,7 @@ export default function LostFoundPage() {
             </p>
 </div>
 <div className="flex items-center gap-space-xs text-label-sm font-label-sm text-secondary">
-<span className="material-symbols-outlined text-[16px]">record_voice_over</span>
+<span className="material-symbols-outlined notranslate text-[16px]" translate="no" aria-hidden="true">record_voice_over</span>
 <span>Marathi, Hindi, Gujarati, Telugu</span>
 </div>
 </div>
@@ -1011,7 +1011,7 @@ export default function LostFoundPage() {
             </p>
 </div>
 <div className="flex items-center gap-space-xs text-label-sm font-label-sm text-secondary">
-<span className="material-symbols-outlined text-[16px]">sentiment_satisfied</span>
+<span className="material-symbols-outlined notranslate text-[16px]" translate="no" aria-hidden="true">sentiment_satisfied</span>
 <span>Supervised by Child Welfare Officers</span>
 </div>
 </div>
@@ -1041,21 +1041,21 @@ export default function LostFoundPage() {
         </p>
 <ul className="space-y-space-sm font-body-sm text-body-sm text-on-surface">
 <li className="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container-low">
-<span className="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">location_on</span>
+<span className="material-symbols-outlined notranslate text-primary text-[20px] shrink-0 mt-0.5" translate="no" aria-hidden="true">location_on</span>
 <div>
 <span className="font-semibold block">Freeze in Place at a Tall Landmark</span>
 <span>Do not rush against crowd currents. Look for numbered loudspeaker poles or sector flags and wait there.</span>
 </div>
 </li>
 <li className="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container-low">
-<span className="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">badge</span>
+<span className="material-symbols-outlined notranslate text-primary text-[20px] shrink-0 mt-0.5" translate="no" aria-hidden="true">badge</span>
 <div>
 <span className="font-semibold block">Approach Khaki Uniform or Yellow Jacket Marshals</span>
 <span>Every 50 meters on the ghats, authorized Kumbh Sewa volunteers and police officers can immediately check registry tokens.</span>
 </div>
 </li>
 <li className="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container-low">
-<span className="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">lock_person</span>
+<span className="material-symbols-outlined notranslate text-primary text-[20px] shrink-0 mt-0.5" translate="no" aria-hidden="true">lock_person</span>
 <div>
 <span className="font-semibold block">Avoid Leaving Sector Boundaries With Strangers</span>
 <span>Always verify that someone accompanying a lost child or elder escorts them strictly into an official government marquee.</span>
@@ -1070,7 +1070,7 @@ export default function LostFoundPage() {
 <div className="max-w-[1320px] mx-auto flex flex-col md:flex-row items-center justify-between gap-space-md">
 <div className="flex items-center gap-space-md">
 <div className="w-12 h-12 rounded-full bg-error text-on-error flex items-center justify-center shrink-0">
-<span className="material-symbols-outlined text-[26px]">support_agent</span>
+<span className="material-symbols-outlined notranslate text-[26px]" translate="no" aria-hidden="true">support_agent</span>
 </div>
 <div>
 <span className="font-title-md text-title-md text-on-surface block">Need Immediate Voice Assistance?</span>
@@ -1079,11 +1079,11 @@ export default function LostFoundPage() {
 </div>
 <div className="flex flex-wrap items-center gap-space-md">
 <a className="px-space-lg py-2.5 bg-surface text-on-surface hover:bg-surface-container-low rounded-lg font-title-md text-body-md font-bold flex items-center gap-space-xs shadow-sm transition-colors" href="tel:1912">
-<span className="material-symbols-outlined text-error text-[18px]">phone_enabled</span>
+<span className="material-symbols-outlined notranslate text-error text-[18px]" translate="no" aria-hidden="true">phone_enabled</span>
 <span>Toll-Free Helpline: 1912</span>
 </a>
 <a className="px-space-lg py-2.5 bg-primary text-on-primary hover:bg-primary-container rounded-lg font-title-md text-body-md font-bold flex items-center gap-space-xs shadow-sm transition-colors" href="https://wa.me/919422020270" target="_blank">
-<span className="material-symbols-outlined text-[18px]">chat</span>
+<span className="material-symbols-outlined notranslate text-[18px]" translate="no" aria-hidden="true">chat</span>
 <span>WhatsApp Desk: +91 94220 20270</span>
 </a>
 </div>

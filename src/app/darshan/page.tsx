@@ -6,7 +6,9 @@ import { MobileBottomNav } from '@/components/MobileBottomNav';
 
 /* ─── Tiny Icon Helper ─────────────────────────────────────────── */
 const MS = ({ name, cls = '' }: { name: string; cls?: string }) => (
-  <span className={`material-symbols-outlined ${cls}`}>{name}</span>
+  <span className={`material-symbols-outlined notranslate ${cls}`} translate="no" aria-hidden="true">
+    {name}
+  </span>
 );
 
 /* ─── DATA ─────────────────────────────────────────────────────── */
@@ -176,7 +178,7 @@ export default function DarshanPage() {
           <div className="absolute inset-0 z-10 flex flex-col justify-end px-5 pb-10 pt-4">
             {/* Badge */}
             <div className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-md border border-white/30 px-3.5 py-1 rounded-full mb-3 self-start">
-              <span className="material-symbols-outlined text-[13px] text-[#e9c176]">temple_hindu</span>
+              <span className="material-symbols-outlined notranslate text-[13px] text-[#e9c176]" translate="no" aria-hidden="true">temple_hindu</span>
               <span className="text-[10px] uppercase tracking-wider text-white font-bold">SACRED SHRINES & DARSHAN</span>
             </div>
 

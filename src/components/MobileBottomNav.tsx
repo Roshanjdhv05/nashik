@@ -31,7 +31,11 @@ export function MobileBottomNav({ active }: MobileBottomNavProps) {
             {isActive && (
               <span className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-[3px] bg-[#984300] rounded-b-full" />
             )}
-            <span className={`material-symbols-outlined text-[22px] leading-none ${isActive ? 'text-[#984300]' : 'text-[#786d66]'}`}>
+            <span
+              className={`material-symbols-outlined notranslate text-[22px] leading-none ${isActive ? 'text-[#984300]' : 'text-[#786d66]'}`}
+              translate="no"
+              aria-hidden="true"
+            >
               {tab.icon}
             </span>
             <span className={`text-[10px] ${isActive ? 'font-bold text-[#984300]' : 'font-medium text-[#786d66]'} leading-none`}>

@@ -104,8 +104,10 @@ export const QuickAccessGrid: React.FC = () => {
             onClick={() => handleShortcutClick(item)}
             className={`flex flex-col items-center justify-center p-2.5 sm:p-3 rounded-2xl border ${item.bgColor} shadow-sm hover:shadow-md hover:scale-105 active:scale-95 transition group text-center min-h-[90px]`}
           >
-            <div className="p-2 rounded-xl bg-white shadow-xs mb-1 group-hover:rotate-6 transition-transform">
-              {item.icon}
+            <div className="p-2 rounded-xl bg-white shadow-xs mb-1 group-hover:rotate-6 transition-transform notranslate" translate="no" aria-hidden="true">
+              <span className="notranslate inline-flex" translate="no" aria-hidden="true">
+                {item.icon}
+              </span>
             </div>
             <span className="text-[11px] sm:text-xs font-extrabold text-slate-800 line-clamp-2 leading-tight">
               {item.titleKey}
@@ -152,8 +154,10 @@ export const QuickAccessGrid: React.FC = () => {
                     >
                       <Star className={`w-3.5 h-3.5 ${isPinned ? 'fill-amber-500 text-amber-500' : ''}`} />
                     </button>
-                    <div className="p-2.5 rounded-xl bg-white shadow-xs mb-2">
-                      {item.icon}
+                    <div className="p-2.5 rounded-xl bg-white shadow-xs mb-2 notranslate" translate="no" aria-hidden="true">
+                      <span className="notranslate inline-flex" translate="no" aria-hidden="true">
+                        {item.icon}
+                      </span>
                     </div>
                     <span className="text-xs font-extrabold text-slate-800 leading-snug">
                       {item.titleKey}

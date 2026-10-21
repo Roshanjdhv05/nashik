@@ -126,7 +126,7 @@ export function PWAInstallBanner() {
                 className="w-7 h-7 rounded-full bg-[#f4efe8] flex items-center justify-center shrink-0 -mt-0.5"
                 aria-label="Dismiss"
               >
-                <span className="material-symbols-outlined text-[16px] text-[#786d66]">close</span>
+                <span className="material-symbols-outlined notranslate text-[16px] text-[#786d66]" translate="no" aria-hidden="true">close</span>
               </button>
             </div>
 
@@ -139,7 +139,7 @@ export function PWAInstallBanner() {
                 { icon: 'emergency', label: 'SOS 112' },
               ].map(f => (
                 <div key={f.label} className="flex-shrink-0 flex items-center gap-1.5 bg-[#fcf9f4] border border-[#e8e4df] px-2.5 py-1.5 rounded-full">
-                  <span className="material-symbols-outlined text-[13px] text-[#984300]">{f.icon}</span>
+                  <span className="material-symbols-outlined notranslate text-[13px] text-[#984300]" translate="no" aria-hidden="true">{f.icon}</span>
                   <span className="text-[11px] font-semibold text-[#564339]">{f.label}</span>
                 </div>
               ))}
@@ -150,7 +150,7 @@ export function PWAInstallBanner() {
               <div className="bg-[#fcf9f4] rounded-xl p-3 border border-[#e8e4df]">
                 <p className="text-[12px] text-[#564339] leading-relaxed text-center">
                   Tap <strong className="text-[#007AFF]">Share</strong>{' '}
-                  <span className="material-symbols-outlined text-[14px] align-middle text-[#007AFF]">ios_share</span>
+                  <span className="material-symbols-outlined notranslate text-[14px] align-middle text-[#007AFF]" translate="no" aria-hidden="true">ios_share</span>
                   {' '}then tap <strong>"Add to Home Screen"</strong>
                 </p>
               </div>
@@ -162,12 +162,12 @@ export function PWAInstallBanner() {
               >
                 {installing ? (
                   <>
-                    <span className="material-symbols-outlined text-[18px] animate-spin">progress_activity</span>
+                    <span className="material-symbols-outlined notranslate text-[18px] animate-spin" translate="no" aria-hidden="true">progress_activity</span>
                     <span>Installing…</span>
                   </>
                 ) : (
                   <>
-                    <span className="material-symbols-outlined text-[18px]">download</span>
+                    <span className="material-symbols-outlined notranslate text-[18px]" translate="no" aria-hidden="true">download</span>
                     <span>Install App — Free</span>
                   </>
                 )}

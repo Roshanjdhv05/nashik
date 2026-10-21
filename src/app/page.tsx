@@ -7,7 +7,9 @@ import { MobileBottomNav } from '@/components/MobileBottomNav';
 
 /* ─── Tiny helpers ─────────────────────────────────────────────── */
 const MS = ({ name, cls = '' }: { name: string; cls?: string }) => (
-  <span className={`material-symbols-outlined ${cls}`}>{name}</span>
+  <span className={`material-symbols-outlined notranslate ${cls}`} translate="no" aria-hidden="true">
+    {name}
+  </span>
 );
 
 const CROWD_COLOR: Record<string, string> = {
@@ -216,7 +218,7 @@ function Hero({ onPlanTrip }: { onPlanTrip: () => void }) {
         <div className="absolute inset-0 z-10 flex flex-col justify-end px-5 pb-10 pt-4">
           {/* Badge */}
           <div className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-md border border-white/30 px-3.5 py-1 rounded-full mb-3 self-start">
-            <span className="material-symbols-outlined text-[13px] text-white">location_on</span>
+            <span className="material-symbols-outlined notranslate text-[13px] text-white" translate="no" aria-hidden="true">location_on</span>
             <span className="text-[10px] uppercase tracking-wider text-white font-bold">SIMHASTHA KUMBH MELA 2027</span>
           </div>
 
@@ -408,7 +410,7 @@ function QuickAccess() {
               href={t.href}
               className="bg-white rounded-2xl p-2.5 flex flex-col items-center justify-center text-center shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-[#f0ece5] active:scale-95 transition-transform min-h-[96px]"
             >
-              <div className={`w-11 h-11 rounded-2xl ${t.bg} flex items-center justify-center mb-1.5 shadow-sm`}>
+              <div className={`w-11 h-11 rounded-2xl ${t.bg} flex items-center justify-center mb-1.5 shadow-sm notranslate`} translate="no" aria-hidden="true">
                 <MS name={t.icon} cls={`text-[22px] ${t.ic}`} />
               </div>
               <span className="text-[10.5px] font-bold text-[#2d2521] leading-tight text-center whitespace-pre-line">{t.label}</span>
@@ -436,7 +438,7 @@ function QuickAccess() {
               href={t.href}
               className="group bg-white transition-all duration-200 p-2 sm:p-3 rounded-xl flex flex-col items-center justify-center text-center border border-[#e5e2dd]/60 shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-md hover:border-[#984300]/30 min-h-[85px] sm:min-h-[100px]"
             >
-              <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl ${t.bg} flex items-center justify-center ${t.ic} group-hover:scale-105 transition-transform mb-1.5 sm:mb-2`}>
+              <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl ${t.bg} flex items-center justify-center ${t.ic} group-hover:scale-105 transition-transform mb-1.5 sm:mb-2 notranslate`} translate="no" aria-hidden="true">
                 <MS name={t.icon} cls="text-[20px] sm:text-[22px]" />
               </div>
               <h3 className={`text-[10px] sm:text-[13px] font-semibold ${t.labelCls || 'text-[#0e274a]'}`}>{t.label.split(' & ')[0]}</h3>

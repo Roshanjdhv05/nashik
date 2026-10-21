@@ -30,7 +30,7 @@ export default function SmartMapPage() {
           href="/get-connected"
           className="fixed bottom-20 md:bottom-8 right-4 md:right-8 z-40 bg-[#984300] hover:bg-[#803800] text-white px-4 py-2.5 rounded-full shadow-2xl flex items-center gap-2 text-xs md:text-sm font-bold border-2 border-white transition active:scale-95"
         >
-          <span className="material-symbols-outlined text-[18px]">groups</span>
+          <span className="material-symbols-outlined notranslate text-[18px]" translate="no" aria-hidden="true">groups</span>
           <span>Find My Group</span>
         </Link>
       </main>

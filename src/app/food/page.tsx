@@ -6,7 +6,7 @@ import { Topbar, Navbar } from '@/components/Navbar';
 import { MobileBottomNav } from '@/components/MobileBottomNav';
 
 const MS = ({ name, cls = '' }: { name: string; cls?: string }) => (
-  <span className={`material-symbols-outlined ${cls}`}>{name}</span>
+  <span className={`material-symbols-outlined notranslate ${cls}`} translate="no" aria-hidden="true">{name}</span>
 );
 
 /* ─── COMPONENT: Footer ─────────────────────────────────────────── */
@@ -434,12 +434,12 @@ export default function FoodPage() {
 <div className="flex flex-col lg:flex-row gap-4 items-stretch lg:items-center justify-between pb-4 border-b border-surface-variant">
 {/*  Search Input  */}
 <div className="relative flex-1">
-<span className="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<span className="material-symbols-outlined notranslate absolute left-3.5 top-1/2 -translate-y-1/2 text-outline" data-icon="search" translate="no" aria-hidden="true">search</span>
 <input className="w-full pl-11 pr-4 py-2.5 bg-surface-container-low border border-outline-variant rounded-lg text-sm text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" placeholder="Search restaurants, bhojanalayas, or dishes (e.g. Maharashtrian Thali, Misal, Jain Bhojan, Sabudana Khichdi)..." type="text"/>
 </div>
 {/*  Zone Selector Dropdown  */}
 <div className="relative min-w-[280px]">
-<span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary" data-icon="location_on">location_on</span>
+<span className="material-symbols-outlined notranslate absolute left-3 top-1/2 -translate-y-1/2 text-primary" data-icon="location_on" translate="no" aria-hidden="true">location_on</span>
 <select className="w-full pl-10 pr-9 py-2.5 bg-surface-container-low border border-outline-variant rounded-lg text-sm text-on-surface font-medium focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer appearance-none">
 <option defaultValue="something">All Zones (Ram Kund, Trimbak, College Rd, Panchavati)</option>
 <option>Ram Kund &amp; Godavari Ghats (Nashik Core)</option>
@@ -448,17 +448,17 @@ export default function FoodPage() {
 <option>Nashik Road Railway Station Corridor</option>
 <option>College Road &amp; Mahatma Nagar Hub</option>
 </select>
-<span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none" data-icon="expand_more">expand_more</span>
+<span className="material-symbols-outlined notranslate absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none" data-icon="expand_more" translate="no" aria-hidden="true">expand_more</span>
 </div>
 {/*  View Toggle & Quick Actions  */}
 <div className="flex items-center gap-2 shrink-0">
 <div className="bg-surface-container p-1 rounded-lg flex items-center border border-outline-variant">
 <button className="px-3 py-1.5 rounded text-xs font-semibold flex items-center gap-1.5 bg-surface-container-lowest text-primary shadow-sm" title="Grid View">
-<span className="material-symbols-outlined text-base" data-icon="grid_view">grid_view</span>
+<span className="material-symbols-outlined notranslate text-base" data-icon="grid_view" translate="no" aria-hidden="true">grid_view</span>
 <span className="">Grid View</span>
 </button>
 <button className="px-3 py-1.5 rounded text-xs font-medium text-on-surface-variant hover:text-on-surface flex items-center gap-1.5" title="List &amp; Map Split">
-<span className="material-symbols-outlined text-base" data-icon="splitscreen">splitscreen</span>
+<span className="material-symbols-outlined notranslate text-base" data-icon="splitscreen" translate="no" aria-hidden="true">splitscreen</span>
 <span className="">Map Split</span>
 </button>
 </div>
@@ -467,10 +467,10 @@ export default function FoodPage() {
 {/*  Quick Filter Chips Scrollable Row  */}
 <div className="flex items-center gap-2 overflow-x-auto pt-4 scrollbar-none text-xs">
 <span className="text-outline uppercase font-semibold text-[11px] tracking-wider shrink-0 mr-1 flex items-center gap-1">
-<span className="material-symbols-outlined text-sm" data-icon="filter_alt">filter_alt</span> Quick:
+<span className="material-symbols-outlined notranslate text-sm" data-icon="filter_alt" translate="no" aria-hidden="true">filter_alt</span> Quick:
         </span>
 <button className="px-3.5 py-1.5 rounded-full bg-primary text-on-primary font-medium shrink-0 flex items-center gap-1.5 shadow-sm">
-<span className="material-symbols-outlined text-sm" data-icon="check">check</span> All Pure Veg (86)
+<span className="material-symbols-outlined notranslate text-sm" data-icon="check" translate="no" aria-hidden="true">check</span> All Pure Veg (86)
         </button>
 <button className="px-3.5 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container border border-outline-variant text-on-surface font-medium shrink-0 transition-colors">
           Jain Satvik (No Onion/Garlic) (34)
@@ -524,13 +524,13 @@ export default function FoodPage() {
 <div className="relative h-48 w-full overflow-hidden">
 <img alt="Shree Krishna Vijay Maharashtrian Bhojanalaya" className="w-full h-full object-cover" data-alt="Authentic Maharashtrian traditional bronze thali served with piping hot jowar bhakri, fragrant pitla curry, spicy green thecha, steamed varan bhat rice, and sweet puran poli bathed in pure golden cow ghee. The rustic tabletop is illuminated by warm morning ambient light with copper vessels nearby, emphasizing sacred pilgrim purity and heritage hospitality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXjJhSHKG_mFbDh-7nRlLtRKkcQS8KfaHpb1bHGV9BDzbU9Bia4NHMFi0zcu-6pbBt0UanQ0c5Iyh0bcZm1tJwjUfVj0wANvRTqxLbUEsAlyiKhrOmZzrtswkR_SFvT06mQT2wz48ya2yHo_sbhDoktZZazGU6q_feGCaqSq0SEsCXbxVL9Wlp9GpRaH0yC5bSDV2SEu62NyaN93_nvJ_dIMcTeHYtBblm8hZkASjiNr8VEpNmZjlWrQ"/>
 <div className="absolute top-2.5 left-2.5 bg-surface/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-bold text-primary border border-outline-variant shadow-sm flex items-center gap-1">
-<span className="material-symbols-outlined text-xs" data-icon="restaurant">restaurant</span> 100% Satvik
+<span className="material-symbols-outlined notranslate text-xs" data-icon="restaurant" translate="no" aria-hidden="true">restaurant</span> 100% Satvik
         </div>
 <div className="absolute top-2.5 right-2.5 bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-0.5 rounded text-[11px] font-bold text-on-surface shadow-sm border border-outline-variant/60">
           ₹140 Thali
         </div>
 <div className="absolute bottom-2.5 left-2.5 bg-inverse-surface/90 text-inverse-on-surface px-2 py-0.5 rounded text-[10px] font-medium backdrop-blur-xs flex items-center gap-1">
-<span className="material-symbols-outlined text-[11px] text-tertiary-fixed" data-icon="schedule">schedule</span> Open · Wait: ~8 min
+<span className="material-symbols-outlined notranslate text-[11px] text-tertiary-fixed" data-icon="schedule" translate="no" aria-hidden="true">schedule</span> Open · Wait: ~8 min
         </div>
 </div>
 {/*  Content Body  */}
@@ -541,7 +541,7 @@ export default function FoodPage() {
 <h3 className="text-base font-headline-md font-bold text-on-surface leading-snug mt-0.5 line-clamp-1">Shree Krishna Vijay Bhojanalaya</h3>
 </div>
 <div className="flex items-center gap-0.5 bg-surface-container-high px-1.5 py-0.5 rounded border border-outline-variant shrink-0">
-<span className="material-symbols-outlined text-xs text-tertiary" data-icon="star" style={{ fontVariationSettings: "\'FILL\' 1" }}>star</span>
+<span className="material-symbols-outlined notranslate text-xs text-tertiary" data-icon="star" style={{ fontVariationSettings: "\'FILL\' 1" }} translate="no" aria-hidden="true">star</span>
 <span className="text-xs font-bold text-on-surface">4.8</span>
 <span className="text-[10px] text-outline">(3.4k)</span>
 </div>
@@ -549,11 +549,11 @@ export default function FoodPage() {
 {/*  Badges / Locality  */}
 <div className="flex flex-wrap items-center gap-2 mt-2 text-[11px] text-on-surface-variant">
 <span className="flex items-center gap-1 text-primary font-medium">
-<span className="material-symbols-outlined text-xs" data-icon="near_me">near_me</span> 500m to Ram Kund
+<span className="material-symbols-outlined notranslate text-xs" data-icon="near_me" translate="no" aria-hidden="true">near_me</span> 500m to Ram Kund
           </span>
 <span className="text-outline">•</span>
 <span className="flex items-center gap-1 text-secondary font-medium">
-<span className="material-symbols-outlined text-xs" data-icon="water_drop">water_drop</span> Certified RO
+<span className="material-symbols-outlined notranslate text-xs" data-icon="water_drop" translate="no" aria-hidden="true">water_drop</span> Certified RO
           </span>
 <span className="text-outline">•</span>
 <span className="text-[10px] font-medium text-outline">Panchavati Core</span>
@@ -567,10 +567,10 @@ export default function FoodPage() {
 {/*  Bottom Action Bar with Location, Call & WhatsApp  */}
 <div className="p-3 pt-0 border-t border-surface-variant/70 mt-2 flex items-center gap-2">
 <a className="flex-1 py-1.5 px-2 bg-surface-container-low hover:bg-surface-container border border-outline-variant text-on-surface rounded text-xs font-semibold flex items-center justify-center gap-1 transition-colors" href="#">
-<span className="material-symbols-outlined text-sm text-primary" data-icon="location_on">location_on</span> Location
+<span className="material-symbols-outlined notranslate text-sm text-primary" data-icon="location_on" translate="no" aria-hidden="true">location_on</span> Location
       </a>
 <a className="py-1.5 px-3 bg-surface-container-low hover:bg-surface-container border border-outline-variant text-on-surface rounded text-xs font-semibold flex items-center justify-center gap-1 transition-colors" href="tel:+912532512345" title="Call Bhojanalaya">
-<span className="material-symbols-outlined text-sm text-secondary" data-icon="call">call</span> Call
+<span className="material-symbols-outlined notranslate text-sm text-secondary" data-icon="call" translate="no" aria-hidden="true">call</span> Call
       </a>
 <a className="py-1.5 px-3 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded text-xs font-bold flex items-center justify-center gap-1 shadow-sm transition-colors" href="https://wa.me/919822012345?text=Hare%20Krishna%20inquiring%20about%20bhojan" target="_blank" title="Chat on WhatsApp">
 <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
@@ -585,13 +585,13 @@ export default function FoodPage() {
 <div className="relative h-48 w-full overflow-hidden">
 <img alt="Trimbak Anandam Jain &amp; Satvik Bhojanalaya" className="w-full h-full object-cover" data-alt="A luminous and spotless Jain satvik dining hall near Trimbakeshwar temple featuring pristine stainless steel thalis filled with non-root satvik dishes, steamed white sabudana khichdi, aromatic golden kadhi, and tender phulka flatbreads. Soft filtered afternoon sunlight illuminates the calm spiritual setting with devotees peacefully honoring their meal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtQlDLW3VFmEi564Dnv3anRgGP7c06KK_62jrOTcrAyQl_ApPt35pV8Pt1bK1rSXLupqUM1o7g4ejyHItmVyMAM13yt8CnAEWpgJwx5nnxBKbPXpgXsIY7w0vGDi3V51hD0XSpQkCUrqdScXF-t0WdvsrzYSrljmYibe7a6t7H_pkbiroT1oSk_TJ1Ka8qfSqEZ1YA10Dyi3sTOUx2oapGYx8nyTsE-FoEZSPSz99HE-8YLARHEw9L6A"/>
 <div className="absolute top-2.5 left-2.5 bg-surface/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-bold text-secondary border border-outline-variant shadow-sm flex items-center gap-1">
-<span className="material-symbols-outlined text-xs" data-icon="eco">eco</span> Jain Maryada
+<span className="material-symbols-outlined notranslate text-xs" data-icon="eco" translate="no" aria-hidden="true">eco</span> Jain Maryada
         </div>
 <div className="absolute top-2.5 right-2.5 bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-0.5 rounded text-[11px] font-bold text-on-surface shadow-sm border border-outline-variant/60">
           ₹120 Thali
         </div>
 <div className="absolute bottom-2.5 left-2.5 bg-inverse-surface/90 text-inverse-on-surface px-2 py-0.5 rounded text-[10px] font-medium backdrop-blur-xs flex items-center gap-1">
-<span className="material-symbols-outlined text-[11px] text-tertiary-fixed" data-icon="bolt">bolt</span> Fast Seating · Chauvihar
+<span className="material-symbols-outlined notranslate text-[11px] text-tertiary-fixed" data-icon="bolt" translate="no" aria-hidden="true">bolt</span> Fast Seating · Chauvihar
         </div>
 </div>
 {/*  Content Body  */}
@@ -602,7 +602,7 @@ export default function FoodPage() {
 <h3 className="text-base font-headline-md font-bold text-on-surface leading-snug mt-0.5 line-clamp-1">Trimbak Anandam Jain Satvik</h3>
 </div>
 <div className="flex items-center gap-0.5 bg-surface-container-high px-1.5 py-0.5 rounded border border-outline-variant shrink-0">
-<span className="material-symbols-outlined text-xs text-tertiary" data-icon="star" style={{ fontVariationSettings: "\'FILL\' 1" }}>star</span>
+<span className="material-symbols-outlined notranslate text-xs text-tertiary" data-icon="star" style={{ fontVariationSettings: "\'FILL\' 1" }} translate="no" aria-hidden="true">star</span>
 <span className="text-xs font-bold text-on-surface">4.9</span>
 <span className="text-[10px] text-outline">(2.2k)</span>
 </div>
@@ -610,11 +610,11 @@ export default function FoodPage() {
 {/*  Badges / Locality  */}
 <div className="flex flex-wrap items-center gap-2 mt-2 text-[11px] text-on-surface-variant">
 <span className="flex items-center gap-1 text-primary font-medium">
-<span className="material-symbols-outlined text-xs" data-icon="near_me">near_me</span> 300m Trimbak Gate
+<span className="material-symbols-outlined notranslate text-xs" data-icon="near_me" translate="no" aria-hidden="true">near_me</span> 300m Trimbak Gate
           </span>
 <span className="text-outline">•</span>
 <span className="flex items-center gap-1 text-secondary font-medium">
-<span className="material-symbols-outlined text-xs" data-icon="clean_hands">clean_hands</span> 5-Star NMC
+<span className="material-symbols-outlined notranslate text-xs" data-icon="clean_hands" translate="no" aria-hidden="true">clean_hands</span> 5-Star NMC
           </span>
 <span className="text-outline">•</span>
 <span className="text-[10px] font-medium text-outline">Trimbakeshwar</span>
@@ -628,10 +628,10 @@ export default function FoodPage() {
 {/*  Bottom Action Bar with Location, Call & WhatsApp  */}
 <div className="p-3 pt-0 border-t border-surface-variant/70 mt-2 flex items-center gap-2">
 <a className="flex-1 py-1.5 px-2 bg-surface-container-low hover:bg-surface-container border border-outline-variant text-on-surface rounded text-xs font-semibold flex items-center justify-center gap-1 transition-colors" href="#">
-<span className="material-symbols-outlined text-sm text-primary" data-icon="location_on">location_on</span> Location
+<span className="material-symbols-outlined notranslate text-sm text-primary" data-icon="location_on" translate="no" aria-hidden="true">location_on</span> Location
       </a>
 <a className="py-1.5 px-3 bg-surface-container-low hover:bg-surface-container border border-outline-variant text-on-surface rounded text-xs font-semibold flex items-center justify-center gap-1 transition-colors" href="tel:+912532598765" title="Call Bhojanalaya">
-<span className="material-symbols-outlined text-sm text-secondary" data-icon="call">call</span> Call
+<span className="material-symbols-outlined notranslate text-sm text-secondary" data-icon="call" translate="no" aria-hidden="true">call</span> Call
       </a>
 <a className="py-1.5 px-3 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded text-xs font-bold flex items-center justify-center gap-1 shadow-sm transition-colors" href="https://wa.me/919822098765?text=Pranam%20requesting%20Jain%20thali%20timings" target="_blank" title="Chat on WhatsApp">
 <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
@@ -646,13 +646,13 @@ export default function FoodPage() {
 <div className="relative h-48 w-full overflow-hidden">
 <img alt="Panchavati Gaurav Thali &amp; Upvas Bhavan" className="w-full h-full object-cover" data-alt="A sumptuous family vegetarian feast with an assortment of small katori bowls containing rich yellow dal, paneer in tomato satvik gravy, puffed hot puris, golden shrikhand sweet, and cold spiced chaas buttermilk. Beautiful clean indoor air-conditioned hall with warm ambient ceiling chandeliers and neat linen-covered tables." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpMZeXM0xBQF7Sblc1c2vqif6h7Ymyid6CZ_bFzhMKC_tDvfZCTcQqvPNGF6sReN2mk95YJSZoqC1jcv8M7ork1K9cJ70INOJlKj-nXUBuutLMReU6nrkB00NSYqc5M9mbWz53PaWpZtdMf9Kf7jPwcoI-_bgzrOmFNpkagwctXxwxtLgExAGuO28jmE4PAGoL_j8TxuYc_IEYo7Gdk7ny9_5e_HcUJO_3AbRzItIgNNlM07LWgwAvVw"/>
 <div className="absolute top-2.5 left-2.5 bg-surface/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-bold text-primary border border-outline-variant shadow-sm flex items-center gap-1">
-<span className="material-symbols-outlined text-xs" data-icon="ac_unit">ac_unit</span> AC Hall &amp; Lift
+<span className="material-symbols-outlined notranslate text-xs" data-icon="ac_unit" translate="no" aria-hidden="true">ac_unit</span> AC Hall &amp; Lift
         </div>
 <div className="absolute top-2.5 right-2.5 bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-0.5 rounded text-[11px] font-bold text-on-surface shadow-sm border border-outline-variant/60">
           ₹220 Thali
         </div>
 <div className="absolute bottom-2.5 left-2.5 bg-inverse-surface/90 text-inverse-on-surface px-2 py-0.5 rounded text-[10px] font-medium backdrop-blur-xs flex items-center gap-1">
-<span className="material-symbols-outlined text-[11px] text-tertiary-fixed" data-icon="family_restroom">family_restroom</span> Senior &amp; Wheelchair Friendly
+<span className="material-symbols-outlined notranslate text-[11px] text-tertiary-fixed" data-icon="family_restroom" translate="no" aria-hidden="true">family_restroom</span> Senior &amp; Wheelchair Friendly
         </div>
 </div>
 {/*  Content Body  */}
@@ -663,7 +663,7 @@ export default function FoodPage() {
 <h3 className="text-base font-headline-md font-bold text-on-surface leading-snug mt-0.5 line-clamp-1">Panchavati Gaurav Upvas Bhavan</h3>
 </div>
 <div className="flex items-center gap-0.5 bg-surface-container-high px-1.5 py-0.5 rounded border border-outline-variant shrink-0">
-<span className="material-symbols-outlined text-xs text-tertiary" data-icon="star" style={{ fontVariationSettings: "\'FILL\' 1" }}>star</span>
+<span className="material-symbols-outlined notranslate text-xs text-tertiary" data-icon="star" style={{ fontVariationSettings: "\'FILL\' 1" }} translate="no" aria-hidden="true">star</span>
 <span className="text-xs font-bold text-on-surface">4.7</span>
 <span className="text-[10px] text-outline">(1.9k)</span>
 </div>
@@ -671,11 +671,11 @@ export default function FoodPage() {
 {/*  Badges / Locality  */}
 <div className="flex flex-wrap items-center gap-2 mt-2 text-[11px] text-on-surface-variant">
 <span className="flex items-center gap-1 text-primary font-medium">
-<span className="material-symbols-outlined text-xs" data-icon="near_me">near_me</span> Near Sita Gufa (400m)
+<span className="material-symbols-outlined notranslate text-xs" data-icon="near_me" translate="no" aria-hidden="true">near_me</span> Near Sita Gufa (400m)
           </span>
 <span className="text-outline">•</span>
 <span className="flex items-center gap-1 text-secondary font-medium">
-<span className="material-symbols-outlined text-xs" data-icon="accessible">accessible</span> Wheelchair Lift
+<span className="material-symbols-outlined notranslate text-xs" data-icon="accessible" translate="no" aria-hidden="true">accessible</span> Wheelchair Lift
           </span>
 <span className="text-outline">•</span>
 <span className="text-[10px] font-medium text-outline">Panchavati</span>
@@ -689,10 +689,10 @@ export default function FoodPage() {
 {/*  Bottom Action Bar with Location, Call & WhatsApp  */}
 <div className="p-3 pt-0 border-t border-surface-variant/70 mt-2 flex items-center gap-2">
 <a className="flex-1 py-1.5 px-2 bg-surface-container-low hover:bg-surface-container border border-outline-variant text-on-surface rounded text-xs font-semibold flex items-center justify-center gap-1 transition-colors" href="#">
-<span className="material-symbols-outlined text-sm text-primary" data-icon="location_on">location_on</span> Location
+<span className="material-symbols-outlined notranslate text-sm text-primary" data-icon="location_on" translate="no" aria-hidden="true">location_on</span> Location
       </a>
 <a className="py-1.5 px-3 bg-surface-container-low hover:bg-surface-container border border-outline-variant text-on-surface rounded text-xs font-semibold flex items-center justify-center gap-1 transition-colors" href="tel:+912532533445" title="Call Bhojanalaya">
-<span className="material-symbols-outlined text-sm text-secondary" data-icon="call">call</span> Call
+<span className="material-symbols-outlined notranslate text-sm text-secondary" data-icon="call" translate="no" aria-hidden="true">call</span> Call
       </a>
 <a className="py-1.5 px-3 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded text-xs font-bold flex items-center justify-center gap-1 shadow-sm transition-colors" href="https://wa.me/919822033445?text=Namaskar%20inquiring%20about%20senior%20thali%20booking" target="_blank" title="Chat on WhatsApp">
 <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
@@ -707,13 +707,13 @@ export default function FoodPage() {
 <div className="relative h-48 w-full overflow-hidden">
 <img alt="Shri Someshwar Satvik Uphar &amp; Misal Kendra" className="w-full h-full object-cover" data-alt="Authentic Nashik pilgrim-style yellow tarri misal served in a clean bowl garnished with crisp golden sev farsan, fresh coriander, and lemon slice, flanked by warm pav bread and a glass of steaming filter coffee. The setting is an open-air riverfront veranda overlooking the sacred Godavari ghats during early dawn." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkHixirR7-ryAYxLg2DqXbBSQW7yyPjq0xd57clxlxDZyk7ROy57wHcgjrzc3nERAh1EibSyjZDWpdIjXi80J6XMWHVsvTtEeRBUkaAy0tmnaQ-dKOsVNgVz6vXvUxqKQtOQlSGiH31dlgRszEMRF8uExNnviRqEYNIy-C1k1otU0wO382tex1tXSbB1vXNnoX-tpZQlpUyYc1MMr-0MqZPgvUUNutXBJjOIxAoytMFNOWfAZYAgrjwQ"/>
 <div className="absolute top-2.5 left-2.5 bg-surface/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-bold text-primary border border-outline-variant shadow-sm flex items-center gap-1">
-<span className="material-symbols-outlined text-xs" data-icon="wb_sunny">wb_sunny</span> Open 6:30 AM
+<span className="material-symbols-outlined notranslate text-xs" data-icon="wb_sunny" translate="no" aria-hidden="true">wb_sunny</span> Open 6:30 AM
         </div>
 <div className="absolute top-2.5 right-2.5 bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-0.5 rounded text-[11px] font-bold text-on-surface shadow-sm border border-outline-variant/60">
           ₹70 - ₹110
         </div>
 <div className="absolute bottom-2.5 left-2.5 bg-inverse-surface/90 text-inverse-on-surface px-2 py-0.5 rounded text-[10px] font-medium backdrop-blur-xs flex items-center gap-1">
-<span className="material-symbols-outlined text-[11px] text-tertiary-fixed" data-icon="waves">waves</span> Godavari River View
+<span className="material-symbols-outlined notranslate text-[11px] text-tertiary-fixed" data-icon="waves" translate="no" aria-hidden="true">waves</span> Godavari River View
         </div>
 </div>
 {/*  Content Body  */}
@@ -724,7 +724,7 @@ export default function FoodPage() {
 <h3 className="text-base font-headline-md font-bold text-on-surface leading-snug mt-0.5 line-clamp-1">Shri Someshwar Satvik Misal</h3>
 </div>
 <div className="flex items-center gap-0.5 bg-surface-container-high px-1.5 py-0.5 rounded border border-outline-variant shrink-0">
-<span className="material-symbols-outlined text-xs text-tertiary" data-icon="star" style={{ fontVariationSettings: "\'FILL\' 1" }}>star</span>
+<span className="material-symbols-outlined notranslate text-xs text-tertiary" data-icon="star" style={{ fontVariationSettings: "\'FILL\' 1" }} translate="no" aria-hidden="true">star</span>
 <span className="text-xs font-bold text-on-surface">4.6</span>
 <span className="text-[10px] text-outline">(4.1k)</span>
 </div>
@@ -732,11 +732,11 @@ export default function FoodPage() {
 {/*  Badges / Locality  */}
 <div className="flex flex-wrap items-center gap-2 mt-2 text-[11px] text-on-surface-variant">
 <span className="flex items-center gap-1 text-primary font-medium">
-<span className="material-symbols-outlined text-xs" data-icon="near_me">near_me</span> 700m Someshwar
+<span className="material-symbols-outlined notranslate text-xs" data-icon="near_me" translate="no" aria-hidden="true">near_me</span> 700m Someshwar
           </span>
 <span className="text-outline">•</span>
 <span className="flex items-center gap-1 text-secondary font-medium">
-<span className="material-symbols-outlined text-xs" data-icon="verified">verified</span> Low-Spice Satvik
+<span className="material-symbols-outlined notranslate text-xs" data-icon="verified" translate="no" aria-hidden="true">verified</span> Low-Spice Satvik
           </span>
 <span className="text-outline">•</span>
 <span className="text-[10px] font-medium text-outline">Gangapur Rd</span>
@@ -750,10 +750,10 @@ export default function FoodPage() {
 {/*  Bottom Action Bar with Location, Call & WhatsApp  */}
 <div className="p-3 pt-0 border-t border-surface-variant/70 mt-2 flex items-center gap-2">
 <a className="flex-1 py-1.5 px-2 bg-surface-container-low hover:bg-surface-container border border-outline-variant text-on-surface rounded text-xs font-semibold flex items-center justify-center gap-1 transition-colors" href="#">
-<span className="material-symbols-outlined text-sm text-primary" data-icon="location_on">location_on</span> Location
+<span className="material-symbols-outlined notranslate text-sm text-primary" data-icon="location_on" translate="no" aria-hidden="true">location_on</span> Location
       </a>
 <a className="py-1.5 px-3 bg-surface-container-low hover:bg-surface-container border border-outline-variant text-on-surface rounded text-xs font-semibold flex items-center justify-center gap-1 transition-colors" href="tel:+912532545566" title="Call Bhojanalaya">
-<span className="material-symbols-outlined text-sm text-secondary" data-icon="call">call</span> Call
+<span className="material-symbols-outlined notranslate text-sm text-secondary" data-icon="call" translate="no" aria-hidden="true">call</span> Call
       </a>
 <a className="py-1.5 px-3 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded text-xs font-bold flex items-center justify-center gap-1 shadow-sm transition-colors" href="https://wa.me/919822045566?text=Jai%20Bholenath%20checking%20morning%20misal%20queue" target="_blank" title="Chat on WhatsApp">
 <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
@@ -768,13 +768,13 @@ export default function FoodPage() {
 <div className="relative h-48 w-full overflow-hidden">
 <img alt="Sant Tukaram Seva Trust Bhojanalaya" className="w-full h-full object-cover" data-alt="Spiritual community dining hall where sadhus and Hindu devotees sit side by side in peaceful communal harmony, being served hot wholesome dal, soft chapati rotis, and fresh seasonal vegetable curry from traditional copper buckets under soft golden temple pendant lights. The ambiance conveys profound humility, devotion, and cleanliness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC90yQ8X8XwZW5sL4noZFEPZYlkgzyPhC8_WhmGwa2AvIwM5Requ5xIn4B9CUc5MFTfyAv9DhnEYN8_xBIqmJhx6tTej5lKdaf4dWTHvlTU8Ju_6atMlxF9Q9rS6cTVncuSUpvOhMvm0q29vzhkAsBirbGB6hPHfmxqmjSRp7LG4V_qz9bH16PDlwR-qeCjd_oAGfMA817Hj_Gy05XcnlcaMU3ZJ_8-Thdu39y0qpIKbORMa5WFdo35sA"/>
 <div className="absolute top-2.5 left-2.5 bg-surface/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-bold text-primary border border-outline-variant shadow-sm flex items-center gap-1">
-<span className="material-symbols-outlined text-xs" data-icon="volunteer_activism">volunteer_activism</span> Community Seva
+<span className="material-symbols-outlined notranslate text-xs" data-icon="volunteer_activism" translate="no" aria-hidden="true">volunteer_activism</span> Community Seva
         </div>
 <div className="absolute top-2.5 right-2.5 bg-primary/10 text-primary border border-primary/30 px-2 py-0.5 rounded text-[11px] font-bold shadow-sm">
           ₹50 Seva Token
         </div>
 <div className="absolute bottom-2.5 left-2.5 bg-inverse-surface/90 text-inverse-on-surface px-2 py-0.5 rounded text-[10px] font-medium backdrop-blur-xs flex items-center gap-1">
-<span className="material-symbols-outlined text-[11px] text-tertiary-fixed" data-icon="confirmation_number">confirmation_number</span> Digital &amp; Offline Token
+<span className="material-symbols-outlined notranslate text-[11px] text-tertiary-fixed" data-icon="confirmation_number" translate="no" aria-hidden="true">confirmation_number</span> Digital &amp; Offline Token
         </div>
 </div>
 {/*  Content Body  */}
@@ -785,7 +785,7 @@ export default function FoodPage() {
 <h3 className="text-base font-headline-md font-bold text-on-surface leading-snug mt-0.5 line-clamp-1">Sant Tukaram Seva Trust</h3>
 </div>
 <div className="flex items-center gap-0.5 bg-surface-container-high px-1.5 py-0.5 rounded border border-outline-variant shrink-0">
-<span className="material-symbols-outlined text-xs text-tertiary" data-icon="star" style={{ fontVariationSettings: "\'FILL\' 1" }}>star</span>
+<span className="material-symbols-outlined notranslate text-xs text-tertiary" data-icon="star" style={{ fontVariationSettings: "\'FILL\' 1" }} translate="no" aria-hidden="true">star</span>
 <span className="text-xs font-bold text-on-surface">4.9</span>
 <span className="text-[10px] text-outline">(5.8k)</span>
 </div>
@@ -793,11 +793,11 @@ export default function FoodPage() {
 {/*  Badges / Locality  */}
 <div className="flex flex-wrap items-center gap-2 mt-2 text-[11px] text-on-surface-variant">
 <span className="flex items-center gap-1 text-primary font-medium">
-<span className="material-symbols-outlined text-xs" data-icon="near_me">near_me</span> 150m Kushavarta
+<span className="material-symbols-outlined notranslate text-xs" data-icon="near_me" translate="no" aria-hidden="true">near_me</span> 150m Kushavarta
           </span>
 <span className="text-outline">•</span>
 <span className="flex items-center gap-1 text-secondary font-medium">
-<span className="material-symbols-outlined text-xs" data-icon="health_and_safety">health_and_safety</span> Doctor Inspected
+<span className="material-symbols-outlined notranslate text-xs" data-icon="health_and_safety" translate="no" aria-hidden="true">health_and_safety</span> Doctor Inspected
           </span>
 <span className="text-outline">•</span>
 <span className="text-[10px] font-medium text-outline">Trimbak Kund</span>
@@ -811,10 +811,10 @@ export default function FoodPage() {
 {/*  Bottom Action Bar with Location, Call & WhatsApp  */}
 <div className="p-3 pt-0 border-t border-surface-variant/70 mt-2 flex items-center gap-2">
 <a className="flex-1 py-1.5 px-2 bg-surface-container-low hover:bg-surface-container border border-outline-variant text-on-surface rounded text-xs font-semibold flex items-center justify-center gap-1 transition-colors" href="#">
-<span className="material-symbols-outlined text-sm text-primary" data-icon="location_on">location_on</span> Location
+<span className="material-symbols-outlined notranslate text-sm text-primary" data-icon="location_on" translate="no" aria-hidden="true">location_on</span> Location
       </a>
 <a className="py-1.5 px-3 bg-surface-container-low hover:bg-surface-container border border-outline-variant text-on-surface rounded text-xs font-semibold flex items-center justify-center gap-1 transition-colors" href="tel:+912532578899" title="Call Bhojanalaya">
-<span className="material-symbols-outlined text-sm text-secondary" data-icon="call">call</span> Call
+<span className="material-symbols-outlined notranslate text-sm text-secondary" data-icon="call" translate="no" aria-hidden="true">call</span> Call
       </a>
 <a className="py-1.5 px-3 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded text-xs font-bold flex items-center justify-center gap-1 shadow-sm transition-colors" href="https://wa.me/919822078899?text=Ram%20Krishna%20Hari%20need%20seva%20token%20info" target="_blank" title="Chat on WhatsApp">
 <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
@@ -829,13 +829,13 @@ export default function FoodPage() {
 <div className="relative h-48 w-full overflow-hidden">
 <img alt="Samarth Satvik Bhojanalaya &amp; Annakshetra" className="w-full h-full object-cover" data-alt="Traditional Indian pilgrim dining hall with devotees partaking in satvik jowar bhakri, varan bhat rice, spicy roasted peanut thecha, and seasonal gourd curry in brass bowls with clean drinking copper water jugs on the tables." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXjJhSHKG_mFbDh-7nRlLtRKkcQS8KfaHpb1bHGV9BDzbU9Bia4NHMFi0zcu-6pbBt0UanQ0c5Iyh0bcZm1tJwjUfVj0wANvRTqxLbUEsAlyiKhrOmZzrtswkR_SFvT06mQT2wz48ya2yHo_sbhDoktZZazGU6q_feGCaqSq0SEsCXbxVL9Wlp9GpRaH0yC5bSDV2SEu62NyaN93_nvJ_dIMcTeHYtBblm8hZkASjiNr8VEpNmZjlWrQ"/>
 <div className="absolute top-2.5 left-2.5 bg-surface/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-bold text-primary border border-outline-variant shadow-sm flex items-center gap-1">
-<span className="material-symbols-outlined text-xs" data-icon="verified">verified</span> Unlimited Thali
+<span className="material-symbols-outlined notranslate text-xs" data-icon="verified" translate="no" aria-hidden="true">verified</span> Unlimited Thali
         </div>
 <div className="absolute top-2.5 right-2.5 bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-0.5 rounded text-[11px] font-bold text-on-surface shadow-sm border border-outline-variant/60">
           ₹110 Thali
         </div>
 <div className="absolute bottom-2.5 left-2.5 bg-inverse-surface/90 text-inverse-on-surface px-2 py-0.5 rounded text-[10px] font-medium backdrop-blur-xs flex items-center gap-1">
-<span className="material-symbols-outlined text-[11px] text-tertiary-fixed" data-icon="schedule">schedule</span> Open All Day · No Break
+<span className="material-symbols-outlined notranslate text-[11px] text-tertiary-fixed" data-icon="schedule" translate="no" aria-hidden="true">schedule</span> Open All Day · No Break
         </div>
 </div>
 {/*  Content Body  */}
@@ -846,7 +846,7 @@ export default function FoodPage() {
 <h3 className="text-base font-headline-md font-bold text-on-surface leading-snug mt-0.5 line-clamp-1">Samarth Satvik &amp; Annakshetra</h3>
 </div>
 <div className="flex items-center gap-0.5 bg-surface-container-high px-1.5 py-0.5 rounded border border-outline-variant shrink-0">
-<span className="material-symbols-outlined text-xs text-tertiary" data-icon="star" style={{ fontVariationSettings: "\'FILL\' 1" }}>star</span>
+<span className="material-symbols-outlined notranslate text-xs text-tertiary" data-icon="star" style={{ fontVariationSettings: "\'FILL\' 1" }} translate="no" aria-hidden="true">star</span>
 <span className="text-xs font-bold text-on-surface">4.8</span>
 <span className="text-[10px] text-outline">(2.8k)</span>
 </div>
@@ -854,11 +854,11 @@ export default function FoodPage() {
 {/*  Badges / Locality  */}
 <div className="flex flex-wrap items-center gap-2 mt-2 text-[11px] text-on-surface-variant">
 <span className="flex items-center gap-1 text-primary font-medium">
-<span className="material-symbols-outlined text-xs" data-icon="near_me">near_me</span> 650m Tapovan Ghat
+<span className="material-symbols-outlined notranslate text-xs" data-icon="near_me" translate="no" aria-hidden="true">near_me</span> 650m Tapovan Ghat
           </span>
 <span className="text-outline">•</span>
 <span className="flex items-center gap-1 text-secondary font-medium">
-<span className="material-symbols-outlined text-xs" data-icon="water_drop">water_drop</span> UV Pure Water
+<span className="material-symbols-outlined notranslate text-xs" data-icon="water_drop" translate="no" aria-hidden="true">water_drop</span> UV Pure Water
           </span>
 <span className="text-outline">•</span>
 <span className="text-[10px] font-medium text-outline">Tapovan Marg</span>
@@ -872,10 +872,10 @@ export default function FoodPage() {
 {/*  Bottom Action Bar with Location, Call & WhatsApp  */}
 <div className="p-3 pt-0 border-t border-surface-variant/70 mt-2 flex items-center gap-2">
 <a className="flex-1 py-1.5 px-2 bg-surface-container-low hover:bg-surface-container border border-outline-variant text-on-surface rounded text-xs font-semibold flex items-center justify-center gap-1 transition-colors" href="#">
-<span className="material-symbols-outlined text-sm text-primary" data-icon="location_on">location_on</span> Location
+<span className="material-symbols-outlined notranslate text-sm text-primary" data-icon="location_on" translate="no" aria-hidden="true">location_on</span> Location
       </a>
 <a className="py-1.5 px-3 bg-surface-container-low hover:bg-surface-container border border-outline-variant text-on-surface rounded text-xs font-semibold flex items-center justify-center gap-1 transition-colors" href="tel:+912532587711" title="Call Bhojanalaya">
-<span className="material-symbols-outlined text-sm text-secondary" data-icon="call">call</span> Call
+<span className="material-symbols-outlined notranslate text-sm text-secondary" data-icon="call" translate="no" aria-hidden="true">call</span> Call
       </a>
 <a className="py-1.5 px-3 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded text-xs font-bold flex items-center justify-center gap-1 shadow-sm transition-colors" href="https://wa.me/919822087711?text=Jay%20Shree%20Ram%20inquiring%20about%20Tapovan%20annakshetra" target="_blank" title="Chat on WhatsApp">
 <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>

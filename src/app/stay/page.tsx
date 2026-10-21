@@ -7,7 +7,9 @@ import { Topbar, Navbar } from '@/components/Navbar';
 import { MobileBottomNav } from '@/components/MobileBottomNav';
 
 const MS = ({ name, cls = '' }: { name: string; cls?: string }) => (
-  <span className={`material-symbols-outlined ${cls}`}>{name}</span>
+  <span className={`material-symbols-outlined notranslate ${cls}`} translate="no" aria-hidden="true">
+    {name}
+  </span>
 );
 
 /* ─── COMPONENT: Footer ─────────────────────────────────────────── */

@@ -6,7 +6,7 @@ import { Topbar, Navbar } from '@/components/Navbar';
 import { MobileBottomNav } from '@/components/MobileBottomNav';
 
 const MS = ({ name, cls = '' }: { name: string; cls?: string }) => (
-  <span className={`material-symbols-outlined ${cls}`}>{name}</span>
+  <span className={`material-symbols-outlined notranslate ${cls}`} translate="no" aria-hidden="true">{name}</span>
 );
 
 /* ─── COMPONENT: Footer ─────────────────────────────────────────── */
@@ -409,7 +409,7 @@ export default function EmergencyPage() {
 <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6">
 <div className="max-w-3xl space-y-3">
 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-error/10 text-error font-label-sm text-label-sm tracking-widest uppercase font-bold">
-<span className="material-symbols-outlined text-[15px]" style={{ fontVariationSettings: "'FILL' 1" }}>shield_with_heart</span>
+<span className="material-symbols-outlined notranslate text-[15px]" style={{ fontVariationSettings: "'FILL' 1" }} translate="no" aria-hidden="true">shield_with_heart</span>
           24x7 DEVOTEE SAFETY COMMAND & EMERGENCY RESPONSE
         </div>
 <h1 className="font-headline-xl text-headline-xl md:font-display-lg md:text-display-lg text-on-surface tracking-tight leading-tight">
@@ -445,7 +445,7 @@ export default function EmergencyPage() {
 <div className="space-y-4">
 <div className="flex items-start justify-between">
 <div className="w-12 h-12 rounded-lg bg-error-container text-on-error-container flex items-center justify-center">
-<span className="material-symbols-outlined text-[26px]" style={{ fontVariationSettings: "'FILL' 1" }}>local_police</span>
+<span className="material-symbols-outlined notranslate text-[26px]" style={{ fontVariationSettings: "'FILL' 1" }} translate="no" aria-hidden="true">local_police</span>
 </div>
 <span className="px-2.5 py-1 rounded-full bg-error-container text-error font-label-sm text-label-sm font-bold uppercase">Priority Red</span>
 </div>
@@ -459,11 +459,11 @@ export default function EmergencyPage() {
 </div>
 <div className="pt-6 space-y-2.5">
 <a className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded bg-error text-on-error font-label-md text-label-md tracking-wider uppercase font-bold hover:bg-on-error-container transition-colors shadow-sm" href="tel:112">
-<span className="material-symbols-outlined text-[18px]">call</span>
+<span className="material-symbols-outlined notranslate text-[18px]" translate="no" aria-hidden="true">call</span>
 <span>Call Police (112)</span>
 </a>
 <button className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded bg-surface-container-low text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" onClick={() => {}}>
-<span className="material-symbols-outlined text-[17px] text-error">my_location</span>
+<span className="material-symbols-outlined notranslate text-[17px] text-error" translate="no" aria-hidden="true">my_location</span>
 <span>Nearest Police Booth (GPS)</span>
 </button>
 </div>
@@ -474,7 +474,7 @@ export default function EmergencyPage() {
 <div className="space-y-4">
 <div className="flex items-start justify-between">
 <div className="w-12 h-12 rounded-lg bg-primary-fixed text-on-primary-fixed flex items-center justify-center">
-<span className="material-symbols-outlined text-[26px]" style={{ fontVariationSettings: "'FILL' 1" }}>ambulance</span>
+<span className="material-symbols-outlined notranslate text-[26px]" style={{ fontVariationSettings: "'FILL' 1" }} translate="no" aria-hidden="true">ambulance</span>
 </div>
 <span className="px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm font-bold uppercase">Medical ICU</span>
 </div>
@@ -488,11 +488,11 @@ export default function EmergencyPage() {
 </div>
 <div className="pt-6 space-y-2.5">
 <a className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded bg-primary text-on-primary font-label-md text-label-md tracking-wider uppercase font-bold hover:bg-primary-container transition-colors shadow-sm" href="tel:108">
-<span className="material-symbols-outlined text-[18px]">call</span>
+<span className="material-symbols-outlined notranslate text-[18px]" translate="no" aria-hidden="true">call</span>
 <span>Call Ambulance (108)</span>
 </a>
 <button className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded bg-surface-container-low text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" onClick={() => {}}>
-<span className="material-symbols-outlined text-[17px] text-primary">emergency</span>
+<span className="material-symbols-outlined notranslate text-[17px] text-primary" translate="no" aria-hidden="true">emergency</span>
 <span>Request Rapid Medic</span>
 </button>
 </div>
@@ -503,7 +503,7 @@ export default function EmergencyPage() {
 <div className="space-y-4">
 <div className="flex items-start justify-between">
 <div className="w-12 h-12 rounded-lg bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center">
-<span className="material-symbols-outlined text-[26px]" style={{ fontVariationSettings: "'FILL' 1" }}>support_agent</span>
+<span className="material-symbols-outlined notranslate text-[26px]" style={{ fontVariationSettings: "'FILL' 1" }} translate="no" aria-hidden="true">support_agent</span>
 </div>
 <span className="px-2.5 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm font-bold uppercase">Multilingual</span>
 </div>
@@ -517,11 +517,11 @@ export default function EmergencyPage() {
 </div>
 <div className="pt-6 space-y-2.5">
 <a className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded bg-tertiary text-on-tertiary font-label-md text-label-md tracking-wider uppercase font-bold hover:bg-tertiary-container transition-colors shadow-sm" href="tel:1800202700">
-<span className="material-symbols-outlined text-[18px]">call</span>
+<span className="material-symbols-outlined notranslate text-[18px]" translate="no" aria-hidden="true">call</span>
 <span>Call 1800-2027-00</span>
 </a>
 <button className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded bg-surface-container-low text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" onClick={() => {}}>
-<span className="material-symbols-outlined text-[17px] text-tertiary">translate</span>
+<span className="material-symbols-outlined notranslate text-[17px] text-tertiary" translate="no" aria-hidden="true">translate</span>
 <span>Select Regional Speaker</span>
 </button>
 </div>
@@ -532,7 +532,7 @@ export default function EmergencyPage() {
 <div className="space-y-4">
 <div className="flex items-start justify-between">
 <div className="w-12 h-12 rounded-lg bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center">
-<span className="material-symbols-outlined text-[26px]" style={{ fontVariationSettings: "'FILL' 1" }}>elderly_woman</span>
+<span className="material-symbols-outlined notranslate text-[26px]" style={{ fontVariationSettings: "'FILL' 1" }} translate="no" aria-hidden="true">elderly_woman</span>
 </div>
 <span className="px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm font-bold uppercase">Dedicated Care</span>
 </div>
@@ -546,11 +546,11 @@ export default function EmergencyPage() {
 </div>
 <div className="pt-6 space-y-2.5">
 <a className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded bg-secondary text-on-secondary font-label-md text-label-md tracking-wider uppercase font-bold hover:bg-secondary-container hover:text-on-secondary-container transition-colors shadow-sm" href="tel:1091">
-<span className="material-symbols-outlined text-[18px]">call</span>
+<span className="material-symbols-outlined notranslate text-[18px]" translate="no" aria-hidden="true">call</span>
 <span>Dial Women Safety (1091)</span>
 </a>
 <a className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded bg-surface-container-low text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" href="tel:14567">
-<span className="material-symbols-outlined text-[17px] text-secondary">elderly</span>
+<span className="material-symbols-outlined notranslate text-[17px] text-secondary" translate="no" aria-hidden="true">elderly</span>
 <span>Elder Helpline (14567)</span>
 </a>
 </div>
@@ -580,7 +580,7 @@ export default function EmergencyPage() {
 {/* Map Top Overlay: Sector Quick Toggles */}
 <div className="absolute top-4 left-4 right-4 flex flex-wrap items-center justify-between gap-2 z-10">
 <div className="bg-surface/95 backdrop-blur-md px-3.5 py-1.5 rounded-lg shadow-md flex items-center gap-2 text-on-surface">
-<span className="material-symbols-outlined text-primary text-[18px]">place</span>
+<span className="material-symbols-outlined notranslate text-primary text-[18px]" translate="no" aria-hidden="true">place</span>
 <span className="font-label-md text-label-md font-semibold">Active Sector: Ram Kund & Panchavati Zone</span>
 </div>
 <div className="bg-surface/95 backdrop-blur-md px-3 py-1.5 rounded-lg shadow-md flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant">
@@ -593,7 +593,7 @@ export default function EmergencyPage() {
 <div className="relative flex items-center justify-center">
 <div className="w-10 h-10 rounded-full bg-error/20 animate-ping absolute"></div>
 <div className="w-8 h-8 rounded-full bg-error text-on-error flex items-center justify-center shadow-lg border-2 border-white relative z-10 transition-transform group-hover:scale-125">
-<span className="material-symbols-outlined text-[16px]">local_hospital</span>
+<span className="material-symbols-outlined notranslate text-[16px]" translate="no" aria-hidden="true">local_hospital</span>
 </div>
 <div className="hidden group-hover:block absolute bottom-10 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-2.5 py-1 rounded text-label-sm font-label-sm whitespace-nowrap shadow-xl z-20">
                   Ram Kund Central ICU (120m)
@@ -604,7 +604,7 @@ export default function EmergencyPage() {
 <div className="relative flex items-center justify-center">
 <div className="w-10 h-10 rounded-full bg-secondary/30 animate-pulse absolute"></div>
 <div className="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center shadow-lg border-2 border-white relative z-10 transition-transform group-hover:scale-125">
-<span className="material-symbols-outlined text-[16px]">scuba_diving</span>
+<span className="material-symbols-outlined notranslate text-[16px]" translate="no" aria-hidden="true">scuba_diving</span>
 </div>
 <div className="hidden group-hover:block absolute bottom-10 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-2.5 py-1 rounded text-label-sm font-label-sm whitespace-nowrap shadow-xl z-20">
                   Godavari Water Rescue Post #2
@@ -614,7 +614,7 @@ export default function EmergencyPage() {
 <div className="absolute bottom-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer group" onClick={() => {}}>
 <div className="relative flex items-center justify-center">
 <div className="w-8 h-8 rounded-full bg-error-container text-on-error-container flex items-center justify-center shadow-md border border-error relative z-10 transition-transform group-hover:scale-125">
-<span className="material-symbols-outlined text-[16px]">security</span>
+<span className="material-symbols-outlined notranslate text-[16px]" translate="no" aria-hidden="true">security</span>
 </div>
 <div className="hidden group-hover:block absolute bottom-10 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-2.5 py-1 rounded text-label-sm font-label-sm whitespace-nowrap shadow-xl z-20">
                   Ghat Security Watch Tower 4
@@ -624,7 +624,7 @@ export default function EmergencyPage() {
 <div className="absolute bottom-1/4 right-1/4 -translate-x-1/2 -translate-y-1/2 cursor-pointer group" onClick={() => {}}>
 <div className="relative flex items-center justify-center">
 <div className="w-9 h-9 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-lg border-2 border-white relative z-10 transition-transform group-hover:scale-125">
-<span className="material-symbols-outlined text-[17px]">medical_services</span>
+<span className="material-symbols-outlined notranslate text-[17px]" translate="no" aria-hidden="true">medical_services</span>
 </div>
 <div className="hidden group-hover:block absolute bottom-10 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-2.5 py-1 rounded text-label-sm font-label-sm whitespace-nowrap shadow-xl z-20">
                   Tapovan Field Hospital (650m)
@@ -652,7 +652,7 @@ export default function EmergencyPage() {
 </div>
 </div>
 <button className="text-secondary font-label-sm font-bold flex items-center gap-1 hover:underline">
-<span className="material-symbols-outlined text-[16px]">fullscreen</span>
+<span className="material-symbols-outlined notranslate text-[16px]" translate="no" aria-hidden="true">fullscreen</span>
 <span>Open Fullscreen Grid</span>
 </button>
 </div>
@@ -663,7 +663,7 @@ export default function EmergencyPage() {
 <div className="space-y-4">
 {/* Search Field */}
 <div className="relative">
-<span className="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<span className="material-symbols-outlined notranslate absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-[20px]" translate="no" aria-hidden="true">search</span>
 <input className="w-full h-[48px] bg-surface-container-low pl-11 pr-4 rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-secondary transition-all" id="emergencySearchInput" placeholder="Find nearest medical camp, police post, or water rescue..." type="text"/>
 </div>
 {/* Categorical Filter Chips */}
@@ -689,7 +689,7 @@ export default function EmergencyPage() {
                     </p>
 <div className="flex items-center gap-3 pt-1 text-label-sm font-label-sm text-outline">
 <span className="text-error font-bold flex items-center gap-1">
-<span className="material-symbols-outlined text-[14px]">directions_walk</span> 120m away
+<span className="material-symbols-outlined notranslate text-[14px]" translate="no" aria-hidden="true">directions_walk</span> 120m away
                       </span>
 <span>•</span>
 <span className="text-tertiary font-semibold">Ghat Pier 4A</span>
@@ -699,7 +699,7 @@ export default function EmergencyPage() {
 </div>
 <a className="shrink-0 px-3 py-1.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold hover:bg-primary-container transition-colors flex items-center gap-1" href="https://maps.google.com" target="_blank">
 <span>Navigate</span>
-<span className="material-symbols-outlined text-[14px]">navigation</span>
+<span className="material-symbols-outlined notranslate text-[14px]" translate="no" aria-hidden="true">navigation</span>
 </a>
 </div>
 </div>
@@ -716,7 +716,7 @@ export default function EmergencyPage() {
                     </p>
 <div className="flex items-center gap-3 pt-1 text-label-sm font-label-sm text-outline">
 <span className="text-primary font-bold flex items-center gap-1">
-<span className="material-symbols-outlined text-[14px]">directions_walk</span> 650m away
+<span className="material-symbols-outlined notranslate text-[14px]" translate="no" aria-hidden="true">directions_walk</span> 650m away
                       </span>
 <span>•</span>
 <span>Sadhu Gram Sector 3</span>
@@ -726,7 +726,7 @@ export default function EmergencyPage() {
 </div>
 <a className="shrink-0 px-3 py-1.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold hover:bg-secondary hover:text-on-secondary transition-colors flex items-center gap-1" href="https://maps.google.com" target="_blank">
 <span>Navigate</span>
-<span className="material-symbols-outlined text-[14px]">navigation</span>
+<span className="material-symbols-outlined notranslate text-[14px]" translate="no" aria-hidden="true">navigation</span>
 </a>
 </div>
 </div>
@@ -743,7 +743,7 @@ export default function EmergencyPage() {
                     </p>
 <div className="flex items-center gap-3 pt-1 text-label-sm font-label-sm text-outline">
 <span className="text-secondary font-bold flex items-center gap-1">
-<span className="material-symbols-outlined text-[14px]">directions_walk</span> 280m away
+<span className="material-symbols-outlined notranslate text-[14px]" translate="no" aria-hidden="true">directions_walk</span> 280m away
                       </span>
 <span>•</span>
 <span>Victoria Bridge Ghat</span>
@@ -753,7 +753,7 @@ export default function EmergencyPage() {
 </div>
 <a className="shrink-0 px-3 py-1.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold hover:bg-secondary hover:text-on-secondary transition-colors flex items-center gap-1" href="https://maps.google.com" target="_blank">
 <span>Navigate</span>
-<span className="material-symbols-outlined text-[14px]">navigation</span>
+<span className="material-symbols-outlined notranslate text-[14px]" translate="no" aria-hidden="true">navigation</span>
 </a>
 </div>
 </div>
@@ -770,7 +770,7 @@ export default function EmergencyPage() {
                     </p>
 <div className="flex items-center gap-3 pt-1 text-label-sm font-label-sm text-outline">
 <span className="font-bold flex items-center gap-1 text-on-surface-variant">
-<span className="material-symbols-outlined text-[14px]">location_on</span> Trimbak Jyotirlinga
+<span className="material-symbols-outlined notranslate text-[14px]" translate="no" aria-hidden="true">location_on</span> Trimbak Jyotirlinga
                       </span>
 <span>•</span>
 <span className="text-tertiary">Immediate Deployment</span>
@@ -778,7 +778,7 @@ export default function EmergencyPage() {
 </div>
 <a className="shrink-0 px-3 py-1.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold hover:bg-secondary hover:text-on-secondary transition-colors flex items-center gap-1" href="https://maps.google.com" target="_blank">
 <span>Navigate</span>
-<span className="material-symbols-outlined text-[14px]">navigation</span>
+<span className="material-symbols-outlined notranslate text-[14px]" translate="no" aria-hidden="true">navigation</span>
 </a>
 </div>
 </div>
@@ -787,7 +787,7 @@ export default function EmergencyPage() {
 {/* Bottom Status Pill */}
 <div className="pt-4 border-t border-surface-variant flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
 <span className="flex items-center gap-1.5">
-<span className="material-symbols-outlined text-[16px] text-tertiary">medical_information</span>
+<span className="material-symbols-outlined notranslate text-[16px] text-tertiary" translate="no" aria-hidden="true">medical_information</span>
 <span>All posts equipped with automated cardiac defibrillators (AEDs)</span>
 </span>
 <span className="text-outline">Sector Nashik-01</span>
@@ -801,7 +801,7 @@ export default function EmergencyPage() {
 <div className="bg-gradient-to-r from-secondary to-[#183947] text-on-secondary rounded-xl p-space-lg md:p-space-xl shadow-lg relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6">
 <div className="space-y-2 max-w-2xl">
 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase font-bold tracking-wider">
-<span className="material-symbols-outlined text-[15px]">person_search</span>
+<span className="material-symbols-outlined notranslate text-[15px]" translate="no" aria-hidden="true">person_search</span>
           Privacy-First Pilgrim Registry
         </div>
 <h3 className="font-headline-lg text-headline-lg text-white font-medium">Looking to report or locate a missing family member or child?</h3>
@@ -811,7 +811,7 @@ export default function EmergencyPage() {
 </div>
 <div className="shrink-0 w-full md:w-auto">
 <a className="w-full md:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded bg-surface text-on-surface font-label-md text-label-md font-bold uppercase tracking-wider hover:bg-surface-container-high transition-colors shadow-md" data-path="lost-and-found" href="#">
-<span className="material-symbols-outlined text-[20px] text-primary">family_restroom</span>
+<span className="material-symbols-outlined notranslate text-[20px] text-primary" translate="no" aria-hidden="true">family_restroom</span>
 <span>Open Lost & Found Portal</span>
 </a>
 </div>
@@ -831,7 +831,7 @@ export default function EmergencyPage() {
 <div className="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between space-y-4">
 <div className="space-y-3">
 <div className="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
-<span className="material-symbols-outlined text-[22px]">turn_sharp_right</span>
+<span className="material-symbols-outlined notranslate text-[22px]" translate="no" aria-hidden="true">turn_sharp_right</span>
 </div>
 <h4 className="font-title-md text-title-md text-on-surface font-semibold">Crowd Flow & Shahi Snan Navigation</h4>
 <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
@@ -839,7 +839,7 @@ export default function EmergencyPage() {
           </p>
 </div>
 <div className="pt-2 text-label-sm font-label-sm text-primary font-bold flex items-center gap-1">
-<span className="material-symbols-outlined text-[15px]">check_circle</span>
+<span className="material-symbols-outlined notranslate text-[15px]" translate="no" aria-hidden="true">check_circle</span>
 <span>Adhere to 1-way cordons</span>
 </div>
 </div>
@@ -847,7 +847,7 @@ export default function EmergencyPage() {
 <div className="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between space-y-4">
 <div className="space-y-3">
 <div className="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
-<span className="material-symbols-outlined text-[22px]">water_bottle</span>
+<span className="material-symbols-outlined notranslate text-[22px]" translate="no" aria-hidden="true">water_bottle</span>
 </div>
 <h4 className="font-title-md text-title-md text-on-surface font-semibold">Hydration, Heat & ORS Booths</h4>
 <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
@@ -855,7 +855,7 @@ export default function EmergencyPage() {
           </p>
 </div>
 <div className="pt-2 text-label-sm font-label-sm text-secondary font-bold flex items-center gap-1">
-<span className="material-symbols-outlined text-[15px]">check_circle</span>
+<span className="material-symbols-outlined notranslate text-[15px]" translate="no" aria-hidden="true">check_circle</span>
 <span>1,200 Certified Water Points</span>
 </div>
 </div>
@@ -863,7 +863,7 @@ export default function EmergencyPage() {
 <div className="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between space-y-4">
 <div className="space-y-3">
 <div className="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-tertiary">
-<span className="material-symbols-outlined text-[22px]">pin_drop</span>
+<span className="material-symbols-outlined notranslate text-[22px]" translate="no" aria-hidden="true">pin_drop</span>
 </div>
 <h4 className="font-title-md text-title-md text-on-surface font-semibold">Family Meeting Points (Landmarking)</h4>
 <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
@@ -871,7 +871,7 @@ export default function EmergencyPage() {
           </p>
 </div>
 <div className="pt-2 text-label-sm font-label-sm text-tertiary font-bold flex items-center gap-1">
-<span className="material-symbols-outlined text-[15px]">check_circle</span>
+<span className="material-symbols-outlined notranslate text-[15px]" translate="no" aria-hidden="true">check_circle</span>
 <span>Agree on a Landmark First</span>
 </div>
 </div>
@@ -879,7 +879,7 @@ export default function EmergencyPage() {
 <div className="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between space-y-4">
 <div className="space-y-3">
 <div className="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-error">
-<span className="material-symbols-outlined text-[22px]">pool</span>
+<span className="material-symbols-outlined notranslate text-[22px]" translate="no" aria-hidden="true">pool</span>
 </div>
 <h4 className="font-title-md text-title-md text-on-surface font-semibold">Ghat Safety Chains & River Depth</h4>
 <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
@@ -887,7 +887,7 @@ export default function EmergencyPage() {
           </p>
 </div>
 <div className="pt-2 text-label-sm font-label-sm text-error font-bold flex items-center gap-1">
-<span className="material-symbols-outlined text-[15px]">check_circle</span>
+<span className="material-symbols-outlined notranslate text-[15px]" translate="no" aria-hidden="true">check_circle</span>
 <span>Stay Behind Safety Buoys</span>
 </div>
 </div>
@@ -934,7 +934,7 @@ export default function EmergencyPage() {
 <div className="lg:col-span-5 bg-surface-container p-space-lg rounded-xl flex flex-col justify-between space-y-4">
 <div className="space-y-2">
 <div className="flex items-center gap-2 text-primary font-label-md text-label-md uppercase font-bold">
-<span className="material-symbols-outlined text-[18px]">cell_tower</span>
+<span className="material-symbols-outlined notranslate text-[18px]" translate="no" aria-hidden="true">cell_tower</span>
 <span>Cell-Broadcast Emergency Alerts</span>
 </div>
 <h4 className="font-headline-md text-headline-md text-on-surface font-semibold">Subscribe for Ghat & Weather SMS</h4>
@@ -963,7 +963,7 @@ export default function EmergencyPage() {
 </select>
 </div>
 <button className="w-full py-3 px-4 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-bold uppercase tracking-wider transition-colors shadow-sm flex items-center justify-center gap-2" type="submit">
-<span className="material-symbols-outlined text-[18px]">notifications_active</span>
+<span className="material-symbols-outlined notranslate text-[18px]" translate="no" aria-hidden="true">notifications_active</span>
 <span>Activate Free SMS Safety Broadcast</span>
 </button>
 </form>

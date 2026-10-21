@@ -6,7 +6,7 @@ import { Topbar, Navbar } from '@/components/Navbar';
 import { MobileBottomNav } from '@/components/MobileBottomNav';
 
 const MS = ({ name, cls = '' }: { name: string; cls?: string }) => (
-  <span className={`material-symbols-outlined ${cls}`}>{name}</span>
+  <span className={`material-symbols-outlined notranslate ${cls}`} translate="no" aria-hidden="true">{name}</span>
 );
 
 /* ─── COMPONENT: Footer ─────────────────────────────────────────── */
@@ -410,7 +410,7 @@ export default function CampsPage() {
 <div className="max-w-[1440px] mx-auto px-margin-mobile md:px-margin">
 <div className="max-w-4xl space-y-space-sm">
 <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm uppercase tracking-widest font-semibold">
-<span className="material-symbols-outlined text-[16px]">local_fire_department</span>
+<span className="material-symbols-outlined notranslate text-[16px]" translate="no" aria-hidden="true">local_fire_department</span>
           Simhastha Sadhu Gram & Ashram Shibir
         </div>
 <h1 className="font-headline-xl md:font-display-lg text-headline-xl md:text-display-lg text-on-surface tracking-tight leading-tight">
@@ -424,7 +424,7 @@ export default function CampsPage() {
 <div className="mt-space-lg bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col lg:flex-row gap-space-md items-stretch lg:items-center justify-between">
 {/* Search Field */}
 <div className="relative flex-1">
-<span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<span className="material-symbols-outlined notranslate absolute left-4 top-1/2 -translate-y-1/2 text-outline text-[20px]" translate="no" aria-hidden="true">search</span>
 <input className="w-full h-[52px] bg-surface-container-low pl-12 pr-4 rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none transition-all" id="campSearchInput" placeholder="Search Akhadas, Sadhus, camps, pravachans, or ashram shibirs..." type="text"/>
 </div>
 {/* Sector Filters */}
@@ -444,7 +444,7 @@ export default function CampsPage() {
 </div>
 {/* GPS Action */}
 <a className="h-[52px] px-6 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md uppercase tracking-wider font-semibold inline-flex items-center justify-center gap-2 shrink-0 transition-colors shadow-sm" data-path="map" href="#">
-<span className="material-symbols-outlined text-[18px]">explore</span>
+<span className="material-symbols-outlined notranslate text-[18px]" translate="no" aria-hidden="true">explore</span>
 <span>Camp Map (GPS)</span>
 </a>
 </div>
@@ -479,7 +479,7 @@ export default function CampsPage() {
                   Shaiva Akhada • Tapovan Sector 1, Sadhu Gram
                 </span>
 <span className="px-3 py-1 rounded bg-surface-container-lowest/90 backdrop-blur text-on-surface font-label-sm text-label-sm font-semibold flex items-center gap-1">
-<span className="material-symbols-outlined text-primary text-[15px]">verified</span> Prime Akhada #1
+<span className="material-symbols-outlined notranslate text-primary text-[15px]" translate="no" aria-hidden="true">verified</span> Prime Akhada #1
                 </span>
 </div>
 </div>
@@ -494,14 +494,14 @@ export default function CampsPage() {
 {/* Meta details row */}
 <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-sm pt-2">
 <div className="bg-surface-container-low p-space-sm rounded-lg flex items-start gap-space-xs">
-<span className="material-symbols-outlined text-tertiary text-[20px] mt-0.5">schedule</span>
+<span className="material-symbols-outlined notranslate text-tertiary text-[20px] mt-0.5" translate="no" aria-hidden="true">schedule</span>
 <div>
 <span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold block">Darshan & Puja</span>
 <p className="font-body-sm text-body-sm text-on-surface">Darshan: 06:00 AM – 09:00 PM<br/>Daily Maha Hawan: 07:30 AM</p>
 </div>
 </div>
 <div className="bg-surface-container-low p-space-sm rounded-lg flex items-start gap-space-xs">
-<span className="material-symbols-outlined text-primary text-[20px] mt-0.5">festival</span>
+<span className="material-symbols-outlined notranslate text-primary text-[20px] mt-0.5" translate="no" aria-hidden="true">festival</span>
 <div>
 <span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold block">Shahi Snan Route</span>
 <p className="font-body-sm text-body-sm text-on-surface">Procession starts 05:30 AM via Tapovan Marg directly into Ram Kund.</p>
@@ -519,7 +519,7 @@ export default function CampsPage() {
                 View Akhada Schedule
               </button>
 <a className="px-4 py-2 rounded bg-secondary hover:bg-on-secondary-container text-on-secondary font-label-md text-label-md font-semibold flex items-center gap-1 transition-colors" data-path="map" href="#">
-<span className="material-symbols-outlined text-[16px]">navigation</span>
+<span className="material-symbols-outlined notranslate text-[16px]" translate="no" aria-hidden="true">navigation</span>
 <span>Directions (Gate #4)</span>
 </a>
 </div>
@@ -554,14 +554,14 @@ export default function CampsPage() {
 </div>
 <div className="flex items-center justify-between pt-space-md mt-space-md">
 <span className="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
-<span className="material-symbols-outlined text-[16px] text-tertiary">menu_book</span> Daily Shastra Sabha
+<span className="material-symbols-outlined notranslate text-[16px] text-tertiary" translate="no" aria-hidden="true">menu_book</span> Daily Shastra Sabha
             </span>
 <div className="flex items-center gap-2">
 <button className="px-3 py-1.5 rounded bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold hover:bg-surface-dim transition-colors">
                 Pravachan Schedule
               </button>
 <a className="px-3 py-1.5 rounded bg-secondary text-on-secondary font-label-md text-label-md font-semibold flex items-center gap-1 hover:bg-on-secondary-container transition-colors" data-path="map" href="#">
-<span className="material-symbols-outlined text-[14px]">near_me</span>
+<span className="material-symbols-outlined notranslate text-[14px]" translate="no" aria-hidden="true">near_me</span>
 <span>Directions</span>
 </a>
 </div>
@@ -603,7 +603,7 @@ export default function CampsPage() {
               Camp Details
             </button>
 <a className="px-3 py-1.5 rounded bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold hover:bg-surface-dim transition-colors flex items-center gap-1" data-path="map" href="#">
-<span className="material-symbols-outlined text-[14px]">turn_sharp_right</span>
+<span className="material-symbols-outlined notranslate text-[14px]" translate="no" aria-hidden="true">turn_sharp_right</span>
 <span>Directions</span>
 </a>
 </div>
@@ -644,7 +644,7 @@ export default function CampsPage() {
               Discourse Timings
             </button>
 <a className="px-3 py-1.5 rounded bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold hover:bg-surface-dim transition-colors flex items-center gap-1" data-path="map" href="#">
-<span className="material-symbols-outlined text-[14px]">turn_sharp_right</span>
+<span className="material-symbols-outlined notranslate text-[14px]" translate="no" aria-hidden="true">turn_sharp_right</span>
 <span>Directions</span>
 </a>
 </div>
@@ -685,7 +685,7 @@ export default function CampsPage() {
               Langar Schedule
             </button>
 <a className="px-3 py-1.5 rounded bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold hover:bg-surface-dim transition-colors flex items-center gap-1" data-path="map" href="#">
-<span className="material-symbols-outlined text-[14px]">turn_sharp_right</span>
+<span className="material-symbols-outlined notranslate text-[14px]" translate="no" aria-hidden="true">turn_sharp_right</span>
 <span>Directions</span>
 </a>
 </div>
@@ -722,7 +722,7 @@ export default function CampsPage() {
 <div className="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
 <div className="space-y-1">
 <div className="inline-flex items-center gap-1.5 text-primary font-label-sm text-label-sm uppercase tracking-wider font-semibold">
-<span className="material-symbols-outlined text-[16px]">record_voice_over</span>
+<span className="material-symbols-outlined notranslate text-[16px]" translate="no" aria-hidden="true">record_voice_over</span>
             Satsang & Discourses
           </div>
 <h2 className="font-headline-xl text-headline-xl text-on-surface">
@@ -734,7 +734,7 @@ export default function CampsPage() {
 </div>
 <a className="inline-flex items-center gap-1 text-primary hover:text-primary-container font-label-md text-label-md font-semibold transition-colors" href="#">
 <span>Download 7-Day Katha PDF</span>
-<span className="material-symbols-outlined text-[16px]">download</span>
+<span className="material-symbols-outlined notranslate text-[16px]" translate="no" aria-hidden="true">download</span>
 </a>
 </div>
 <div className="grid grid-cols-1 md:grid-cols-3 gap-space-md">
@@ -761,7 +761,7 @@ export default function CampsPage() {
 </div>
 <div className="mt-space-md pt-space-sm flex items-center justify-between">
 <div className="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
-<span className="material-symbols-outlined text-[16px] text-tertiary">nest_clock_farsight_analog</span>
+<span className="material-symbols-outlined notranslate text-[16px] text-tertiary" translate="no" aria-hidden="true">nest_clock_farsight_analog</span>
 <span>03:30 PM – 07:00 PM</span>
 </div>
 <button className="px-3 py-1.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface font-semibold hover:bg-surface-container-high transition-colors">
@@ -792,7 +792,7 @@ export default function CampsPage() {
 </div>
 <div className="mt-space-md pt-space-sm flex items-center justify-between">
 <div className="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
-<span className="material-symbols-outlined text-[16px] text-secondary">nest_clock_farsight_analog</span>
+<span className="material-symbols-outlined notranslate text-[16px] text-secondary" translate="no" aria-hidden="true">nest_clock_farsight_analog</span>
 <span>06:00 AM – 08:30 AM</span>
 </div>
 <button className="px-3 py-1.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface font-semibold hover:bg-surface-container-high transition-colors">
@@ -823,7 +823,7 @@ export default function CampsPage() {
 </div>
 <div className="mt-space-md pt-space-sm flex items-center justify-between">
 <div className="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
-<span className="material-symbols-outlined text-[16px] text-primary">nest_clock_farsight_analog</span>
+<span className="material-symbols-outlined notranslate text-[16px] text-primary" translate="no" aria-hidden="true">nest_clock_farsight_analog</span>
 <span>05:00 PM – 08:00 PM</span>
 </div>
 <button className="px-3 py-1.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface font-semibold hover:bg-surface-container-high transition-colors">
@@ -841,7 +841,7 @@ export default function CampsPage() {
 <div className="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
 <div className="space-y-1">
 <div className="inline-flex items-center gap-1 text-primary font-label-sm text-label-sm uppercase tracking-wider font-semibold">
-<span className="material-symbols-outlined text-[18px]">verified_user</span>
+<span className="material-symbols-outlined notranslate text-[18px]" translate="no" aria-hidden="true">verified_user</span>
               Sacred Observance
             </div>
 <h2 className="font-headline-xl text-headline-xl text-on-surface">
@@ -852,7 +852,7 @@ export default function CampsPage() {
             </p>
 </div>
 <span className="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm font-semibold inline-flex items-center gap-1.5 self-start md:self-auto">
-<span className="material-symbols-outlined text-primary text-[16px]">info</span>
+<span className="material-symbols-outlined notranslate text-primary text-[16px]" translate="no" aria-hidden="true">info</span>
             Enforced by Volunteer Sevadals
           </span>
 </div>
@@ -860,7 +860,7 @@ export default function CampsPage() {
 {/* Protocol 1 */}
 <div className="bg-surface-container-low p-space-md rounded-xl space-y-space-xs">
 <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary mb-space-sm">
-<span className="material-symbols-outlined text-[20px]">no_photography</span>
+<span className="material-symbols-outlined notranslate text-[20px]" translate="no" aria-hidden="true">no_photography</span>
 </div>
 <h3 className="font-title-md text-title-md text-on-surface">Photography Sanctions</h3>
 <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
@@ -870,7 +870,7 @@ export default function CampsPage() {
 {/* Protocol 2 */}
 <div className="bg-surface-container-low p-space-md rounded-xl space-y-space-xs">
 <div className="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary mb-space-sm">
-<span className="material-symbols-outlined text-[20px]">checkroom</span>
+<span className="material-symbols-outlined notranslate text-[20px]" translate="no" aria-hidden="true">checkroom</span>
 </div>
 <h3 className="font-title-md text-title-md text-on-surface">Modest Attire</h3>
 <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
@@ -880,7 +880,7 @@ export default function CampsPage() {
 {/* Protocol 3 */}
 <div className="bg-surface-container-low p-space-md rounded-xl space-y-space-xs">
 <div className="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary mb-space-sm">
-<span className="material-symbols-outlined text-[20px]">spa</span>
+<span className="material-symbols-outlined notranslate text-[20px]" translate="no" aria-hidden="true">spa</span>
 </div>
 <h3 className="font-title-md text-title-md text-on-surface">Offerings & Prasad</h3>
 <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
@@ -890,7 +890,7 @@ export default function CampsPage() {
 {/* Protocol 4 */}
 <div className="bg-surface-container-low p-space-md rounded-xl space-y-space-xs">
 <div className="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface mb-space-sm">
-<span className="material-symbols-outlined text-[20px]">accessible</span>
+<span className="material-symbols-outlined notranslate text-[20px]" translate="no" aria-hidden="true">accessible</span>
 </div>
 <h3 className="font-title-md text-title-md text-on-surface">Senior & Care Queues</h3>
 <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
